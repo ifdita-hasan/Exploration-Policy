@@ -1,5 +1,7 @@
 # Exploration-Policy
 
+This is a critical study of the entropy bonus in the PPO algorithm. 
+
 ## Project Directory Structure
 
 ```
@@ -46,10 +48,6 @@ Exploration-Policy/
    pip install -r requirements.txt
    ```
 
-4. **Install roboschool** (if not installed by pip):
-   - Roboschool may require installation from source. Visit the [roboschool GitHub page](https://github.com/openai/roboschool) for detailed instructions.
-   - On macOS, you may need additional system dependencies (e.g., `brew install cmake boost`).
-
 ### Using pip and venv (Alternative)
 
 1. **Create and activate a virtual environment**:
@@ -62,12 +60,7 @@ Exploration-Policy/
    ```bash
    pip install -r requirements.txt
    ```
-
-3. **Install roboschool** as above.
-
-### Notes
-
-- If you encounter issues installing roboschool, check their [issues page](https://github.com/openai/roboschool/issues) for platform-specific solutions.
+   
 - The requirements.txt lists all necessary Python packages except for system-level dependencies.
 
 
@@ -101,4 +94,3 @@ Follow these steps to run the full workflow:
 
 **Logs** for each step are saved in the `data/` folder (e.g., `data/ppo.log`).
 
-This is a critical study of the entropy bonus in the PPO algorithm. 
