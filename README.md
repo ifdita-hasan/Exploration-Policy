@@ -37,9 +37,9 @@ Exploration-Policy/
    cd Exploration-Policy
    ```
 
-2. **Create a conda environment named `wander` with Python 3.10**:
+2. **Create a conda environment named `wander`**:
    ```bash
-   conda create -n wander python=3.10
+   conda create -n wander
    conda activate wander
    ```
 
