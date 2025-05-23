@@ -38,7 +38,7 @@ try:
     # Get the user's home directory
     home_dir = os.path.expanduser("~")
     # Point at the Desktop
-    desktop_dir = os.path.join(home_dir, "Desktop")
+    desktop_dir = os.path.join(home_dir, "Documents/Github/Exploration-Policy/data/")
     # Use your MODEL_SUBDIR on the Desktop
     save_dir = os.path.join(desktop_dir, MODEL_SUBDIR)
     # Build the full path to the .pth file
@@ -76,7 +76,7 @@ except FileNotFoundError as e:
     print(f"  • That folder and filename are correct.")
 except NameError as e:
     print(f"Error loading model: A required name is not defined ({e}).")
-    print("Did you forget to define `DoraPolicy` or `NUM_ACTIONS`?")
+    print("Did you forget to define `Policy` or `NUM_ACTIONS`?")
 except Exception as e:
     print(f"An unexpected error occurred while loading the model: {e}")
 

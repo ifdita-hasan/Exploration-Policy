@@ -184,6 +184,6 @@
 2025-05-22 00:43:37,480 INFO Saved PPO actor to /Users/ifditahasanorney/Desktop/PPO_Finetuned/ppo_iter_1500.pth
 2025-05-22 00:43:37,480 INFO --- PPO Fine-tuning Complete ---
 2025-05-22 00:43:37,481 INFO Final PPO-tuned actor saved to /Users/ifditahasanorney/Desktop/PPO_Finetuned/ppo_final.pth
-2025-05-22 00:51:04,303 INFO --- Visualizing Trajectory with: Final PPO-Tuned Dora Policy (Deterministic) ---
+2025-05-22 00:51:04,303 INFO --- Visualizing Trajectory with: Final PPO-Tuned Policy (Deterministic) ---
 2025-05-22 00:51:06,346 INFO Visualization: Trajectory length 500, Final state: (18, 14), Total Reward: -5.00
 2025-05-22 00:51:06,346 INFO --- PPO Script Finished ---
