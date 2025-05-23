@@ -299,5 +299,5 @@ if __name__ == "__main__":
         logging.info(f"Visualization: Trajectory length {len(trajectory_states)-1}, Final state: {trajectory_states[-1]}, Total Reward: {total_reward_viz:.2f}")
         if trajectory_states[-1] == GOAL_STATE:
             logging.info("SUCCESS: Reached Goal!")
-    visualize_final_ppo_trajectory(actor_ppo, title="Final PPO-Tuned Dora Policy (Deterministic)")
+    visualize_final_ppo_trajectory(actor_ppo, title="Final PPO-Tuned Policy (Deterministic)")
     logging.info("--- PPO Script Finished ---")

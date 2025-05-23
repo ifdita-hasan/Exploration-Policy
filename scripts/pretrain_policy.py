@@ -198,10 +198,10 @@ if training_history:
     plot_training_history(training_history)
 
 # 5. Save the trained model (optional)
-if trained_dora_policy:
+if trained_policy:
     home_dir = os.path.expanduser("~")
-    desktop_dir = os.path.join(home_dir, "Desktop")
-    save_dir = os.path.join(desktop_dir, "dora_saved_models_exp")
+    desktop_dir = os.path.join(home_dir, "Documents/Github/Exploration-Policy/data/")
+    save_dir = os.path.join(desktop_dir, "saved_models_exp")
     print(f"Target save directory: {save_dir}")
     try:
         os.makedirs(save_dir, exist_ok=True)
@@ -210,11 +210,11 @@ if trained_dora_policy:
         print("Please ensure your Desktop folder exists and is writable.")
         save_dir = None
     if save_dir:
-        model_save_path = os.path.join(save_dir, "dora_policy_il_trained.pth")
-        print(f"Attempting to save trained Dora policy to: {model_save_path}")
+        model_save_path = os.path.join(save_dir, "policy_il_trained.pth")
+        print(f"Attempting to save trained policy to: {model_save_path}")
         try:
-            torch.save(trained_dora_policy.state_dict(), model_save_path)
-            print("Trained Dora policy saved successfully to your Desktop!")
+            torch.save(trained_policy.state_dict(), model_save_path)
+            print("Trained policy saved successfully to your Desktop!")
         except Exception as e:
             print(f"Error saving model to {model_save_path}: {e}")
 else:
