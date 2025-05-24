@@ -249,8 +249,8 @@ def main():
                      gamma=0.99, gae_lambda=0.95, clip_epsilon=0.1,
                      ppo_epochs=4, ppo_mini_batch_size=64,
                      entropy_coef=entropy_coef, value_loss_coef=0.5, device=device)
-    total_steps = 4096 #1_000_000
-    steps_per_update = 512 #2048
+    total_steps = 1_000_000
+    steps_per_update = 2048
     episode_rewards_deque = deque(maxlen=100)
     all_avg_rewards = []
     obs_shape = env.observation_space.shape
