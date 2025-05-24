@@ -15,8 +15,9 @@ Exploration-Policy/
 │
 ├── scripts/
 │   ├── generate_expert_dataset.py
-│   ├── pretrain_policy.py
 │   ├── ppo.py
+│   ├── ppo_atari.py
+│   ├── pretrain_policy.py
 │   ├── visualize_policy.py
 │   └── __init__.py
 │
@@ -66,7 +67,47 @@ Exploration-Policy/
 
 - The requirements.txt lists all necessary Python packages except for system-level dependencies.
 
-## Running the Pipeline
+## Running PPO Atari Experiments
+
+This project supports running PPO on Atari environments (e.g., Breakout) with entropy coefficient sweeps using `scripts/ppo_atari.py`.
+
+### 1. Install Dependencies
+
+Make sure you have installed all required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Install Atari ROMs
+
+You must install the Atari ROMs for Gym's Atari environments:
+
+```bash
+AutoROM --accept-license
+```
+
+If `AutoROM` is not available, install it via:
+```bash
+pip install autorom[accept-rom-license]
+```
+
+### 3. Run PPO Atari Experiments
+
+You can run PPO on Breakout with a specified entropy coefficient using:
+
+```bash
+python scripts/ppo_atari.py --entropy_coef 0.01
+```
+
+- Logs, models, and plots will be saved under the `data/` directory, with filenames containing the entropy coefficient for easy experiment tracking.
+- Adjust `total_steps` and `steps_per_update` in `scripts/ppo_atari.py` to control experiment duration.
+
+### 4. Visualize Results
+
+After training, learning curves will be saved as PNG files in `data/` (e.g., `ppo_atari_learning_curve_entropy_0.01.png`).
+
+## Running the PPO Pipeline on custom grid environment
 
 Follow these steps to run the full workflow:
 
