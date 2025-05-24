@@ -1,5 +1,9 @@
 numpy
-pandas
 torch
-gym
+matplotlib
+# pandas  # Uncomment if you use pandas
+# seaborn # Uncomment if you use seaborn
 
+gym[atari,accept-rom-license]
+opencv-python
+# tqdm  # Uncomment if you want progress bars
