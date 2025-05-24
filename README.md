@@ -96,7 +96,7 @@ Follow these steps to run the full workflow:
 
 4. **Visualize the Trained Policy (Optional)**
    ```bash
-   python -m scripts/visualize_policy.py
+   python -m scripts.visualize_policy
    ```
    This visualizes trajectories of the trained policy.
 
