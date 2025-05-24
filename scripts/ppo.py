@@ -100,7 +100,7 @@ class PPOAgent:
     def __init__(self, actor, critic, actor_optimizer, critic_optimizer,
                  gamma=0.99, gae_lambda=0.95, clip_epsilon=0.2,
                  ppo_epochs=10, ppo_mini_batch_size=64,
-                 entropy_coef=0.01, value_loss_coef=0.5, device='cpu'):
+                 entropy_coef=0.2, value_loss_coef=0.5, device='cpu'):
         self.actor = actor
         self.critic = critic
         self.actor_optimizer = actor_optimizer
@@ -187,8 +187,8 @@ GAE_LAMBDA_PPO = 0.95
 CLIP_EPSILON_PPO = 0.2
 PPO_OPTIMIZATION_EPOCHS = 4
 PPO_MINI_BATCH_SIZE = 64
-ENTROPY_COEF_PPO = 0.005
-VALUE_LOSS_COEF_PPO = 0.5
+ENTROPY_COEF_PPO = 0.2
+VALUE_LOSS_COEF_PPO = 0.0
 NUM_PPO_TRAIN_ITERATIONS = 1500
 STEPS_PER_PPO_UPDATE = 2048
 MAX_STEPS_PER_EPISODE_PPO = 400
