@@ -1,190 +1,190 @@
-2025-05-23 16:52:15,387 INFO Using device: cpu
-2025-05-23 16:52:15,394 INFO Attempting to load IL-trained actor from: /Users/george/Documents/Github/Exploration-Policy/data/saved_models_exp/policy_il_trained.pth
-2025-05-23 16:52:15,400 INFO Successfully loaded pre-trained IL actor.
-2025-05-23 16:52:15,400 INFO --- Starting PPO Fine-tuning ---
-2025-05-23 16:52:30,336 INFO PPO Iter: 10	Total Steps: 20480	Avg Reward (Batch): 928.61	Avg Reward (Roll100): 875.35	Actor Loss: -0.0005	Critic Loss: 113908.7332	Entropy: 0.6149
-2025-05-23 16:52:45,188 INFO PPO Iter: 20	Total Steps: 40960	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 738.45	Actor Loss: -0.0006	Critic Loss: 113940.0226	Entropy: 0.6467
-2025-05-23 16:52:59,942 INFO PPO Iter: 30	Total Steps: 61440	Avg Reward (Batch): 512.32	Avg Reward (Roll100): 591.01	Actor Loss: -0.0002	Critic Loss: 97268.6380	Entropy: 0.6313
-2025-05-23 16:53:14,697 INFO PPO Iter: 40	Total Steps: 81920	Avg Reward (Batch): 534.00	Avg Reward (Roll100): 623.02	Actor Loss: -0.0001	Critic Loss: 105703.3713	Entropy: 0.6147
-2025-05-23 16:53:29,680 INFO PPO Iter: 50	Total Steps: 102400	Avg Reward (Batch): 595.00	Avg Reward (Roll100): 654.50	Actor Loss: -0.0010	Critic Loss: 114097.4293	Entropy: 0.6094
-2025-05-23 16:53:29,683 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_50.pth
-2025-05-23 16:53:44,354 INFO PPO Iter: 60	Total Steps: 122880	Avg Reward (Batch): 536.74	Avg Reward (Roll100): 528.53	Actor Loss: -0.0009	Critic Loss: 101462.6095	Entropy: 0.6288
-2025-05-23 16:53:59,470 INFO PPO Iter: 70	Total Steps: 143360	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 706.99	Actor Loss: -0.0003	Critic Loss: 122447.4671	Entropy: 0.6001
-2025-05-23 16:54:14,483 INFO PPO Iter: 80	Total Steps: 163840	Avg Reward (Batch): 731.54	Avg Reward (Roll100): 717.49	Actor Loss: -0.0009	Critic Loss: 122443.2704	Entropy: 0.6158
-2025-05-23 16:54:29,455 INFO PPO Iter: 90	Total Steps: 184320	Avg Reward (Batch): 802.16	Avg Reward (Roll100): 759.47	Actor Loss: -0.0008	Critic Loss: 126666.5112	Entropy: 0.6017
-2025-05-23 16:54:44,355 INFO PPO Iter: 100	Total Steps: 204800	Avg Reward (Batch): 779.73	Avg Reward (Roll100): 748.97	Actor Loss: -0.0007	Critic Loss: 126657.8442	Entropy: 0.5874
-2025-05-23 16:54:44,359 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_100.pth
-2025-05-23 16:54:59,191 INFO PPO Iter: 110	Total Steps: 225280	Avg Reward (Batch): 773.78	Avg Reward (Roll100): 716.98	Actor Loss: -0.0008	Critic Loss: 122435.7614	Entropy: 0.5838
-2025-05-23 16:55:14,740 INFO PPO Iter: 120	Total Steps: 245760	Avg Reward (Batch): 758.46	Avg Reward (Roll100): 738.49	Actor Loss: -0.0006	Critic Loss: 126632.4138	Entropy: 0.5913
-2025-05-23 16:55:29,403 INFO PPO Iter: 130	Total Steps: 266240	Avg Reward (Batch): 704.61	Avg Reward (Roll100): 801.46	Actor Loss: -0.0005	Critic Loss: 118244.2097	Entropy: 0.5858
-2025-05-23 16:55:44,103 INFO PPO Iter: 140	Total Steps: 286720	Avg Reward (Batch): 785.38	Avg Reward (Roll100): 769.99	Actor Loss: -0.0002	Critic Loss: 130870.1038	Entropy: 0.5849
-2025-05-23 16:55:58,783 INFO PPO Iter: 150	Total Steps: 307200	Avg Reward (Batch): 830.54	Avg Reward (Roll100): 748.99	Actor Loss: -0.0003	Critic Loss: 130798.3741	Entropy: 0.5855
-2025-05-23 16:55:58,786 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_150.pth
-2025-05-23 16:56:13,535 INFO PPO Iter: 160	Total Steps: 327680	Avg Reward (Batch): 785.38	Avg Reward (Roll100): 790.98	Actor Loss: -0.0006	Critic Loss: 130861.1055	Entropy: 0.5834
-2025-05-23 16:56:29,066 INFO PPO Iter: 170	Total Steps: 348160	Avg Reward (Batch): 827.66	Avg Reward (Roll100): 780.94	Actor Loss: -0.0004	Critic Loss: 105504.6549	Entropy: 0.4888
-2025-05-23 16:56:43,844 INFO PPO Iter: 180	Total Steps: 368640	Avg Reward (Batch): 719.02	Avg Reward (Roll100): 665.02	Actor Loss: -0.0002	Critic Loss: 126586.9573	Entropy: 0.5832
-2025-05-23 16:56:58,549 INFO PPO Iter: 190	Total Steps: 389120	Avg Reward (Batch): 738.25	Avg Reward (Roll100): 707.01	Actor Loss: -0.0003	Critic Loss: 126590.9163	Entropy: 0.5759
-2025-05-23 16:57:13,354 INFO PPO Iter: 200	Total Steps: 409600	Avg Reward (Batch): 785.38	Avg Reward (Roll100): 759.50	Actor Loss: -0.0004	Critic Loss: 130782.9374	Entropy: 0.5759
-2025-05-23 16:57:13,357 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_200.pth
-2025-05-23 16:57:28,040 INFO PPO Iter: 210	Total Steps: 430080	Avg Reward (Batch): 764.50	Avg Reward (Roll100): 811.97	Actor Loss: -0.0003	Critic Loss: 130785.3083	Entropy: 0.5734
-2025-05-23 16:57:42,732 INFO PPO Iter: 220	Total Steps: 450560	Avg Reward (Batch): 884.16	Avg Reward (Roll100): 853.96	Actor Loss: -0.0003	Critic Loss: 134942.6544	Entropy: 0.5624
-2025-05-23 16:57:57,473 INFO PPO Iter: 230	Total Steps: 471040	Avg Reward (Batch): 618.86	Avg Reward (Roll100): 696.52	Actor Loss: -0.0004	Critic Loss: 118215.1663	Entropy: 0.5874
-2025-05-23 16:58:12,191 INFO PPO Iter: 240	Total Steps: 491520	Avg Reward (Batch): 758.46	Avg Reward (Roll100): 780.48	Actor Loss: -0.0003	Critic Loss: 126542.3276	Entropy: 0.5824
-2025-05-23 16:58:26,944 INFO PPO Iter: 250	Total Steps: 512000	Avg Reward (Batch): 667.80	Avg Reward (Roll100): 707.01	Actor Loss: -0.0014	Critic Loss: 118200.7379	Entropy: 0.5943
-2025-05-23 16:58:26,946 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_250.pth
-2025-05-23 16:58:41,609 INFO PPO Iter: 260	Total Steps: 532480	Avg Reward (Batch): 675.71	Avg Reward (Roll100): 728.01	Actor Loss: -0.0006	Critic Loss: 122375.4167	Entropy: 0.5845
-2025-05-23 16:58:56,277 INFO PPO Iter: 270	Total Steps: 552960	Avg Reward (Batch): 785.38	Avg Reward (Roll100): 790.98	Actor Loss: -0.0013	Critic Loss: 130782.7587	Entropy: 0.5786
-2025-05-23 16:59:10,966 INFO PPO Iter: 280	Total Steps: 573440	Avg Reward (Batch): 719.02	Avg Reward (Roll100): 811.97	Actor Loss: -0.0012	Critic Loss: 126580.0187	Entropy: 0.5808
-2025-05-23 16:59:25,641 INFO PPO Iter: 290	Total Steps: 593920	Avg Reward (Batch): 707.67	Avg Reward (Roll100): 717.50	Actor Loss: -0.0000	Critic Loss: 130816.0314	Entropy: 0.5863
-2025-05-23 16:59:40,392 INFO PPO Iter: 300	Total Steps: 614400	Avg Reward (Batch): 642.73	Avg Reward (Roll100): 633.54	Actor Loss: -0.0003	Critic Loss: 122390.8596	Entropy: 0.5995
-2025-05-23 16:59:40,395 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_300.pth
-2025-05-23 16:59:55,184 INFO PPO Iter: 310	Total Steps: 634880	Avg Reward (Batch): 830.54	Avg Reward (Roll100): 748.97	Actor Loss: -0.0009	Critic Loss: 130782.1038	Entropy: 0.5789
-2025-05-23 17:00:09,970 INFO PPO Iter: 320	Total Steps: 655360	Avg Reward (Batch): 712.00	Avg Reward (Roll100): 686.01	Actor Loss: -0.0005	Critic Loss: 122374.1580	Entropy: 0.5837
-2025-05-23 17:00:24,682 INFO PPO Iter: 330	Total Steps: 675840	Avg Reward (Batch): 812.31	Avg Reward (Roll100): 790.99	Actor Loss: -0.0006	Critic Loss: 134994.1277	Entropy: 0.6103
-2025-05-23 17:00:39,525 INFO PPO Iter: 340	Total Steps: 696320	Avg Reward (Batch): 642.73	Avg Reward (Roll100): 696.52	Actor Loss: -0.0005	Critic Loss: 122428.8879	Entropy: 0.5995
-2025-05-23 17:00:54,401 INFO PPO Iter: 350	Total Steps: 716800	Avg Reward (Batch): 693.41	Avg Reward (Roll100): 665.02	Actor Loss: -0.0004	Critic Loss: 122367.2131	Entropy: 0.6182
-2025-05-23 17:00:54,404 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_350.pth
-2025-05-23 17:01:09,332 INFO PPO Iter: 360	Total Steps: 737280	Avg Reward (Batch): 830.54	Avg Reward (Roll100): 738.50	Actor Loss: -0.0005	Critic Loss: 130728.8602	Entropy: 0.6043
-2025-05-23 17:01:24,588 INFO PPO Iter: 370	Total Steps: 757760	Avg Reward (Batch): 758.46	Avg Reward (Roll100): 748.99	Actor Loss: -0.0001	Critic Loss: 126535.8995	Entropy: 0.6133
-2025-05-23 17:01:40,374 INFO PPO Iter: 380	Total Steps: 778240	Avg Reward (Batch): 802.16	Avg Reward (Roll100): 790.96	Actor Loss: -0.0006	Critic Loss: 126514.6089	Entropy: 0.6125
-2025-05-23 17:01:55,153 INFO PPO Iter: 390	Total Steps: 798720	Avg Reward (Batch): 815.58	Avg Reward (Roll100): 832.93	Actor Loss: -0.0011	Critic Loss: 118138.1659	Entropy: 0.6459
-2025-05-23 17:02:09,934 INFO PPO Iter: 400	Total Steps: 819200	Avg Reward (Batch): 677.69	Avg Reward (Roll100): 717.48	Actor Loss: -0.0006	Critic Loss: 113897.1043	Entropy: 0.6430
-2025-05-23 17:02:09,935 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_400.pth
-2025-05-23 17:02:24,727 INFO PPO Iter: 410	Total Steps: 839680	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 759.46	Actor Loss: -0.0008	Critic Loss: 118143.6219	Entropy: 0.6469
-2025-05-23 17:02:39,511 INFO PPO Iter: 420	Total Steps: 860160	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 811.93	Actor Loss: -0.0005	Critic Loss: 122340.9963	Entropy: 0.6542
-2025-05-23 17:02:54,257 INFO PPO Iter: 430	Total Steps: 880640	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 790.94	Actor Loss: -0.0007	Critic Loss: 118163.7048	Entropy: 0.6364
-2025-05-23 17:03:09,350 INFO PPO Iter: 440	Total Steps: 901120	Avg Reward (Batch): 616.58	Avg Reward (Roll100): 633.49	Actor Loss: -0.0009	Critic Loss: 109773.1028	Entropy: 0.6492
-2025-05-23 17:03:25,254 INFO PPO Iter: 450	Total Steps: 921600	Avg Reward (Batch): 623.84	Avg Reward (Roll100): 612.51	Actor Loss: -0.0005	Critic Loss: 105546.3473	Entropy: 0.6892
-2025-05-23 17:03:25,257 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_450.pth
-2025-05-23 17:03:40,496 INFO PPO Iter: 460	Total Steps: 942080	Avg Reward (Batch): 704.61	Avg Reward (Roll100): 685.98	Actor Loss: -0.0003	Critic Loss: 118134.6248	Entropy: 0.6664
-2025-05-23 17:03:55,965 INFO PPO Iter: 470	Total Steps: 962560	Avg Reward (Batch): 731.54	Avg Reward (Roll100): 759.45	Actor Loss: -0.0007	Critic Loss: 122331.3592	Entropy: 0.6656
-2025-05-23 17:04:10,852 INFO PPO Iter: 480	Total Steps: 983040	Avg Reward (Batch): 709.16	Avg Reward (Roll100): 790.93	Actor Loss: -0.0008	Critic Loss: 109683.2326	Entropy: 0.6818
-2025-05-23 17:04:25,619 INFO PPO Iter: 490	Total Steps: 1003520	Avg Reward (Batch): 767.50	Avg Reward (Roll100): 769.94	Actor Loss: -0.0009	Critic Loss: 118100.9958	Entropy: 0.6723
-2025-05-23 17:04:40,435 INFO PPO Iter: 500	Total Steps: 1024000	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 706.98	Actor Loss: -0.0004	Critic Loss: 118121.7591	Entropy: 0.6584
-2025-05-23 17:04:40,437 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_500.pth
-2025-05-23 17:04:55,177 INFO PPO Iter: 510	Total Steps: 1044480	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 591.52	Actor Loss: -0.0004	Critic Loss: 105535.0020	Entropy: 0.7020
-2025-05-23 17:05:09,885 INFO PPO Iter: 520	Total Steps: 1064960	Avg Reward (Batch): 680.00	Avg Reward (Roll100): 717.45	Actor Loss: -0.0012	Critic Loss: 105515.0935	Entropy: 0.6846
-2025-05-23 17:05:24,600 INFO PPO Iter: 530	Total Steps: 1085440	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 675.48	Actor Loss: -0.0002	Critic Loss: 118135.2191	Entropy: 0.6921
-2025-05-23 17:05:39,371 INFO PPO Iter: 540	Total Steps: 1105920	Avg Reward (Batch): 590.97	Avg Reward (Roll100): 560.02	Actor Loss: -0.0003	Critic Loss: 105609.0326	Entropy: 0.7055
-2025-05-23 17:05:54,492 INFO PPO Iter: 550	Total Steps: 1126400	Avg Reward (Batch): 642.19	Avg Reward (Roll100): 612.50	Actor Loss: -0.0002	Critic Loss: 113940.0045	Entropy: 0.6866
-2025-05-23 17:05:54,494 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_550.pth
-2025-05-23 17:06:09,234 INFO PPO Iter: 560	Total Steps: 1146880	Avg Reward (Batch): 625.71	Avg Reward (Roll100): 612.53	Actor Loss: -0.0011	Critic Loss: 113945.3368	Entropy: 0.6915
-2025-05-23 17:06:23,981 INFO PPO Iter: 570	Total Steps: 1167360	Avg Reward (Batch): 633.25	Avg Reward (Roll100): 643.99	Actor Loss: -0.0012	Critic Loss: 109724.6379	Entropy: 0.6800
-2025-05-23 17:06:38,706 INFO PPO Iter: 580	Total Steps: 1187840	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 696.46	Actor Loss: -0.0005	Critic Loss: 109713.7413	Entropy: 0.7021
-2025-05-23 17:06:53,409 INFO PPO Iter: 590	Total Steps: 1208320	Avg Reward (Batch): 677.69	Avg Reward (Roll100): 727.96	Actor Loss: -0.0005	Critic Loss: 113911.1494	Entropy: 0.6822
-2025-05-23 17:07:08,114 INFO PPO Iter: 600	Total Steps: 1228800	Avg Reward (Batch): 738.33	Avg Reward (Roll100): 696.47	Actor Loss: -0.0005	Critic Loss: 113916.5964	Entropy: 0.6796
-2025-05-23 17:07:08,116 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_600.pth
-2025-05-23 17:07:25,501 INFO PPO Iter: 610	Total Steps: 1249280	Avg Reward (Batch): 575.13	Avg Reward (Roll100): 601.98	Actor Loss: -0.0003	Critic Loss: 92900.8146	Entropy: 0.7243
-2025-05-23 17:07:42,435 INFO PPO Iter: 620	Total Steps: 1269760	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 643.99	Actor Loss: -0.0011	Critic Loss: 109675.4073	Entropy: 0.7084
-2025-05-23 17:07:59,185 INFO PPO Iter: 630	Total Steps: 1290240	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 622.98	Actor Loss: -0.0001	Critic Loss: 105536.9828	Entropy: 0.7265
-2025-05-23 17:08:14,117 INFO PPO Iter: 640	Total Steps: 1310720	Avg Reward (Batch): 603.51	Avg Reward (Roll100): 664.96	Actor Loss: -0.0003	Critic Loss: 97133.5341	Entropy: 0.7423
-2025-05-23 17:08:30,181 INFO PPO Iter: 650	Total Steps: 1331200	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 759.45	Actor Loss: -0.0001	Critic Loss: 113938.5577	Entropy: 0.7020
-2025-05-23 17:08:30,184 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_650.pth
-2025-05-23 17:08:46,075 INFO PPO Iter: 660	Total Steps: 1351680	Avg Reward (Batch): 621.66	Avg Reward (Roll100): 664.96	Actor Loss: -0.0005	Critic Loss: 97101.4396	Entropy: 0.7241
-2025-05-23 17:09:03,635 INFO PPO Iter: 670	Total Steps: 1372160	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 696.45	Actor Loss: -0.0003	Critic Loss: 113919.7505	Entropy: 0.7118
-2025-05-23 17:09:19,074 INFO PPO Iter: 680	Total Steps: 1392640	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 675.45	Actor Loss: -0.0008	Critic Loss: 113925.7106	Entropy: 0.7168
-2025-05-23 17:09:35,646 INFO PPO Iter: 690	Total Steps: 1413120	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 717.45	Actor Loss: -0.0006	Critic Loss: 113906.1906	Entropy: 0.7209
-2025-05-23 17:09:56,228 INFO PPO Iter: 700	Total Steps: 1433600	Avg Reward (Batch): 590.97	Avg Reward (Roll100): 643.98	Actor Loss: -0.0004	Critic Loss: 105533.5869	Entropy: 0.7253
-2025-05-23 17:09:56,231 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_700.pth
-2025-05-23 17:10:11,614 INFO PPO Iter: 710	Total Steps: 1454080	Avg Reward (Batch): 600.71	Avg Reward (Roll100): 612.50	Actor Loss: -0.0003	Critic Loss: 109752.3776	Entropy: 0.7233
-2025-05-23 17:10:26,868 INFO PPO Iter: 720	Total Steps: 1474560	Avg Reward (Batch): 688.65	Avg Reward (Roll100): 664.95	Actor Loss: -0.0003	Critic Loss: 109718.9978	Entropy: 0.7203
-2025-05-23 17:10:45,165 INFO PPO Iter: 730	Total Steps: 1495040	Avg Reward (Batch): 778.18	Avg Reward (Roll100): 759.43	Actor Loss: -0.0012	Critic Loss: 109691.7484	Entropy: 0.7226
-2025-05-23 17:11:00,450 INFO PPO Iter: 740	Total Steps: 1515520	Avg Reward (Batch): 730.85	Avg Reward (Roll100): 685.96	Actor Loss: -0.0005	Critic Loss: 109719.5546	Entropy: 0.7140
-2025-05-23 17:11:15,615 INFO PPO Iter: 750	Total Steps: 1536000	Avg Reward (Batch): 850.85	Avg Reward (Roll100): 706.94	Actor Loss: -0.0008	Critic Loss: 126496.1028	Entropy: 0.6756
-2025-05-23 17:11:15,617 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_750.pth
-2025-05-23 17:11:30,845 INFO PPO Iter: 760	Total Steps: 1556480	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 685.96	Actor Loss: -0.0014	Critic Loss: 113878.3247	Entropy: 0.7068
-2025-05-23 17:11:55,515 INFO PPO Iter: 770	Total Steps: 1576960	Avg Reward (Batch): 738.33	Avg Reward (Roll100): 790.93	Actor Loss: -0.0002	Critic Loss: 113895.0606	Entropy: 0.7283
-2025-05-23 17:12:11,002 INFO PPO Iter: 780	Total Steps: 1597440	Avg Reward (Batch): 790.85	Avg Reward (Roll100): 706.95	Actor Loss: -0.0008	Critic Loss: 118078.6089	Entropy: 0.7219
-2025-05-23 17:12:26,011 INFO PPO Iter: 790	Total Steps: 1617920	Avg Reward (Batch): 680.00	Avg Reward (Roll100): 633.48	Actor Loss: -0.0005	Critic Loss: 105489.5709	Entropy: 0.7326
-2025-05-23 17:12:41,194 INFO PPO Iter: 800	Total Steps: 1638400	Avg Reward (Batch): 820.85	Avg Reward (Roll100): 706.95	Actor Loss: -0.0011	Critic Loss: 122280.1188	Entropy: 0.6865
-2025-05-23 17:12:41,198 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_800.pth
-2025-05-23 17:12:56,132 INFO PPO Iter: 810	Total Steps: 1658880	Avg Reward (Batch): 820.85	Avg Reward (Roll100): 759.44	Actor Loss: -0.0006	Critic Loss: 122307.3415	Entropy: 0.7055
-2025-05-23 17:13:11,996 INFO PPO Iter: 820	Total Steps: 1679360	Avg Reward (Batch): 570.00	Avg Reward (Roll100): 675.46	Actor Loss: -0.0005	Critic Loss: 97108.0845	Entropy: 0.7609
-2025-05-23 17:13:32,619 INFO PPO Iter: 830	Total Steps: 1699840	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 727.95	Actor Loss: -0.0013	Critic Loss: 109682.3205	Entropy: 0.7091
-2025-05-23 17:13:48,187 INFO PPO Iter: 840	Total Steps: 1720320	Avg Reward (Batch): 514.14	Avg Reward (Roll100): 633.47	Actor Loss: -0.0005	Critic Loss: 92898.6635	Entropy: 0.7607
-2025-05-23 17:14:03,528 INFO PPO Iter: 850	Total Steps: 1740800	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 706.95	Actor Loss: -0.0006	Critic Loss: 113912.2399	Entropy: 0.7102
-2025-05-23 17:14:03,531 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_850.pth
-2025-05-23 17:14:18,245 INFO PPO Iter: 860	Total Steps: 1761280	Avg Reward (Batch): 650.77	Avg Reward (Roll100): 675.47	Actor Loss: -0.0005	Critic Loss: 109712.6241	Entropy: 0.7187
-2025-05-23 17:14:33,000 INFO PPO Iter: 870	Total Steps: 1781760	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 717.45	Actor Loss: -0.0013	Critic Loss: 113896.9613	Entropy: 0.7090
-2025-05-23 17:14:47,795 INFO PPO Iter: 880	Total Steps: 1802240	Avg Reward (Batch): 825.83	Avg Reward (Roll100): 706.95	Actor Loss: -0.0003	Critic Loss: 126474.4716	Entropy: 0.6752
-2025-05-23 17:15:02,574 INFO PPO Iter: 890	Total Steps: 1822720	Avg Reward (Batch): 642.19	Avg Reward (Roll100): 654.49	Actor Loss: -0.0005	Critic Loss: 113948.6856	Entropy: 0.7064
-2025-05-23 17:15:17,321 INFO PPO Iter: 900	Total Steps: 1843200	Avg Reward (Batch): 796.66	Avg Reward (Roll100): 738.47	Actor Loss: -0.0008	Critic Loss: 122299.6310	Entropy: 0.6993
-2025-05-23 17:15:17,324 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_900.pth
-2025-05-23 17:15:32,016 INFO PPO Iter: 910	Total Steps: 1863680	Avg Reward (Batch): 796.66	Avg Reward (Roll100): 759.45	Actor Loss: -0.0002	Critic Loss: 122293.6689	Entropy: 0.6866
-2025-05-23 17:15:46,722 INFO PPO Iter: 920	Total Steps: 1884160	Avg Reward (Batch): 779.73	Avg Reward (Roll100): 748.96	Actor Loss: -0.0004	Critic Loss: 126489.0113	Entropy: 0.6753
-2025-05-23 17:16:01,420 INFO PPO Iter: 930	Total Steps: 1904640	Avg Reward (Batch): 796.66	Avg Reward (Roll100): 727.95	Actor Loss: -0.0003	Critic Loss: 122271.3323	Entropy: 0.6675
-2025-05-23 17:16:16,153 INFO PPO Iter: 940	Total Steps: 1925120	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 696.46	Actor Loss: -0.0003	Critic Loss: 109713.1875	Entropy: 0.7229
-2025-05-23 17:16:30,822 INFO PPO Iter: 950	Total Steps: 1945600	Avg Reward (Batch): 846.47	Avg Reward (Roll100): 759.44	Actor Loss: -0.0003	Critic Loss: 122254.5682	Entropy: 0.7051
-2025-05-23 17:16:30,825 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_950.pth
-2025-05-23 17:16:45,516 INFO PPO Iter: 960	Total Steps: 1966080	Avg Reward (Batch): 767.50	Avg Reward (Roll100): 706.96	Actor Loss: -0.0005	Critic Loss: 118096.8051	Entropy: 0.6983
-2025-05-23 17:17:00,292 INFO PPO Iter: 970	Total Steps: 1986560	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 696.46	Actor Loss: -0.0006	Critic Loss: 113929.3240	Entropy: 0.7142
-2025-05-23 17:17:15,011 INFO PPO Iter: 980	Total Steps: 2007040	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 696.46	Actor Loss: -0.0000	Critic Loss: 118090.1855	Entropy: 0.6881
-2025-05-23 17:17:29,668 INFO PPO Iter: 990	Total Steps: 2027520	Avg Reward (Batch): 773.78	Avg Reward (Roll100): 727.96	Actor Loss: -0.0003	Critic Loss: 122302.6241	Entropy: 0.6864
-2025-05-23 17:17:44,377 INFO PPO Iter: 1000	Total Steps: 2048000	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 738.44	Actor Loss: -0.0002	Critic Loss: 118108.4849	Entropy: 0.7216
-2025-05-23 17:17:44,379 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1000.pth
-2025-05-23 17:17:59,034 INFO PPO Iter: 1010	Total Steps: 2068480	Avg Reward (Batch): 596.92	Avg Reward (Roll100): 717.46	Actor Loss: -0.0003	Critic Loss: 101341.9436	Entropy: 0.7462
-2025-05-23 17:18:13,722 INFO PPO Iter: 1020	Total Steps: 2088960	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 738.45	Actor Loss: -0.0004	Critic Loss: 113880.5522	Entropy: 0.7090
-2025-05-23 17:18:28,429 INFO PPO Iter: 1030	Total Steps: 2109440	Avg Reward (Batch): 773.78	Avg Reward (Roll100): 758.95	Actor Loss: -0.0004	Critic Loss: 122291.9145	Entropy: 0.7034
-2025-05-23 17:18:43,155 INFO PPO Iter: 1040	Total Steps: 2129920	Avg Reward (Batch): 631.89	Avg Reward (Roll100): 685.95	Actor Loss: -0.0004	Critic Loss: 101310.8615	Entropy: 0.7310
-2025-05-23 17:18:57,923 INFO PPO Iter: 1050	Total Steps: 2150400	Avg Reward (Batch): 677.69	Avg Reward (Roll100): 706.96	Actor Loss: -0.0003	Critic Loss: 113910.1992	Entropy: 0.7177
-2025-05-23 17:18:57,925 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1050.pth
-2025-05-23 17:19:14,304 INFO PPO Iter: 1060	Total Steps: 2170880	Avg Reward (Batch): 709.16	Avg Reward (Roll100): 675.45	Actor Loss: -0.0010	Critic Loss: 109689.8677	Entropy: 0.7277
-2025-05-23 17:19:31,173 INFO PPO Iter: 1070	Total Steps: 2191360	Avg Reward (Batch): 790.85	Avg Reward (Roll100): 685.96	Actor Loss: -0.0002	Critic Loss: 118099.2166	Entropy: 0.7110
-2025-05-23 17:19:46,673 INFO PPO Iter: 1080	Total Steps: 2211840	Avg Reward (Batch): 659.50	Avg Reward (Roll100): 664.99	Actor Loss: -0.0007	Critic Loss: 113911.6820	Entropy: 0.7190
-2025-05-23 17:20:01,707 INFO PPO Iter: 1090	Total Steps: 2232320	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 654.47	Actor Loss: -0.0005	Critic Loss: 113918.0996	Entropy: 0.7183
-2025-05-23 17:20:18,539 INFO PPO Iter: 1100	Total Steps: 2252800	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 738.45	Actor Loss: -0.0005	Critic Loss: 122309.0512	Entropy: 0.7180
-2025-05-23 17:20:18,542 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1100.pth
-2025-05-23 17:20:33,723 INFO PPO Iter: 1110	Total Steps: 2273280	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 717.48	Actor Loss: -0.0004	Critic Loss: 122303.4783	Entropy: 0.6963
-2025-05-23 17:20:49,159 INFO PPO Iter: 1120	Total Steps: 2293760	Avg Reward (Batch): 677.69	Avg Reward (Roll100): 738.46	Actor Loss: -0.0004	Critic Loss: 113889.6622	Entropy: 0.7376
-2025-05-23 17:21:07,485 INFO PPO Iter: 1130	Total Steps: 2314240	Avg Reward (Batch): 688.65	Avg Reward (Roll100): 717.45	Actor Loss: -0.0005	Critic Loss: 109716.8072	Entropy: 0.7220
-2025-05-23 17:21:24,930 INFO PPO Iter: 1140	Total Steps: 2334720	Avg Reward (Batch): 846.47	Avg Reward (Roll100): 685.97	Actor Loss: -0.0003	Critic Loss: 122269.8689	Entropy: 0.7042
-2025-05-23 17:21:40,527 INFO PPO Iter: 1150	Total Steps: 2355200	Avg Reward (Batch): 902.49	Avg Reward (Roll100): 832.92	Actor Loss: -0.0003	Critic Loss: 122258.4715	Entropy: 0.6803
-2025-05-23 17:21:40,530 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1150.pth
-2025-05-23 17:21:55,380 INFO PPO Iter: 1160	Total Steps: 2375680	Avg Reward (Batch): 820.85	Avg Reward (Roll100): 790.92	Actor Loss: -0.0003	Critic Loss: 122303.2114	Entropy: 0.7065
-2025-05-23 17:22:10,264 INFO PPO Iter: 1170	Total Steps: 2396160	Avg Reward (Batch): 836.87	Avg Reward (Roll100): 759.42	Actor Loss: -0.0003	Critic Loss: 113870.1251	Entropy: 0.7165
-2025-05-23 17:22:25,468 INFO PPO Iter: 1180	Total Steps: 2416640	Avg Reward (Batch): 731.54	Avg Reward (Roll100): 706.97	Actor Loss: -0.0004	Critic Loss: 122287.5843	Entropy: 0.7041
-2025-05-23 17:22:40,368 INFO PPO Iter: 1190	Total Steps: 2437120	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 717.45	Actor Loss: -0.0003	Critic Loss: 118105.5938	Entropy: 0.7246
-2025-05-23 17:22:55,291 INFO PPO Iter: 1200	Total Steps: 2457600	Avg Reward (Batch): 773.78	Avg Reward (Roll100): 780.44	Actor Loss: -0.0004	Critic Loss: 122273.3193	Entropy: 0.6962
-2025-05-23 17:22:55,294 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1200.pth
-2025-05-23 17:23:10,297 INFO PPO Iter: 1210	Total Steps: 2478080	Avg Reward (Batch): 790.85	Avg Reward (Roll100): 717.43	Actor Loss: -0.0007	Critic Loss: 118113.3207	Entropy: 0.6970
-2025-05-23 17:23:26,303 INFO PPO Iter: 1220	Total Steps: 2498560	Avg Reward (Batch): 709.16	Avg Reward (Roll100): 769.94	Actor Loss: -0.0005	Critic Loss: 109723.1125	Entropy: 0.7280
-2025-05-23 17:23:41,739 INFO PPO Iter: 1230	Total Steps: 2519040	Avg Reward (Batch): 745.40	Avg Reward (Roll100): 748.95	Actor Loss: -0.0004	Critic Loss: 118108.7250	Entropy: 0.7092
-2025-05-23 17:23:56,758 INFO PPO Iter: 1240	Total Steps: 2539520	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 769.93	Actor Loss: -0.0008	Critic Loss: 113910.6182	Entropy: 0.7368
-2025-05-23 17:24:11,649 INFO PPO Iter: 1250	Total Steps: 2560000	Avg Reward (Batch): 796.66	Avg Reward (Roll100): 727.96	Actor Loss: -0.0002	Critic Loss: 122290.6225	Entropy: 0.7027
-2025-05-23 17:24:11,652 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1250.pth
-2025-05-23 17:24:26,504 INFO PPO Iter: 1260	Total Steps: 2580480	Avg Reward (Batch): 660.27	Avg Reward (Roll100): 591.49	Actor Loss: -0.0005	Critic Loss: 105530.8038	Entropy: 0.7428
-2025-05-23 17:24:41,924 INFO PPO Iter: 1270	Total Steps: 2600960	Avg Reward (Batch): 607.00	Avg Reward (Roll100): 685.97	Actor Loss: -0.0007	Critic Loss: 105539.1541	Entropy: 0.7260
-2025-05-23 17:24:57,327 INFO PPO Iter: 1280	Total Steps: 2621440	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 664.97	Actor Loss: -0.0003	Critic Loss: 109714.1319	Entropy: 0.7320
-2025-05-23 17:25:12,130 INFO PPO Iter: 1290	Total Steps: 2641920	Avg Reward (Batch): 790.85	Avg Reward (Roll100): 811.94	Actor Loss: -0.0001	Critic Loss: 118112.3398	Entropy: 0.7277
-2025-05-23 17:25:26,840 INFO PPO Iter: 1300	Total Steps: 2662400	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 780.45	Actor Loss: -0.0002	Critic Loss: 122299.6020	Entropy: 0.6874
-2025-05-23 17:25:26,842 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1300.pth
-2025-05-23 17:25:41,618 INFO PPO Iter: 1310	Total Steps: 2682880	Avg Reward (Batch): 745.40	Avg Reward (Roll100): 717.46	Actor Loss: -0.0003	Critic Loss: 118123.6745	Entropy: 0.7140
-2025-05-23 17:25:56,335 INFO PPO Iter: 1320	Total Steps: 2703360	Avg Reward (Batch): 760.85	Avg Reward (Roll100): 801.40	Actor Loss: -0.0004	Critic Loss: 113905.3560	Entropy: 0.7271
-2025-05-23 17:26:11,054 INFO PPO Iter: 1330	Total Steps: 2723840	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 685.47	Actor Loss: -0.0003	Critic Loss: 105480.1938	Entropy: 0.7192
-2025-05-23 17:26:25,765 INFO PPO Iter: 1340	Total Steps: 2744320	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 780.45	Actor Loss: -0.0003	Critic Loss: 122300.3132	Entropy: 0.7121
-2025-05-23 17:26:40,497 INFO PPO Iter: 1350	Total Steps: 2764800	Avg Reward (Batch): 709.16	Avg Reward (Roll100): 727.95	Actor Loss: -0.0009	Critic Loss: 109721.9257	Entropy: 0.7032
-2025-05-23 17:26:40,500 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1350.pth
-2025-05-23 17:26:55,189 INFO PPO Iter: 1360	Total Steps: 2785280	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 738.45	Actor Loss: -0.0004	Critic Loss: 113905.3998	Entropy: 0.7053
-2025-05-23 17:27:09,887 INFO PPO Iter: 1370	Total Steps: 2805760	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 727.96	Actor Loss: -0.0006	Critic Loss: 113909.8650	Entropy: 0.7101
-2025-05-23 17:27:24,613 INFO PPO Iter: 1380	Total Steps: 2826240	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 801.42	Actor Loss: -0.0002	Critic Loss: 113896.2395	Entropy: 0.7113
-2025-05-23 17:27:39,380 INFO PPO Iter: 1390	Total Steps: 2846720	Avg Reward (Batch): 616.58	Avg Reward (Roll100): 696.47	Actor Loss: -0.0003	Critic Loss: 109724.0768	Entropy: 0.7307
-2025-05-23 17:27:54,127 INFO PPO Iter: 1400	Total Steps: 2867200	Avg Reward (Batch): 688.65	Avg Reward (Roll100): 759.44	Actor Loss: -0.0002	Critic Loss: 109717.7552	Entropy: 0.7333
-2025-05-23 17:27:54,130 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1400.pth
-2025-05-23 17:28:08,931 INFO PPO Iter: 1410	Total Steps: 2887680	Avg Reward (Batch): 807.37	Avg Reward (Roll100): 780.45	Actor Loss: -0.0003	Critic Loss: 130676.7404	Entropy: 0.6641
-2025-05-23 17:28:23,626 INFO PPO Iter: 1420	Total Steps: 2908160	Avg Reward (Batch): 939.11	Avg Reward (Roll100): 790.94	Actor Loss: -0.0001	Critic Loss: 134894.7078	Entropy: 0.6716
-2025-05-23 17:28:38,337 INFO PPO Iter: 1430	Total Steps: 2928640	Avg Reward (Batch): 685.75	Avg Reward (Roll100): 696.48	Actor Loss: -0.0004	Critic Loss: 118111.9081	Entropy: 0.7025
-2025-05-23 17:28:53,060 INFO PPO Iter: 1440	Total Steps: 2949120	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 811.94	Actor Loss: -0.0006	Critic Loss: 113883.8542	Entropy: 0.7204
-2025-05-23 17:29:07,758 INFO PPO Iter: 1450	Total Steps: 2969600	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 685.97	Actor Loss: -0.0005	Critic Loss: 113924.4046	Entropy: 0.7182
-2025-05-23 17:29:07,760 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1450.pth
-2025-05-23 17:29:22,487 INFO PPO Iter: 1460	Total Steps: 2990080	Avg Reward (Batch): 905.45	Avg Reward (Roll100): 853.91	Actor Loss: -0.0004	Critic Loss: 126475.2066	Entropy: 0.6904
-2025-05-23 17:29:37,209 INFO PPO Iter: 1470	Total Steps: 3010560	Avg Reward (Batch): 607.00	Avg Reward (Roll100): 685.98	Actor Loss: -0.0004	Critic Loss: 105514.9601	Entropy: 0.7520
-2025-05-23 17:29:51,924 INFO PPO Iter: 1480	Total Steps: 3031040	Avg Reward (Batch): 820.85	Avg Reward (Roll100): 780.44	Actor Loss: -0.0007	Critic Loss: 122294.7966	Entropy: 0.6982
-2025-05-23 17:30:06,595 INFO PPO Iter: 1490	Total Steps: 3051520	Avg Reward (Batch): 825.83	Avg Reward (Roll100): 727.98	Actor Loss: -0.0005	Critic Loss: 126493.8415	Entropy: 0.6776
-2025-05-23 17:30:21,297 INFO PPO Iter: 1500	Total Steps: 3072000	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 727.95	Actor Loss: -0.0003	Critic Loss: 109732.0732	Entropy: 0.7368
-2025-05-23 17:30:21,300 INFO Saved PPO actor to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_iter_1500.pth
-2025-05-23 17:30:21,300 INFO --- PPO Fine-tuning Complete ---
-2025-05-23 17:30:21,301 INFO Final PPO-tuned actor saved to /Users/george/Documents/Github/Exploration-Policy/data/PPO_Finetuned/ppo_final.pth
-2025-05-23 17:31:13,313 INFO --- Visualizing Trajectory with: Final PPO-Tuned Policy (Deterministic) ---
-2025-05-23 17:31:24,325 INFO Visualization: Trajectory length 40, Final state: (-18, 10), Total Reward: 999.61
-2025-05-23 17:31:24,326 INFO SUCCESS: Reached Goal!
-2025-05-23 17:31:24,327 INFO --- PPO Script Finished ---
+2025-05-24 22:19:43,964 INFO Using device: cpu
+2025-05-24 22:19:43,972 INFO Attempting to load IL-trained actor from: /Users/iddah/Documents/CS224R/Exploration-Policy/saved_models_exp/policy_il_trained.pth
+2025-05-24 22:19:43,977 INFO Successfully loaded pre-trained IL actor.
+2025-05-24 22:19:44,868 INFO --- Starting PPO Fine-tuning ---
+2025-05-24 22:19:52,023 INFO PPO Iter: 10	Total Steps: 20480	Avg Reward (Batch): 722.94	Avg Reward (Roll100): 769.90	Actor Loss: -0.0005	Critic Loss: 105547.8917	Entropy: 0.6316
+2025-05-24 22:19:59,195 INFO PPO Iter: 20	Total Steps: 40960	Avg Reward (Batch): 592.50	Avg Reward (Roll100): 738.41	Actor Loss: -0.0002	Critic Loss: 93000.4569	Entropy: 0.6565
+2025-05-24 22:20:06,998 INFO PPO Iter: 30	Total Steps: 61440	Avg Reward (Batch): 596.92	Avg Reward (Roll100): 612.47	Actor Loss: -0.0005	Critic Loss: 101422.7280	Entropy: 0.6584
+2025-05-24 22:20:14,555 INFO PPO Iter: 40	Total Steps: 81920	Avg Reward (Batch): 760.85	Avg Reward (Roll100): 738.46	Actor Loss: -0.0002	Critic Loss: 114032.3590	Entropy: 0.6233
+2025-05-24 22:20:21,809 INFO PPO Iter: 50	Total Steps: 102400	Avg Reward (Batch): 830.54	Avg Reward (Roll100): 811.96	Actor Loss: -0.0005	Critic Loss: 130856.1656	Entropy: 0.6163
+2025-05-24 22:20:21,813 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_50.pth
+2025-05-24 22:20:29,280 INFO PPO Iter: 60	Total Steps: 122880	Avg Reward (Batch): 704.61	Avg Reward (Roll100): 706.99	Actor Loss: -0.0003	Critic Loss: 118246.1777	Entropy: 0.6143
+2025-05-24 22:20:36,609 INFO PPO Iter: 70	Total Steps: 143360	Avg Reward (Batch): 850.85	Avg Reward (Roll100): 769.98	Actor Loss: -0.0010	Critic Loss: 126608.8663	Entropy: 0.6099
+2025-05-24 22:20:43,564 INFO PPO Iter: 80	Total Steps: 163840	Avg Reward (Batch): 758.46	Avg Reward (Roll100): 759.49	Actor Loss: -0.0015	Critic Loss: 126691.7228	Entropy: 0.5968
+2025-05-24 22:20:50,810 INFO PPO Iter: 90	Total Steps: 184320	Avg Reward (Batch): 758.46	Avg Reward (Roll100): 675.51	Actor Loss: -0.0008	Critic Loss: 126698.2909	Entropy: 0.6082
+2025-05-24 22:20:57,994 INFO PPO Iter: 100	Total Steps: 204800	Avg Reward (Batch): 835.00	Avg Reward (Roll100): 832.97	Actor Loss: -0.0005	Critic Loss: 135048.4998	Entropy: 0.5981
+2025-05-24 22:20:57,996 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_100.pth
+2025-05-24 22:21:05,066 INFO PPO Iter: 110	Total Steps: 225280	Avg Reward (Batch): 807.37	Avg Reward (Roll100): 769.98	Actor Loss: -0.0002	Critic Loss: 130834.6009	Entropy: 0.5967
+2025-05-24 22:21:12,541 INFO PPO Iter: 120	Total Steps: 245760	Avg Reward (Batch): 700.71	Avg Reward (Roll100): 738.49	Actor Loss: -0.0012	Critic Loss: 126601.2470	Entropy: 0.6027
+2025-05-24 22:21:21,513 INFO PPO Iter: 130	Total Steps: 266240	Avg Reward (Batch): 910.85	Avg Reward (Roll100): 874.94	Actor Loss: -0.0006	Critic Loss: 134945.9709	Entropy: 0.5792
+2025-05-24 22:21:30,084 INFO PPO Iter: 140	Total Steps: 286720	Avg Reward (Batch): 618.86	Avg Reward (Roll100): 738.51	Actor Loss: -0.0014	Critic Loss: 118245.3518	Entropy: 0.6179
+2025-05-24 22:21:40,716 INFO PPO Iter: 150	Total Steps: 307200	Avg Reward (Batch): 658.84	Avg Reward (Roll100): 707.00	Actor Loss: -0.0005	Critic Loss: 122444.8080	Entropy: 0.6197
+2025-05-24 22:21:40,719 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_150.pth
+2025-05-24 22:21:52,497 INFO PPO Iter: 160	Total Steps: 327680	Avg Reward (Batch): 674.52	Avg Reward (Roll100): 696.01	Actor Loss: -0.0007	Critic Loss: 122473.2825	Entropy: 0.6179
+2025-05-24 22:22:04,040 INFO PPO Iter: 170	Total Steps: 348160	Avg Reward (Batch): 712.00	Avg Reward (Roll100): 654.52	Actor Loss: -0.0003	Critic Loss: 122458.1160	Entropy: 0.6142
+2025-05-24 22:22:14,166 INFO PPO Iter: 180	Total Steps: 368640	Avg Reward (Batch): 858.92	Avg Reward (Roll100): 801.48	Actor Loss: -0.0002	Critic Loss: 135027.7621	Entropy: 0.5869
+2025-05-24 22:22:24,112 INFO PPO Iter: 190	Total Steps: 389120	Avg Reward (Batch): 764.50	Avg Reward (Roll100): 801.49	Actor Loss: -0.0003	Critic Loss: 130807.3140	Entropy: 0.5955
+2025-05-24 22:22:46,736 INFO PPO Iter: 200	Total Steps: 409600	Avg Reward (Batch): 807.37	Avg Reward (Roll100): 696.52	Actor Loss: -0.0011	Critic Loss: 130820.2916	Entropy: 0.5941
+2025-05-24 22:22:46,744 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_200.pth
+2025-05-24 22:23:00,366 INFO PPO Iter: 210	Total Steps: 430080	Avg Reward (Batch): 830.54	Avg Reward (Roll100): 790.98	Actor Loss: -0.0006	Critic Loss: 130724.9904	Entropy: 0.5974
+2025-05-24 22:23:10,386 INFO PPO Iter: 220	Total Steps: 450560	Avg Reward (Batch): 785.38	Avg Reward (Roll100): 769.99	Actor Loss: -0.0004	Critic Loss: 130831.0784	Entropy: 0.6101
+2025-05-24 22:23:19,503 INFO PPO Iter: 230	Total Steps: 471040	Avg Reward (Batch): 858.92	Avg Reward (Roll100): 790.99	Actor Loss: -0.0001	Critic Loss: 135023.1516	Entropy: 0.5877
+2025-05-24 22:23:27,846 INFO PPO Iter: 240	Total Steps: 491520	Avg Reward (Batch): 553.83	Avg Reward (Roll100): 528.58	Actor Loss: -0.0007	Critic Loss: 114090.3606	Entropy: 0.6208
+2025-05-24 22:23:39,223 INFO PPO Iter: 250	Total Steps: 512000	Avg Reward (Batch): 658.84	Avg Reward (Roll100): 633.54	Actor Loss: -0.0016	Critic Loss: 122435.2931	Entropy: 0.6187
+2025-05-24 22:23:39,226 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_250.pth
+2025-05-24 22:23:49,636 INFO PPO Iter: 260	Total Steps: 532480	Avg Reward (Batch): 610.00	Avg Reward (Roll100): 654.53	Actor Loss: -0.0006	Critic Loss: 114005.9488	Entropy: 0.6172
+2025-05-24 22:23:58,247 INFO PPO Iter: 270	Total Steps: 552960	Avg Reward (Batch): 744.63	Avg Reward (Roll100): 759.49	Actor Loss: -0.0010	Critic Loss: 130820.6132	Entropy: 0.6020
+2025-05-24 22:24:06,715 INFO PPO Iter: 280	Total Steps: 573440	Avg Reward (Batch): 731.54	Avg Reward (Roll100): 696.50	Actor Loss: -0.0006	Critic Loss: 122364.5959	Entropy: 0.6159
+2025-05-24 22:24:15,986 INFO PPO Iter: 290	Total Steps: 593920	Avg Reward (Batch): 531.49	Avg Reward (Roll100): 591.55	Actor Loss: -0.0012	Critic Loss: 109900.4905	Entropy: 0.6302
+2025-05-24 22:24:25,878 INFO PPO Iter: 300	Total Steps: 614400	Avg Reward (Batch): 642.73	Avg Reward (Roll100): 686.03	Actor Loss: -0.0006	Critic Loss: 122414.1825	Entropy: 0.6155
+2025-05-24 22:24:25,881 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_300.pth
+2025-05-24 22:24:35,861 INFO PPO Iter: 310	Total Steps: 634880	Avg Reward (Batch): 725.71	Avg Reward (Roll100): 686.03	Actor Loss: -0.0010	Critic Loss: 130817.3994	Entropy: 0.6157
+2025-05-24 22:24:44,158 INFO PPO Iter: 320	Total Steps: 655360	Avg Reward (Batch): 738.25	Avg Reward (Roll100): 749.00	Actor Loss: -0.0005	Critic Loss: 126579.1138	Entropy: 0.6271
+2025-05-24 22:24:52,431 INFO PPO Iter: 330	Total Steps: 675840	Avg Reward (Batch): 595.00	Avg Reward (Roll100): 654.52	Actor Loss: -0.0006	Critic Loss: 114036.3245	Entropy: 0.6448
+2025-05-24 22:25:01,309 INFO PPO Iter: 340	Total Steps: 696320	Avg Reward (Batch): 752.10	Avg Reward (Roll100): 685.99	Actor Loss: -0.0005	Critic Loss: 122361.0089	Entropy: 0.6315
+2025-05-24 22:25:10,867 INFO PPO Iter: 350	Total Steps: 716800	Avg Reward (Batch): 677.69	Avg Reward (Roll100): 696.48	Actor Loss: -0.0004	Critic Loss: 113961.7334	Entropy: 0.6625
+2025-05-24 22:25:10,870 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_350.pth
+2025-05-24 22:25:20,787 INFO PPO Iter: 360	Total Steps: 737280	Avg Reward (Batch): 724.47	Avg Reward (Roll100): 748.97	Actor Loss: -0.0006	Critic Loss: 118185.6371	Entropy: 0.6256
+2025-05-24 22:25:29,812 INFO PPO Iter: 370	Total Steps: 757760	Avg Reward (Batch): 685.75	Avg Reward (Roll100): 665.00	Actor Loss: -0.0004	Critic Loss: 118214.9018	Entropy: 0.6447
+2025-05-24 22:25:38,481 INFO PPO Iter: 380	Total Steps: 778240	Avg Reward (Batch): 745.40	Avg Reward (Roll100): 748.96	Actor Loss: -0.0005	Critic Loss: 118193.9076	Entropy: 0.6402
+2025-05-24 22:25:47,729 INFO PPO Iter: 390	Total Steps: 798720	Avg Reward (Batch): 731.54	Avg Reward (Roll100): 780.48	Actor Loss: -0.0007	Critic Loss: 122404.9571	Entropy: 0.6383
+2025-05-24 22:25:56,907 INFO PPO Iter: 400	Total Steps: 819200	Avg Reward (Batch): 675.71	Avg Reward (Roll100): 706.99	Actor Loss: -0.0003	Critic Loss: 122455.0681	Entropy: 0.6305
+2025-05-24 22:25:56,908 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_400.pth
+2025-05-24 22:26:06,004 INFO PPO Iter: 410	Total Steps: 839680	Avg Reward (Batch): 685.75	Avg Reward (Roll100): 665.00	Actor Loss: -0.0009	Critic Loss: 118245.5110	Entropy: 0.6435
+2025-05-24 22:26:14,170 INFO PPO Iter: 420	Total Steps: 860160	Avg Reward (Batch): 704.61	Avg Reward (Roll100): 686.00	Actor Loss: -0.0009	Critic Loss: 118174.9763	Entropy: 0.6612
+2025-05-24 22:26:22,850 INFO PPO Iter: 430	Total Steps: 880640	Avg Reward (Batch): 685.75	Avg Reward (Roll100): 686.01	Actor Loss: -0.0005	Critic Loss: 118236.2458	Entropy: 0.6483
+2025-05-24 22:26:31,919 INFO PPO Iter: 440	Total Steps: 901120	Avg Reward (Batch): 712.00	Avg Reward (Roll100): 665.01	Actor Loss: -0.0009	Critic Loss: 122382.2769	Entropy: 0.6474
+2025-05-24 22:26:41,483 INFO PPO Iter: 450	Total Steps: 921600	Avg Reward (Batch): 610.00	Avg Reward (Roll100): 696.48	Actor Loss: -0.0005	Critic Loss: 114012.7403	Entropy: 0.6514
+2025-05-24 22:26:41,486 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_450.pth
+2025-05-24 22:26:50,072 INFO PPO Iter: 460	Total Steps: 942080	Avg Reward (Batch): 745.40	Avg Reward (Roll100): 643.99	Actor Loss: -0.0003	Critic Loss: 118142.9760	Entropy: 0.6594
+2025-05-24 22:26:58,505 INFO PPO Iter: 470	Total Steps: 962560	Avg Reward (Batch): 521.30	Avg Reward (Roll100): 591.54	Actor Loss: -0.0008	Critic Loss: 105643.1839	Entropy: 0.6760
+2025-05-24 22:27:07,797 INFO PPO Iter: 480	Total Steps: 983040	Avg Reward (Batch): 767.50	Avg Reward (Roll100): 675.48	Actor Loss: -0.0006	Critic Loss: 118119.9406	Entropy: 0.6683
+2025-05-24 22:27:17,373 INFO PPO Iter: 490	Total Steps: 1003520	Avg Reward (Batch): 585.58	Avg Reward (Roll100): 623.02	Actor Loss: -0.0003	Critic Loss: 109778.0909	Entropy: 0.6780
+2025-05-24 22:27:26,204 INFO PPO Iter: 500	Total Steps: 1024000	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 633.51	Actor Loss: -0.0004	Critic Loss: 113978.4577	Entropy: 0.6701
+2025-05-24 22:27:26,207 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_500.pth
+2025-05-24 22:27:35,185 INFO PPO Iter: 510	Total Steps: 1044480	Avg Reward (Batch): 779.73	Avg Reward (Roll100): 696.49	Actor Loss: -0.0006	Critic Loss: 126477.4889	Entropy: 0.6398
+2025-05-24 22:27:44,698 INFO PPO Iter: 520	Total Steps: 1064960	Avg Reward (Batch): 575.71	Avg Reward (Roll100): 623.02	Actor Loss: -0.0006	Critic Loss: 105577.7851	Entropy: 0.6882
+2025-05-24 22:27:54,175 INFO PPO Iter: 530	Total Steps: 1085440	Avg Reward (Batch): 650.71	Avg Reward (Roll100): 675.51	Actor Loss: -0.0006	Critic Loss: 118183.6830	Entropy: 0.6735
+2025-05-24 22:28:03,498 INFO PPO Iter: 540	Total Steps: 1105920	Avg Reward (Batch): 536.74	Avg Reward (Roll100): 507.56	Actor Loss: -0.0003	Critic Loss: 101377.0636	Entropy: 0.7022
+2025-05-24 22:28:15,254 INFO PPO Iter: 550	Total Steps: 1126400	Avg Reward (Batch): 486.81	Avg Reward (Roll100): 539.04	Actor Loss: -0.0002	Critic Loss: 101381.4837	Entropy: 0.7036
+2025-05-24 22:28:15,258 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_550.pth
+2025-05-24 22:28:24,570 INFO PPO Iter: 560	Total Steps: 1146880	Avg Reward (Batch): 535.58	Avg Reward (Roll100): 591.02	Actor Loss: -0.0007	Critic Loss: 101423.1476	Entropy: 0.7119
+2025-05-24 22:28:33,794 INFO PPO Iter: 570	Total Steps: 1167360	Avg Reward (Batch): 712.00	Avg Reward (Roll100): 675.50	Actor Loss: -0.0004	Critic Loss: 122353.9724	Entropy: 0.6760
+2025-05-24 22:28:43,092 INFO PPO Iter: 580	Total Steps: 1187840	Avg Reward (Batch): 575.71	Avg Reward (Roll100): 612.51	Actor Loss: -0.0002	Critic Loss: 105544.7945	Entropy: 0.7010
+2025-05-24 22:28:51,467 INFO PPO Iter: 590	Total Steps: 1208320	Avg Reward (Batch): 600.71	Avg Reward (Roll100): 633.51	Actor Loss: -0.0008	Critic Loss: 109790.9384	Entropy: 0.6951
+2025-05-24 22:28:59,912 INFO PPO Iter: 600	Total Steps: 1228800	Avg Reward (Batch): 680.00	Avg Reward (Roll100): 654.47	Actor Loss: -0.0004	Critic Loss: 105508.6230	Entropy: 0.7114
+2025-05-24 22:28:59,914 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_600.pth
+2025-05-24 22:29:09,467 INFO PPO Iter: 610	Total Steps: 1249280	Avg Reward (Batch): 696.84	Avg Reward (Roll100): 664.97	Actor Loss: -0.0004	Critic Loss: 113942.9725	Entropy: 0.6926
+2025-05-24 22:29:19,311 INFO PPO Iter: 620	Total Steps: 1269760	Avg Reward (Batch): 688.65	Avg Reward (Roll100): 696.46	Actor Loss: -0.0005	Critic Loss: 109703.5346	Entropy: 0.7110
+2025-05-24 22:29:28,432 INFO PPO Iter: 630	Total Steps: 1290240	Avg Reward (Batch): 745.40	Avg Reward (Roll100): 696.46	Actor Loss: -0.0001	Critic Loss: 118105.1896	Entropy: 0.6965
+2025-05-24 22:29:37,384 INFO PPO Iter: 640	Total Steps: 1310720	Avg Reward (Batch): 659.50	Avg Reward (Roll100): 612.51	Actor Loss: -0.0009	Critic Loss: 113986.5971	Entropy: 0.6913
+2025-05-24 22:29:47,470 INFO PPO Iter: 650	Total Steps: 1331200	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 602.00	Actor Loss: -0.0003	Critic Loss: 105558.1263	Entropy: 0.7208
+2025-05-24 22:29:47,476 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_650.pth
+2025-05-24 22:29:57,109 INFO PPO Iter: 660	Total Steps: 1351680	Avg Reward (Batch): 745.40	Avg Reward (Roll100): 696.46	Actor Loss: -0.0005	Critic Loss: 118058.6185	Entropy: 0.7094
+2025-05-24 22:30:07,329 INFO PPO Iter: 670	Total Steps: 1372160	Avg Reward (Batch): 550.71	Avg Reward (Roll100): 591.49	Actor Loss: -0.0007	Critic Loss: 101341.8902	Entropy: 0.7314
+2025-05-24 22:30:16,789 INFO PPO Iter: 680	Total Steps: 1392640	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 643.97	Actor Loss: -0.0003	Critic Loss: 105514.5668	Entropy: 0.7326
+2025-05-24 22:30:26,819 INFO PPO Iter: 690	Total Steps: 1413120	Avg Reward (Batch): 586.31	Avg Reward (Roll100): 591.48	Actor Loss: -0.0006	Critic Loss: 97125.0750	Entropy: 0.7541
+2025-05-24 22:30:40,060 INFO PPO Iter: 700	Total Steps: 1433600	Avg Reward (Batch): 590.97	Avg Reward (Roll100): 560.01	Actor Loss: -0.0009	Critic Loss: 105553.5251	Entropy: 0.7368
+2025-05-24 22:30:40,063 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_700.pth
+2025-05-24 22:30:49,339 INFO PPO Iter: 710	Total Steps: 1454080	Avg Reward (Batch): 570.00	Avg Reward (Roll100): 622.96	Actor Loss: -0.0007	Critic Loss: 97099.3469	Entropy: 0.7561
+2025-05-24 22:30:58,607 INFO PPO Iter: 720	Total Steps: 1474560	Avg Reward (Batch): 709.16	Avg Reward (Roll100): 601.98	Actor Loss: -0.0003	Critic Loss: 109694.2990	Entropy: 0.7336
+2025-05-24 22:31:06,883 INFO PPO Iter: 730	Total Steps: 1495040	Avg Reward (Batch): 500.71	Avg Reward (Roll100): 601.97	Actor Loss: -0.0003	Critic Loss: 92941.3627	Entropy: 0.7512
+2025-05-24 22:31:15,235 INFO PPO Iter: 740	Total Steps: 1515520	Avg Reward (Batch): 503.42	Avg Reward (Roll100): 591.46	Actor Loss: -0.0011	Critic Loss: 84519.8981	Entropy: 0.7806
+2025-05-24 22:31:23,829 INFO PPO Iter: 750	Total Steps: 1536000	Avg Reward (Batch): 404.09	Avg Reward (Roll100): 444.54	Actor Loss: -0.0008	Critic Loss: 80388.1945	Entropy: 0.7873
+2025-05-24 22:31:23,831 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_750.pth
+2025-05-24 22:31:33,248 INFO PPO Iter: 760	Total Steps: 1556480	Avg Reward (Batch): 500.71	Avg Reward (Roll100): 455.04	Actor Loss: -0.0001	Critic Loss: 92924.3653	Entropy: 0.7683
+2025-05-24 22:31:44,439 INFO PPO Iter: 770	Total Steps: 1576960	Avg Reward (Batch): 554.50	Avg Reward (Roll100): 507.52	Actor Loss: -0.0005	Critic Loss: 97160.3287	Entropy: 0.7857
+2025-05-24 22:31:53,601 INFO PPO Iter: 780	Total Steps: 1597440	Avg Reward (Batch): 580.75	Avg Reward (Roll100): 528.50	Actor Loss: -0.0005	Critic Loss: 101325.7935	Entropy: 0.7463
+2025-05-24 22:32:02,915 INFO PPO Iter: 790	Total Steps: 1617920	Avg Reward (Batch): 738.33	Avg Reward (Roll100): 696.45	Actor Loss: -0.0004	Critic Loss: 113907.0682	Entropy: 0.7326
+2025-05-24 22:32:12,549 INFO PPO Iter: 800	Total Steps: 1638400	Avg Reward (Batch): 660.27	Avg Reward (Roll100): 675.43	Actor Loss: -0.0004	Critic Loss: 105523.3827	Entropy: 0.7529
+2025-05-24 22:32:12,552 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_800.pth
+2025-05-24 22:32:22,602 INFO PPO Iter: 810	Total Steps: 1658880	Avg Reward (Batch): 688.65	Avg Reward (Roll100): 664.96	Actor Loss: -0.0005	Critic Loss: 109724.5961	Entropy: 0.7232
+2025-05-24 22:32:32,839 INFO PPO Iter: 820	Total Steps: 1679360	Avg Reward (Batch): 714.54	Avg Reward (Roll100): 706.91	Actor Loss: -0.0003	Critic Loss: 101288.2573	Entropy: 0.7485
+2025-05-24 22:32:42,162 INFO PPO Iter: 830	Total Steps: 1699840	Avg Reward (Batch): 451.82	Avg Reward (Roll100): 528.51	Actor Loss: -0.0006	Critic Loss: 88783.4740	Entropy: 0.7826
+2025-05-24 22:32:52,628 INFO PPO Iter: 840	Total Steps: 1720320	Avg Reward (Batch): 500.71	Avg Reward (Roll100): 486.53	Actor Loss: -0.0001	Critic Loss: 92939.7277	Entropy: 0.7642
+2025-05-24 22:33:04,820 INFO PPO Iter: 850	Total Steps: 1740800	Avg Reward (Batch): 623.84	Avg Reward (Roll100): 612.49	Actor Loss: -0.0005	Critic Loss: 105539.1253	Entropy: 0.7583
+2025-05-24 22:33:04,824 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_850.pth
+2025-05-24 22:33:15,824 INFO PPO Iter: 860	Total Steps: 1761280	Avg Reward (Batch): 543.07	Avg Reward (Roll100): 622.97	Actor Loss: -0.0005	Critic Loss: 92945.8384	Entropy: 0.7778
+2025-05-24 22:33:24,804 INFO PPO Iter: 870	Total Steps: 1781760	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 664.96	Actor Loss: -0.0005	Critic Loss: 105555.2759	Entropy: 0.7454
+2025-05-24 22:33:33,226 INFO PPO Iter: 880	Total Steps: 1802240	Avg Reward (Batch): 561.16	Avg Reward (Roll100): 497.03	Actor Loss: -0.0004	Critic Loss: 105573.7809	Entropy: 0.7524
+2025-05-24 22:33:42,955 INFO PPO Iter: 890	Total Steps: 1822720	Avg Reward (Batch): 660.27	Avg Reward (Roll100): 518.03	Actor Loss: -0.0005	Critic Loss: 105533.4793	Entropy: 0.7608
+2025-05-24 22:33:52,258 INFO PPO Iter: 900	Total Steps: 1843200	Avg Reward (Batch): 596.92	Avg Reward (Roll100): 612.48	Actor Loss: -0.0004	Critic Loss: 101326.1025	Entropy: 0.7907
+2025-05-24 22:33:52,262 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_900.pth
+2025-05-24 22:34:00,781 INFO PPO Iter: 910	Total Steps: 1863680	Avg Reward (Batch): 558.68	Avg Reward (Roll100): 465.53	Actor Loss: -0.0003	Critic Loss: 92929.2597	Entropy: 0.7909
+2025-05-24 22:34:09,243 INFO PPO Iter: 920	Total Steps: 1884160	Avg Reward (Batch): 650.83	Avg Reward (Roll100): 549.48	Actor Loss: -0.0007	Critic Loss: 101304.8301	Entropy: 0.7781
+2025-05-24 22:34:20,974 INFO PPO Iter: 930	Total Steps: 1904640	Avg Reward (Batch): 543.07	Avg Reward (Roll100): 580.96	Actor Loss: -0.0008	Critic Loss: 92935.2375	Entropy: 0.7939
+2025-05-24 22:34:34,387 INFO PPO Iter: 940	Total Steps: 1925120	Avg Reward (Batch): 700.85	Avg Reward (Roll100): 696.43	Actor Loss: -0.0006	Critic Loss: 105506.7110	Entropy: 0.7612
+2025-05-24 22:34:44,688 INFO PPO Iter: 950	Total Steps: 1945600	Avg Reward (Batch): 621.66	Avg Reward (Roll100): 591.47	Actor Loss: -0.0002	Critic Loss: 97074.4388	Entropy: 0.7818
+2025-05-24 22:34:44,691 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_950.pth
+2025-05-24 22:34:54,707 INFO PPO Iter: 960	Total Steps: 1966080	Avg Reward (Batch): 546.75	Avg Reward (Roll100): 559.96	Actor Loss: -0.0003	Critic Loss: 88715.9734	Entropy: 0.7959
+2025-05-24 22:35:05,235 INFO PPO Iter: 970	Total Steps: 1986560	Avg Reward (Batch): 640.85	Avg Reward (Roll100): 706.91	Actor Loss: -0.0004	Critic Loss: 97086.1053	Entropy: 0.7774
+2025-05-24 22:35:14,283 INFO PPO Iter: 980	Total Steps: 2007040	Avg Reward (Batch): 660.27	Avg Reward (Roll100): 622.96	Actor Loss: -0.0004	Critic Loss: 105510.8074	Entropy: 0.7518
+2025-05-24 22:35:26,673 INFO PPO Iter: 990	Total Steps: 2027520	Avg Reward (Batch): 575.13	Avg Reward (Roll100): 643.93	Actor Loss: -0.0003	Critic Loss: 92912.0246	Entropy: 0.7847
+2025-05-24 22:35:37,367 INFO PPO Iter: 1000	Total Steps: 2048000	Avg Reward (Batch): 543.07	Avg Reward (Roll100): 664.94	Actor Loss: -0.0006	Critic Loss: 92916.7993	Entropy: 0.7963
+2025-05-24 22:35:37,371 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1000.pth
+2025-05-24 22:35:49,408 INFO PPO Iter: 1010	Total Steps: 2068480	Avg Reward (Batch): 554.50	Avg Reward (Roll100): 549.50	Actor Loss: -0.0002	Critic Loss: 97134.9380	Entropy: 0.7806
+2025-05-24 22:36:00,142 INFO PPO Iter: 1020	Total Steps: 2088960	Avg Reward (Batch): 670.85	Avg Reward (Roll100): 706.91	Actor Loss: -0.0003	Critic Loss: 101320.3086	Entropy: 0.7793
+2025-05-24 22:36:10,982 INFO PPO Iter: 1030	Total Steps: 2109440	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 643.95	Actor Loss: -0.0004	Critic Loss: 113886.8441	Entropy: 0.7414
+2025-05-24 22:36:21,109 INFO PPO Iter: 1040	Total Steps: 2129920	Avg Reward (Batch): 462.31	Avg Reward (Roll100): 538.98	Actor Loss: -0.0008	Critic Loss: 80295.6289	Entropy: 0.8357
+2025-05-24 22:36:30,308 INFO PPO Iter: 1050	Total Steps: 2150400	Avg Reward (Batch): 596.92	Avg Reward (Roll100): 612.46	Actor Loss: -0.0003	Critic Loss: 101320.2836	Entropy: 0.7774
+2025-05-24 22:36:30,311 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1050.pth
+2025-05-24 22:36:40,289 INFO PPO Iter: 1060	Total Steps: 2170880	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 706.93	Actor Loss: -0.0007	Critic Loss: 113882.6791	Entropy: 0.7508
+2025-05-24 22:36:51,046 INFO PPO Iter: 1070	Total Steps: 2191360	Avg Reward (Batch): 475.71	Avg Reward (Roll100): 581.00	Actor Loss: -0.0006	Critic Loss: 88720.0332	Entropy: 0.8159
+2025-05-24 22:37:01,298 INFO PPO Iter: 1080	Total Steps: 2211840	Avg Reward (Batch): 543.07	Avg Reward (Roll100): 559.98	Actor Loss: -0.0003	Critic Loss: 92911.7249	Entropy: 0.8003
+2025-05-24 22:37:11,630 INFO PPO Iter: 1090	Total Steps: 2232320	Avg Reward (Batch): 661.17	Avg Reward (Roll100): 612.46	Actor Loss: -0.0004	Critic Loss: 97083.5515	Entropy: 0.7871
+2025-05-24 22:37:21,269 INFO PPO Iter: 1100	Total Steps: 2252800	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 591.49	Actor Loss: -0.0002	Critic Loss: 105500.3059	Entropy: 0.7799
+2025-05-24 22:37:21,273 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1100.pth
+2025-05-24 22:37:32,248 INFO PPO Iter: 1110	Total Steps: 2273280	Avg Reward (Batch): 631.89	Avg Reward (Roll100): 633.46	Actor Loss: -0.0002	Critic Loss: 101295.7141	Entropy: 0.7808
+2025-05-24 22:37:43,033 INFO PPO Iter: 1120	Total Steps: 2293760	Avg Reward (Batch): 575.13	Avg Reward (Roll100): 633.44	Actor Loss: -0.0004	Critic Loss: 92897.1885	Entropy: 0.8170
+2025-05-24 22:37:53,510 INFO PPO Iter: 1130	Total Steps: 2314240	Avg Reward (Batch): 586.31	Avg Reward (Roll100): 591.46	Actor Loss: -0.0003	Critic Loss: 97119.8328	Entropy: 0.7745
+2025-05-24 22:38:02,811 INFO PPO Iter: 1140	Total Steps: 2334720	Avg Reward (Batch): 670.85	Avg Reward (Roll100): 643.94	Actor Loss: -0.0001	Critic Loss: 101284.6810	Entropy: 0.7984
+2025-05-24 22:38:11,232 INFO PPO Iter: 1150	Total Steps: 2355200	Avg Reward (Batch): 631.89	Avg Reward (Roll100): 633.45	Actor Loss: -0.0011	Critic Loss: 101298.5616	Entropy: 0.7785
+2025-05-24 22:38:11,234 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1150.pth
+2025-05-24 22:38:20,756 INFO PPO Iter: 1160	Total Steps: 2375680	Avg Reward (Batch): 543.07	Avg Reward (Roll100): 549.48	Actor Loss: -0.0006	Critic Loss: 92922.8179	Entropy: 0.8216
+2025-05-24 22:38:30,269 INFO PPO Iter: 1170	Total Steps: 2396160	Avg Reward (Batch): 820.85	Avg Reward (Roll100): 696.46	Actor Loss: -0.0005	Critic Loss: 122290.2714	Entropy: 0.7380
+2025-05-24 22:38:39,169 INFO PPO Iter: 1180	Total Steps: 2416640	Avg Reward (Batch): 640.85	Avg Reward (Roll100): 633.45	Actor Loss: -0.0003	Critic Loss: 97074.3005	Entropy: 0.7834
+2025-05-24 22:38:47,870 INFO PPO Iter: 1190	Total Steps: 2437120	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 591.48	Actor Loss: -0.0004	Critic Loss: 113873.9442	Entropy: 0.7688
+2025-05-24 22:38:57,286 INFO PPO Iter: 1200	Total Steps: 2457600	Avg Reward (Batch): 669.21	Avg Reward (Roll100): 591.48	Actor Loss: -0.0005	Critic Loss: 109708.0085	Entropy: 0.7679
+2025-05-24 22:38:57,289 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1200.pth
+2025-05-24 22:39:07,223 INFO PPO Iter: 1210	Total Steps: 2478080	Avg Reward (Batch): 641.58	Avg Reward (Roll100): 601.47	Actor Loss: -0.0005	Critic Loss: 105501.9085	Entropy: 0.7768
+2025-05-24 22:39:17,817 INFO PPO Iter: 1220	Total Steps: 2498560	Avg Reward (Batch): 554.50	Avg Reward (Roll100): 602.00	Actor Loss: -0.0004	Critic Loss: 97108.1360	Entropy: 0.7976
+2025-05-24 22:39:27,585 INFO PPO Iter: 1230	Total Steps: 2519040	Avg Reward (Batch): 503.42	Avg Reward (Roll100): 570.48	Actor Loss: -0.0004	Critic Loss: 84498.0609	Entropy: 0.8102
+2025-05-24 22:39:37,018 INFO PPO Iter: 1240	Total Steps: 2539520	Avg Reward (Batch): 661.17	Avg Reward (Roll100): 654.42	Actor Loss: -0.0009	Critic Loss: 97060.9152	Entropy: 0.7955
+2025-05-24 22:39:46,833 INFO PPO Iter: 1250	Total Steps: 2560000	Avg Reward (Batch): 514.14	Avg Reward (Roll100): 528.50	Actor Loss: -0.0004	Critic Loss: 92951.8797	Entropy: 0.7874
+2025-05-24 22:39:46,835 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1250.pth
+2025-05-24 22:39:56,855 INFO PPO Iter: 1260	Total Steps: 2580480	Avg Reward (Batch): 753.82	Avg Reward (Roll100): 612.46	Actor Loss: -0.0011	Critic Loss: 109650.8103	Entropy: 0.7452
+2025-05-24 22:40:06,286 INFO PPO Iter: 1270	Total Steps: 2600960	Avg Reward (Batch): 700.85	Avg Reward (Roll100): 654.45	Actor Loss: -0.0008	Critic Loss: 105468.9059	Entropy: 0.7705
+2025-05-24 22:40:15,014 INFO PPO Iter: 1280	Total Steps: 2621440	Avg Reward (Batch): 565.36	Avg Reward (Roll100): 580.99	Actor Loss: -0.0005	Critic Loss: 101337.1898	Entropy: 0.7781
+2025-05-24 22:40:25,464 INFO PPO Iter: 1290	Total Steps: 2641920	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 612.47	Actor Loss: -0.0002	Critic Loss: 113876.6154	Entropy: 0.7471
+2025-05-24 22:40:36,941 INFO PPO Iter: 1300	Total Steps: 2662400	Avg Reward (Batch): 603.51	Avg Reward (Roll100): 643.95	Actor Loss: -0.0005	Critic Loss: 97097.3824	Entropy: 0.7855
+2025-05-24 22:40:36,945 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1300.pth
+2025-05-24 22:40:47,185 INFO PPO Iter: 1310	Total Steps: 2682880	Avg Reward (Batch): 603.51	Avg Reward (Roll100): 612.46	Actor Loss: -0.0003	Critic Loss: 97090.5307	Entropy: 0.7915
+2025-05-24 22:40:56,694 INFO PPO Iter: 1320	Total Steps: 2703360	Avg Reward (Batch): 596.92	Avg Reward (Roll100): 664.93	Actor Loss: -0.0006	Critic Loss: 101312.1578	Entropy: 0.7919
+2025-05-24 22:41:07,392 INFO PPO Iter: 1330	Total Steps: 2723840	Avg Reward (Batch): 623.84	Avg Reward (Roll100): 580.99	Actor Loss: -0.0003	Critic Loss: 105523.2461	Entropy: 0.7626
+2025-05-24 22:41:19,138 INFO PPO Iter: 1340	Total Steps: 2744320	Avg Reward (Batch): 558.68	Avg Reward (Roll100): 580.98	Actor Loss: -0.0003	Critic Loss: 92900.1123	Entropy: 0.8066
+2025-05-24 22:41:30,160 INFO PPO Iter: 1350	Total Steps: 2764800	Avg Reward (Batch): 568.72	Avg Reward (Roll100): 601.48	Actor Loss: -0.0003	Critic Loss: 97137.1631	Entropy: 0.7937
+2025-05-24 22:41:30,163 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1350.pth
+2025-05-24 22:41:41,207 INFO PPO Iter: 1360	Total Steps: 2785280	Avg Reward (Batch): 525.71	Avg Reward (Roll100): 580.99	Actor Loss: -0.0008	Critic Loss: 97131.5244	Entropy: 0.8046
+2025-05-24 22:41:52,408 INFO PPO Iter: 1370	Total Steps: 2805760	Avg Reward (Batch): 586.31	Avg Reward (Roll100): 643.96	Actor Loss: -0.0005	Critic Loss: 97104.2234	Entropy: 0.7984
+2025-05-24 22:42:05,258 INFO PPO Iter: 1380	Total Steps: 2826240	Avg Reward (Batch): 650.83	Avg Reward (Roll100): 685.92	Actor Loss: -0.0008	Critic Loss: 101312.5463	Entropy: 0.7874
+2025-05-24 22:42:17,229 INFO PPO Iter: 1390	Total Steps: 2846720	Avg Reward (Batch): 815.58	Avg Reward (Roll100): 717.43	Actor Loss: -0.0004	Critic Loss: 118070.5074	Entropy: 0.7476
+2025-05-24 22:42:30,192 INFO PPO Iter: 1400	Total Steps: 2867200	Avg Reward (Batch): 603.51	Avg Reward (Roll100): 570.48	Actor Loss: -0.0003	Critic Loss: 97115.5703	Entropy: 0.7955
+2025-05-24 22:42:30,197 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1400.pth
+2025-05-24 22:42:43,337 INFO PPO Iter: 1410	Total Steps: 2887680	Avg Reward (Batch): 730.85	Avg Reward (Roll100): 675.44	Actor Loss: -0.0000	Critic Loss: 109674.3631	Entropy: 0.7678
+2025-05-24 22:42:56,179 INFO PPO Iter: 1420	Total Steps: 2908160	Avg Reward (Batch): 621.66	Avg Reward (Roll100): 570.48	Actor Loss: -0.0003	Critic Loss: 97106.9052	Entropy: 0.7927
+2025-05-24 22:43:08,709 INFO PPO Iter: 1430	Total Steps: 2928640	Avg Reward (Batch): 475.79	Avg Reward (Roll100): 538.96	Actor Loss: -0.0002	Critic Loss: 80301.6478	Entropy: 0.8362
+2025-05-24 22:43:20,918 INFO PPO Iter: 1440	Total Steps: 2949120	Avg Reward (Batch): 746.36	Avg Reward (Roll100): 664.94	Actor Loss: -0.0004	Critic Loss: 105464.1841	Entropy: 0.7658
+2025-05-24 22:43:33,051 INFO PPO Iter: 1450	Total Steps: 2969600	Avg Reward (Batch): 700.85	Avg Reward (Roll100): 675.43	Actor Loss: -0.0005	Critic Loss: 105493.2239	Entropy: 0.7667
+2025-05-24 22:43:33,054 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1450.pth
+2025-05-24 22:43:45,775 INFO PPO Iter: 1460	Total Steps: 2990080	Avg Reward (Batch): 680.00	Avg Reward (Roll100): 633.45	Actor Loss: -0.0006	Critic Loss: 105485.9352	Entropy: 0.7743
+2025-05-24 22:43:58,152 INFO PPO Iter: 1470	Total Steps: 3010560	Avg Reward (Batch): 590.97	Avg Reward (Roll100): 612.47	Actor Loss: -0.0002	Critic Loss: 105507.6377	Entropy: 0.7688
+2025-05-24 22:44:10,562 INFO PPO Iter: 1480	Total Steps: 3031040	Avg Reward (Batch): 640.85	Avg Reward (Roll100): 622.93	Actor Loss: -0.0002	Critic Loss: 97064.3803	Entropy: 0.7856
+2025-05-24 22:44:22,817 INFO PPO Iter: 1490	Total Steps: 3051520	Avg Reward (Batch): 603.51	Avg Reward (Roll100): 591.47	Actor Loss: -0.0004	Critic Loss: 97101.3395	Entropy: 0.8196
+2025-05-24 22:44:35,458 INFO PPO Iter: 1500	Total Steps: 3072000	Avg Reward (Batch): 596.92	Avg Reward (Roll100): 612.47	Actor Loss: -0.0010	Critic Loss: 101328.8176	Entropy: 0.7985
+2025-05-24 22:44:35,477 INFO Saved PPO actor to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_iter_1500.pth
+2025-05-24 22:44:35,477 INFO --- PPO Fine-tuning Complete ---
+2025-05-24 22:44:35,480 INFO Final PPO-tuned actor saved to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1-rerun/ppo_final.pth
+2025-05-24 22:44:40,876 INFO --- Visualizing Trajectory with: Final PPO-Tuned Policy (Deterministic) ---
+2025-05-24 22:44:43,286 INFO Visualization: Trajectory length 42, Final state: (-18, 10), Total Reward: 999.59
+2025-05-24 22:44:43,287 INFO SUCCESS: Reached Goal!
+2025-05-24 22:44:43,287 INFO --- PPO Script Finished ---
