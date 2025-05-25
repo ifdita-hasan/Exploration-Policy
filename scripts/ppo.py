@@ -211,7 +211,7 @@ if __name__ == "__main__":
     critic_ppo = Critic(input_size=2, hidden_size=64).to(device)
     home_dir = os.path.expanduser("~")
     data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
-    il_model_load_path = os.path.join(data_dir, IL_MODEL_PARENT_DIR, IL_MODEL_FILENAME)
+    il_model_load_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), IL_MODEL_PARENT_DIR, IL_MODEL_FILENAME)
     ppo_model_save_dir = os.path.join(data_dir, MODEL_SAVE_SUBDIR)
     if not os.path.exists(ppo_model_save_dir):
         os.makedirs(ppo_model_save_dir, exist_ok=True)
