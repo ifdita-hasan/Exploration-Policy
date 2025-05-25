@@ -1,0 +1,24 @@
+2025-05-24 22:55:45,339 INFO Loading model from /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/ppo_final.pth
+2025-05-24 22:55:45,339 INFO Using device: cpu
+2025-05-24 22:55:45,344 INFO Model loaded successfully.
+2025-05-24 22:55:45,344 INFO Generating stochastic trajectory 1/10
+2025-05-24 22:55:50,109 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_1.png
+2025-05-24 22:55:50,110 INFO Generating stochastic trajectory 2/10
+2025-05-24 22:55:51,233 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_2.png
+2025-05-24 22:55:51,233 INFO Generating stochastic trajectory 3/10
+2025-05-24 22:55:52,816 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_3.png
+2025-05-24 22:55:52,817 INFO Generating stochastic trajectory 4/10
+2025-05-24 22:55:54,167 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_4.png
+2025-05-24 22:55:54,167 INFO Generating stochastic trajectory 5/10
+2025-05-24 22:55:55,168 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_5.png
+2025-05-24 22:55:55,168 INFO Generating stochastic trajectory 6/10
+2025-05-24 22:55:56,186 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_6.png
+2025-05-24 22:55:56,187 INFO Generating stochastic trajectory 7/10
+2025-05-24 22:55:57,817 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_7.png
+2025-05-24 22:55:57,817 INFO Generating stochastic trajectory 8/10
+2025-05-24 22:55:59,032 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_8.png
+2025-05-24 22:55:59,032 INFO Generating stochastic trajectory 9/10
+2025-05-24 22:56:00,432 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_9.png
+2025-05-24 22:56:00,432 INFO Generating stochastic trajectory 10/10
+2025-05-24 22:56:01,299 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.1/stochastic_traj_10.png
+2025-05-24 22:56:01,299 INFO All done.
