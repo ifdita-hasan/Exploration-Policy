@@ -187,14 +187,14 @@ GAE_LAMBDA_PPO = 0.95
 CLIP_EPSILON_PPO = 0.2
 PPO_OPTIMIZATION_EPOCHS = 4
 PPO_MINI_BATCH_SIZE = 64
-ENTROPY_COEF_PPO = 0.2
+ENTROPY_COEF_PPO = 0.0
 VALUE_LOSS_COEF_PPO = 0.0
 NUM_PPO_TRAIN_ITERATIONS = 1500
 STEPS_PER_PPO_UPDATE = 2048
 MAX_STEPS_PER_EPISODE_PPO = 400
 PRINT_STATS_EVERY_N_ITERATIONS = 10
 SAVE_MODEL_EVERY_N_ITERATIONS = 50
-MODEL_SAVE_SUBDIR = "PPO_Finetuned"
+MODEL_SAVE_SUBDIR = f"ppo-{ENTROPY_COEF_PPO}-rerun"
 # Match to your pretrain_policy.py and visualize_policy.py
 IL_MODEL_FILENAME = "policy_il_trained.pth"
 IL_MODEL_PARENT_DIR = "saved_models_exp"
@@ -210,9 +210,9 @@ if __name__ == "__main__":
     actor_ppo = Policy(input_size=2, hidden_size=64, output_size=NUM_ACTIONS).to(device)
     critic_ppo = Critic(input_size=2, hidden_size=64).to(device)
     home_dir = os.path.expanduser("~")
-    desktop_dir = os.path.join(home_dir, "Documents/Github/Exploration-Policy/data/")
-    il_model_load_path = os.path.join(desktop_dir, IL_MODEL_PARENT_DIR, IL_MODEL_FILENAME)
-    ppo_model_save_dir = os.path.join(desktop_dir, MODEL_SAVE_SUBDIR)
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+    il_model_load_path = os.path.join(data_dir, IL_MODEL_PARENT_DIR, IL_MODEL_FILENAME)
+    ppo_model_save_dir = os.path.join(data_dir, MODEL_SAVE_SUBDIR)
     if not os.path.exists(ppo_model_save_dir):
         os.makedirs(ppo_model_save_dir, exist_ok=True)
         print(f"Created PPO model save directory: {ppo_model_save_dir}")
@@ -279,6 +279,7 @@ if __name__ == "__main__":
         plt.grid(True)
         plt.savefig(os.path.join(ppo_model_save_dir, "ppo_iteration_batch_rewards.png"))
         plt.show()
+
     def visualize_final_ppo_trajectory(actor, title="PPO Trained Policy"):
         logging.info(f"--- Visualizing Trajectory with: {title} ---")
         actor.eval()
