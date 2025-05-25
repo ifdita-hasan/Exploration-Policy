@@ -113,10 +113,14 @@ if model_loaded_successfully:
                 else:
                     title += " (Stochastic)"
 
+                # Create a filename for saving the trajectory plot
+                traj_save_path = os.path.join(DATA_DIR, f"trajectory_{i+1}.png")
                 visualize_trajectory(
                     il_trajectory,
-                    title=title
+                    title=title,
+                    save_path=traj_save_path
                 )
+                logging.info(f"Saved trajectory plot to {traj_save_path}")
 
                 # Print trajectory summary
                 print(f"  Trajectory length: {len(il_trajectory)} steps.")

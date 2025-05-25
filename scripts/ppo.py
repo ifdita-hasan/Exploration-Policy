@@ -9,17 +9,6 @@ import logging
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
 os.makedirs(DATA_DIR, exist_ok=True)
 
-# Configure logging to file and console
-log_file = os.path.join(DATA_DIR, 'ppo.log')
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s %(levelname)s %(message)s',
-    handlers=[
-        logging.FileHandler(log_file, mode='w'),
-        logging.StreamHandler()
-    ]
-)
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -199,6 +188,24 @@ MODEL_SAVE_SUBDIR = f"ppo-{ENTROPY_COEF_PPO}-rerun"
 IL_MODEL_FILENAME = "policy_il_trained.pth"
 IL_MODEL_PARENT_DIR = "saved_models_exp"
 PPO_MODEL_FILENAME_FINAL = "ppo_final.pth"
+
+# Configure logging to file and console
+home_dir = os.path.expanduser("~")
+data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+ppo_model_save_dir = os.path.join(data_dir, MODEL_SAVE_SUBDIR)
+if not os.path.exists(ppo_model_save_dir):
+    os.makedirs(ppo_model_save_dir, exist_ok=True)
+    print(f"Created PPO model save directory: {ppo_model_save_dir}")
+
+log_file = os.path.join(ppo_model_save_dir, 'ppo.log')
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(message)s',
+    handlers=[
+        logging.FileHandler(log_file, mode='w'),
+        logging.StreamHandler()
+    ]
+)
 
 if __name__ == "__main__":
     random.seed(42)

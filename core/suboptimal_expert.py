@@ -208,7 +208,7 @@ def generate_trajectory(policy, initial_state=INITIAL_STATE, goal_state=GOAL_STA
     return traj
 
 
-def visualize_trajectory(trajectory, title="Trajectory"):
+def visualize_trajectory(trajectory, title=None, save_path=None):
     """
     Visualizes path, danger-zones, start & goal.
     """
@@ -247,6 +247,8 @@ def visualize_trajectory(trajectory, title="Trajectory"):
     ax.plot(xs, ys, 'k-', linewidth=2, label='Trajectory')
 
     ax.legend()
+    if save_path:
+        plt.savefig(save_path)
     plt.show()
 
 
