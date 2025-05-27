@@ -61,7 +61,12 @@ def generate_expert_data(
         episode = []
         while not done:
             obs_np = obs_to_np(obs)
-            action = actor.select_action(obs, deterministic=deterministic)
+            action_out = actor.select_action(obs, deterministic=deterministic)
+            # If select_action returns a tuple (action, log_prob), take only the action
+            if isinstance(action_out, tuple):
+                action = action_out[0]
+            else:
+                action = action_out
             action = action.item() if hasattr(action, 'item') else int(action)
             next_obs, reward, done, info = env.step(action)
             episode.append({
