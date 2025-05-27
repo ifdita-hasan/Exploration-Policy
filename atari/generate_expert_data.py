@@ -18,6 +18,9 @@ def obs_to_np(obs):
     # Unpack if obs is a tuple and the first element is an array (Gym/Gymnasium (obs, info) style)
     if isinstance(obs, tuple) and len(obs) == 2 and hasattr(obs[0], 'shape'):
         obs = obs[0]
+    # Handle LazyFrames
+    if 'LazyFrames' in str(type(obs)):
+        return np.array(obs)
     if hasattr(obs, 'shape') and isinstance(obs, np.ndarray):
         return obs
     if hasattr(obs, 'array'):
