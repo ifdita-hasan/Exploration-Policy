@@ -1,0 +1,79 @@
+import os
+import torch
+import numpy as np
+from collections import deque
+import argparse
+import sys
+
+# Add project root to sys.path for imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from atari.ppo_atari import CNNActor, make_atari_env, ENV_ID, FRAME_STACK
+
+DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+os.makedirs(DATA_DIR, exist_ok=True)
+
+
+def generate_expert_data(
+    checkpoint_path,
+    num_episodes=50,
+    output_path=None,
+    env_id=ENV_ID,
+    frame_stack=FRAME_STACK,
+    deterministic=True
+):
+    # Set up environment
+    env = make_atari_env(env_id)
+    num_actions = env.action_space.n
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # Load policy
+    actor = CNNActor(num_actions)
+    actor.load_state_dict(torch.load(checkpoint_path, map_location=device))
+    actor.eval()
+
+    expert_data = []
+
+    for ep in range(num_episodes):
+        obs = env.reset()
+        done = False
+        episode = []
+        while not done:
+            # obs shape: (frame_stack, H, W)
+            obs_np = np.array(obs)
+            action = actor.select_action(obs, deterministic=deterministic)
+            action = action.item() if hasattr(action, 'item') else int(action)
+            next_obs, reward, done, info = env.step(action)
+            episode.append({
+                'obs': obs_np,
+                'action': action,
+                'reward': reward,
+                'done': done,
+                'next_obs': np.array(next_obs)
+            })
+            obs = next_obs
+        expert_data.append(episode)
+        print(f"Episode {ep+1}/{num_episodes} collected, length: {len(episode)}")
+
+    # Save expert data as .pkl
+    import pickle
+    if output_path is None:
+        output_path = os.path.join(DATA_DIR, f"expert_data_{env_id}_{num_episodes}eps.pkl")
+    with open(output_path, 'wb') as f:
+        pickle.dump(expert_data, f)
+    print(f"Expert data saved to {output_path}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--checkpoint', type=str, required=True, help='Path to trained policy checkpoint (.pth)')
+    parser.add_argument('--num_episodes', type=int, default=50, help='Number of episodes to collect')
+    parser.add_argument('--output', type=str, default=None, help='Output file path for expert data (.npz)')
+    parser.add_argument('--env_id', type=str, default=ENV_ID, help='Gym environment ID')
+    parser.add_argument('--deterministic', action='store_true', help='Use deterministic policy')
+    args = parser.parse_args()
+    generate_expert_data(
+        checkpoint_path=args.checkpoint,
+        num_episodes=args.num_episodes,
+        output_path=args.output,
+        env_id=args.env_id,
+        deterministic=args.deterministic
+    )
