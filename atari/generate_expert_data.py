@@ -15,13 +15,17 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 
 def obs_to_np(obs):
-    # Handles LazyFrames, tuple/list, ndarray
+    # Unpack if obs is a tuple and the first element is an array (Gym/Gymnasium (obs, info) style)
+    if isinstance(obs, tuple) and len(obs) == 2 and hasattr(obs[0], 'shape'):
+        obs = obs[0]
     if hasattr(obs, 'shape') and isinstance(obs, np.ndarray):
         return obs
     if hasattr(obs, 'array'):
         return np.array(obs, copy=False)
     if isinstance(obs, (tuple, list)):
-        arrs = [np.array(f) for f in obs]
+        arrs = [np.array(f) for f in obs if np.array(f).size > 0]
+        if not arrs:
+            raise ValueError("Empty observation sequence in obs_to_np.")
         shapes = [a.shape for a in arrs]
         if all(s == shapes[0] for s in shapes):
             return np.stack(arrs, axis=0)
