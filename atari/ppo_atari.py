@@ -30,6 +30,21 @@ def make_atari_env(env_id, seed=SEED):
     return env
 
 # --- CNN Actor & Critic for Atari ---
+def obs_to_np(obs):
+    # Handles LazyFrames, tuple/list, ndarray
+    if hasattr(obs, 'shape') and isinstance(obs, np.ndarray):
+        return obs
+    if hasattr(obs, 'array'):
+        return np.array(obs, copy=False)
+    if isinstance(obs, (tuple, list)):
+        arrs = [np.array(f) for f in obs]
+        shapes = [a.shape for a in arrs]
+        if all(s == shapes[0] for s in shapes):
+            return np.stack(arrs, axis=0)
+        else:
+            raise ValueError(f"Inconsistent frame shapes in obs: {shapes}")
+    raise TypeError(f"Unrecognized observation type: {type(obs)}")
+
 class CNNActor(nn.Module):
     def __init__(self, num_actions):
         super().__init__()
@@ -52,7 +67,8 @@ class CNNActor(nn.Module):
         return logits
     def select_action(self, obs, deterministic=False):
         self.eval()
-        obs = torch.tensor(np.array(obs), dtype=torch.float32, device=self.device).unsqueeze(0)
+        obs_arr = obs_to_np(obs)
+        obs = torch.tensor(obs_arr, dtype=torch.float32, device=self.device).unsqueeze(0)
         logits = self.forward(obs)
         dist = Categorical(logits=logits)
         if deterministic:

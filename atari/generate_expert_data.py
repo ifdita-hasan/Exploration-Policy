@@ -14,6 +14,21 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 os.makedirs(DATA_DIR, exist_ok=True)
 
 
+def obs_to_np(obs):
+    # Handles LazyFrames, tuple/list, ndarray
+    if hasattr(obs, 'shape') and isinstance(obs, np.ndarray):
+        return obs
+    if hasattr(obs, 'array'):
+        return np.array(obs, copy=False)
+    if isinstance(obs, (tuple, list)):
+        arrs = [np.array(f) for f in obs]
+        shapes = [a.shape for a in arrs]
+        if all(s == shapes[0] for s in shapes):
+            return np.stack(arrs, axis=0)
+        else:
+            raise ValueError(f"Inconsistent frame shapes in obs: {shapes}")
+    raise TypeError(f"Unrecognized observation type: {type(obs)}")
+
 def generate_expert_data(
     checkpoint_path,
     num_episodes=50,
@@ -38,8 +53,7 @@ def generate_expert_data(
         done = False
         episode = []
         while not done:
-            # obs shape: (frame_stack, H, W)
-            obs_np = np.array(obs)
+            obs_np = obs_to_np(obs)
             action = actor.select_action(obs, deterministic=deterministic)
             action = action.item() if hasattr(action, 'item') else int(action)
             next_obs, reward, done, info = env.step(action)
@@ -48,7 +62,7 @@ def generate_expert_data(
                 'action': action,
                 'reward': reward,
                 'done': done,
-                'next_obs': np.array(next_obs)
+                'next_obs': obs_to_np(next_obs)
             })
             obs = next_obs
         expert_data.append(episode)
