@@ -68,7 +68,12 @@ def generate_expert_data(
             else:
                 action = action_out
             action = action.item() if hasattr(action, 'item') else int(action)
-            next_obs, reward, done, info = env.step(action)
+            step_result = env.step(action)
+            if len(step_result) == 5:
+                next_obs, reward, terminated, truncated, info = step_result
+                done = terminated or truncated
+            else:
+                next_obs, reward, done, info = step_result
             episode.append({
                 'obs': obs_np,
                 'action': action,
