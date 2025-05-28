@@ -12,7 +12,7 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 EXPERT_DATA_PATH = os.path.join(DATA_DIR, 'expert_data_BreakoutNoFrameskip-v4_50eps.pkl')
 PRETRAINED_POLICY_PATH = os.path.join(DATA_DIR, 'pretrained_atari_policy.pth')
 BATCH_SIZE = 64
-NUM_EPOCHS = 10
+NUM_EPOCHS = 50
 LEARNING_RATE = 1e-3
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 

@@ -85,6 +85,12 @@ class CNNActor(nn.Module):
         log_prob = dist.log_prob(action)
         return action.item(), log_prob.item()
 
+
+PRETRAINED_POLICY_PATH = os.path.join('data', 'pretrained_atari_policy.pth')
+if os.path.exists(PRETRAINED_POLICY_PATH):
+    print(f"Loading pretrained policy weights from {PRETRAINED_POLICY_PATH}")
+    policy.load_state_dict(torch.load(PRETRAINED_POLICY_PATH, map_location=device))
+
 class CNNCritic(nn.Module):
     def __init__(self):
         super().__init__()
