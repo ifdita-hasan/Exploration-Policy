@@ -5,6 +5,7 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
 import pickle
+import matplotlib.pyplot as plt
 from atari.ppo_atari import CNNActor, ENV_ID, FRAME_STACK, obs_to_np
 
 # --- Config ---
@@ -46,6 +47,7 @@ def pretrain_policy():
     criterion = nn.CrossEntropyLoss()
 
     model.train()
+    loss_history = []
     for epoch in range(NUM_EPOCHS):
         total_loss = 0
         for obs, action in dataloader:
@@ -58,7 +60,22 @@ def pretrain_policy():
             optimizer.step()
             total_loss += loss.item() * obs.size(0)
         avg_loss = total_loss / len(dataset)
+        loss_history.append(avg_loss)
         print(f"Epoch {epoch+1}/{NUM_EPOCHS}, Loss: {avg_loss:.4f}")
+
+    # Plot and save loss curve
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+    os.makedirs(data_dir, exist_ok=True)
+    plot_path = os.path.join(data_dir, 'pretraining_loss_curve.png')
+    plt.figure()
+    plt.plot(range(1, NUM_EPOCHS+1), loss_history, marker='o')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title('Pretraining Loss Curve')
+    plt.grid(True)
+    plt.savefig(plot_path)
+    print(f"Training history plot saved to: {plot_path}")
+    plt.show()
 
     # Save pretrained policy
     torch.save(model.state_dict(), PRETRAINED_POLICY_PATH)

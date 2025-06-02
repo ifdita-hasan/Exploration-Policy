@@ -181,6 +181,11 @@ def plot_training_history(history):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    # Save plot to file
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+    plot_path = os.path.join(data_dir, 'pretraining_loss_curve.png')
+    plt.savefig(plot_path)
+    print(f"Training history plot saved to: {plot_path}")
     plt.show()
 
 # 3. Train the model

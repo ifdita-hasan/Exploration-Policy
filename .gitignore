@@ -4,3 +4,4 @@ __pycache__/
 
 # Ignore dataset files
 atari/data/*.pkl
+atari/data/*.npz

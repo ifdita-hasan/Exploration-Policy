@@ -42,7 +42,7 @@ Exploration-Policy/
 2. **Create a conda environment named `wander`**:
 
    ```bash
-   conda create -n wander
+   conda create -n wander python=3.10
    conda activate wander
    ```
 
@@ -65,8 +65,6 @@ Exploration-Policy/
    pip install -r requirements.txt
    ```
 
-- The requirements.txt lists all necessary Python packages except for system-level dependencies.
-
 ## Running PPO Atari Experiments
 
 This project supports running PPO on Atari environments (e.g., Breakout) with entropy coefficient sweeps using `scripts/ppo_atari.py`.
@@ -77,19 +75,6 @@ Make sure you have installed all required Python packages:
 
 ```bash
 pip install -r requirements.txt
-```
-
-### 2. Install Atari ROMs
-
-You must install the Atari ROMs for Gym's Atari environments:
-
-```bash
-AutoROM --accept-license
-```
-
-If `AutoROM` is not available, install it via:
-```bash
-pip install autorom[accept-rom-license]
 ```
 
 ### 3. Run PPO Atari Experiments
@@ -126,6 +111,8 @@ Follow these steps to run the full workflow:
    ```
 
    This trains the policy to imitate the expert and saves the model to `saved_models_exp/policy_il_trained.pth`.
+
+   After pretraining, a plot of the training loss curve will be saved as `data/pretraining_loss_curve.png`. You can view this plot to inspect the convergence of the imitation learning process.
 
 3. **Fine-tune Policy with PPO**
 
