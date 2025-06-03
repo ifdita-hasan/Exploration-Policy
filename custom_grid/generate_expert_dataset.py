@@ -66,8 +66,16 @@ if __name__ == "__main__":
     num_expert_trajectories = 1000
     expert_dataset = generate_imitation_learning_dataset(
         suboptimal_expert_policy,
-        num_trajectories=num_expert_trajectories
     )
+    # Build (s, a) -> count dictionary and save
+    from collections import defaultdict
+    import pickle
+    state_action_counts = defaultdict(int)
+    for s, a in expert_dataset:
+        state_action_counts[(s, a)] += 1
+    with open(os.path.join(DATA_DIR, "state_action_counts.pkl"), "wb") as f:
+        pickle.dump(dict(state_action_counts), f)
+    print(f"Saved state-action counts to {os.path.join(DATA_DIR, 'state_action_counts.pkl')}")
 
     print(f"\nDataset contains {len(expert_dataset)} state-action pairs.")
     if expert_dataset:

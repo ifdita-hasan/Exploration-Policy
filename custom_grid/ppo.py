@@ -128,7 +128,7 @@ class PPOAgent:
 
     def update(self, transitions_batch):
         if not transitions_batch:
-            return 0.0, 0.0, 0.0
+            return 0.0, 0.0, 0.0, None
         states = torch.tensor([t['state'] for t in transitions_batch], dtype=torch.float32, device=self.device)
         actions = torch.tensor([t['action'] for t in transitions_batch], dtype=torch.long, device=self.device)
         rewards = torch.tensor([t['reward'] for t in transitions_batch], dtype=torch.float32, device=self.device)
@@ -143,8 +143,13 @@ class PPOAgent:
         total_actor_loss_epoch = 0
         total_critic_loss_epoch = 0
         total_entropy_epoch = 0
+        total_kl_epoch = 0
         num_samples = len(states)
         indices = np.arange(num_samples)
+        num_kl_updates = 0
+        # Store old logits for all states BEFORE any updates
+        with torch.no_grad():
+            all_action_logits_old = self.actor.forward(states).detach()
         for _ in range(self.ppo_epochs):
             np.random.shuffle(indices)
             for start_idx in range(0, num_samples, self.ppo_mini_batch_size):
@@ -155,6 +160,9 @@ class PPOAgent:
                 batch_log_probs_old = log_probs_old[mini_batch_indices]
                 batch_advantages = advantages[mini_batch_indices]
                 batch_returns_target = returns_target[mini_batch_indices]
+                # Use the old logits saved before any update
+                action_logits_old = all_action_logits_old[mini_batch_indices]
+                dist_old = Categorical(logits=action_logits_old)
                 action_logits_new = self.actor.forward(batch_states)
                 dist_new = Categorical(logits=action_logits_new)
                 log_probs_new = dist_new.log_prob(batch_actions)
@@ -166,6 +174,11 @@ class PPOAgent:
                 actor_loss = -torch.min(surr1, surr2).mean()
                 critic_loss = nn.functional.mse_loss(values_new_critic, batch_returns_target)
                 loss = actor_loss + self.value_loss_coef * critic_loss - self.entropy_coef * entropy
+                # KL divergence calculation
+                with torch.no_grad():
+                    kl = torch.distributions.kl.kl_divergence(dist_old, dist_new).mean()
+                    total_kl_epoch += kl.item()
+                    num_kl_updates += 1
                 self.actor_optimizer.zero_grad()
                 self.critic_optimizer.zero_grad()
                 loss.backward()
@@ -178,7 +191,8 @@ class PPOAgent:
         avg_actor_loss = total_actor_loss_epoch / num_updates_in_epoch_run if num_updates_in_epoch_run > 0 else 0
         avg_critic_loss = total_critic_loss_epoch / num_updates_in_epoch_run if num_updates_in_epoch_run > 0 else 0
         avg_entropy = total_entropy_epoch / num_updates_in_epoch_run if num_updates_in_epoch_run > 0 else 0
-        return avg_actor_loss, avg_critic_loss, avg_entropy
+        avg_kl = total_kl_epoch / num_kl_updates if num_kl_updates > 0 else None
+        return avg_actor_loss, avg_critic_loss, avg_entropy, avg_kl
 
 # --- PPO Training Configuration ---
 LEARNING_RATE_ACTOR_PPO = 1e-5
@@ -188,7 +202,7 @@ GAE_LAMBDA_PPO = 0.95
 CLIP_EPSILON_PPO = 0.2
 PPO_OPTIMIZATION_EPOCHS = 4
 PPO_MINI_BATCH_SIZE = 64
-ENTROPY_COEF_PPO = 0.5
+ENTROPY_COEF_PPO = 0.9
 VALUE_LOSS_COEF_PPO = 0.0
 NUM_PPO_TRAIN_ITERATIONS = 1500
 STEPS_PER_PPO_UPDATE = 2048
@@ -274,7 +288,7 @@ if __name__ == "__main__":
         total_env_steps += len(transitions)
         for r in batch_episode_rewards:
             episode_rewards_deque.append(r)
-        avg_actor_loss, avg_critic_loss, avg_entropy = ppo_agent.update(transitions)
+        avg_actor_loss, avg_critic_loss, avg_entropy, kl_value = ppo_agent.update(transitions)
         avg_reward_this_iteration_batch = np.mean(batch_episode_rewards) if batch_episode_rewards else float('nan')
         all_ppo_iteration_avg_rewards.append(avg_reward_this_iteration_batch)
         # TensorBoard logging
@@ -287,15 +301,52 @@ if __name__ == "__main__":
         if kl_value is not None:
             writer.add_scalar("KL_Divergence", kl_value, global_step=ppo_iter)
 
+
         if ppo_iter % PRINT_STATS_EVERY_N_ITERATIONS == 0:
-            logging.info(f"PPO Iter: {ppo_iter}\tTotal Steps: {total_env_steps}\t"
-                  f"Avg Reward (Batch): {avg_reward_this_iteration_batch:.2f}\t"
-                  f"Avg Reward (Roll100): {avg_rolling_score:.2f}\t"
-                  f"Actor Loss: {avg_actor_loss:.4f}\tCritic Loss: {avg_critic_loss:.4f}\tEntropy: {avg_entropy:.4f}")
+            logging.info(
+                f"PPO Iter: {ppo_iter}\tTotal Steps: {total_env_steps}\t"
+                f"Avg Reward (Batch): {avg_reward_this_iteration_batch:.2f}\t"
+                f"Avg Reward (Roll100): {avg_rolling_score:.2f}\t"
+                f"Actor Loss: {avg_actor_loss:.4f}\tCritic Loss: {avg_critic_loss:.4f}\tEntropy: {avg_entropy:.4f}"
+                + (f"\tKL Divergence: {kl_value:.6f}" if kl_value is not None else "")
+            )
         if ppo_iter % SAVE_MODEL_EVERY_N_ITERATIONS == 0:
             periodic_save_path = os.path.join(ppo_model_save_dir, f"ppo_iter_{ppo_iter}.pth")
             torch.save(actor_ppo.state_dict(), periodic_save_path)
             logging.info(f"Saved PPO actor to {periodic_save_path}")
+        # --- Save per-state critic loss every 250th iteration ---
+        if ppo_iter % 250 == 0:
+            import pickle
+            # Collect all unique states in the current transitions
+            states = [tuple(t['state']) for t in transitions]
+            states_tensor = torch.tensor(states, dtype=torch.float32, device=device)
+            # Compute critic values
+            values = critic_ppo(states_tensor).squeeze(-1).detach().cpu().numpy()
+            # Compute targets
+            rewards = torch.tensor([t['reward'] for t in transitions], dtype=torch.float32, device=device)
+            next_states = torch.tensor([t['next_state'] for t in transitions], dtype=torch.float32, device=device)
+            dones = torch.tensor([t['done'] for t in transitions], dtype=torch.bool, device=device)
+            with torch.no_grad():
+                values_current_states = critic_ppo(states_tensor).squeeze(-1)
+                values_next_states_bootstrap = critic_ppo(next_states).squeeze(-1) * (1.0 - dones.float())
+                advantages, returns_target = ppo_agent._compute_gae_and_returns(
+                    rewards, values_current_states, values_next_states_bootstrap, dones
+                )
+                targets = returns_target.cpu().numpy()
+            critic_losses = (values - targets) ** 2  # Per-state squared error
+            # Build dictionary: {s: critic_loss}
+            critic_loss_dict = {}
+            for s, c_loss in zip(states, critic_losses):
+                critic_loss_dict[s] = float(c_loss)
+            data_dir = os.path.join(os.path.dirname(__file__), 'data')
+            os.makedirs(data_dir, exist_ok=True)
+            snapshot_path = os.path.join(
+                data_dir,
+                f"critic_loss_at_iter_{ppo_iter}_entropy_{ENTROPY_COEF_PPO}.pkl"
+            )
+            with open(snapshot_path, 'wb') as f:
+                pickle.dump(critic_loss_dict, f)
+            logging.info(f"Saved critic loss snapshot to {snapshot_path}")
     logging.info("--- PPO Fine-tuning Complete ---")
     final_model_path = os.path.join(ppo_model_save_dir, PPO_MODEL_FILENAME_FINAL)
     torch.save(actor_ppo.state_dict(), final_model_path)
