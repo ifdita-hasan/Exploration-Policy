@@ -49,11 +49,7 @@ Exploration-Policy/
 2. **Create a conda environment named `wander`**:
 
    ```bash
-<<<<<<< HEAD
-   conda create -n wander
-=======
    conda create -n wander python=3.10
->>>>>>> origin/main
    conda activate wander
    ```
 
@@ -76,11 +72,6 @@ Exploration-Policy/
    pip install -r requirements.txt
    ```
 
-<<<<<<< HEAD
-- The requirements.txt lists all necessary Python packages except for system-level dependencies.
-
-=======
->>>>>>> origin/main
 ## Running PPO Atari Experiments
 
 This project supports running PPO on Atari environments (e.g., Breakout) with entropy coefficient sweeps using 'atari/ppo_atari.py`.
@@ -93,22 +84,6 @@ Make sure you have installed all required Python packages:
 pip install -r requirements.txt
 ```
 
-<<<<<<< HEAD
-### 2. Install Atari ROMs
-
-You must install the Atari ROMs for Gym's Atari environments:
-
-```bash
-AutoROM --accept-license
-```
-
-If `AutoROM` is not available, install it via:
-```bash
-pip install autorom[accept-rom-license]
-```
-
-=======
->>>>>>> origin/main
 ### 3. Run PPO Atari Experiments
 
 You can run PPO on Breakout with a specified entropy coefficient using:
@@ -144,11 +119,8 @@ Follow these steps to run the full workflow:
 
    This trains the policy to imitate the expert and saves the model to `saved_models_exp/policy_il_trained.pth`.
 
-<<<<<<< HEAD
-=======
    After pretraining, a plot of the training loss curve will be saved as `data/pretraining_loss_curve.png`. You can view this plot to inspect the convergence of the imitation learning process.
 
->>>>>>> origin/main
 3. **Fine-tune Policy with PPO**
 
    ```bash
@@ -164,8 +136,6 @@ Follow these steps to run the full workflow:
    This visualizes trajectories of the trained policy.
 
 **Logs** for each step are saved in the `data/` folder (e.g., `data/ppo.log`).
-<<<<<<< HEAD
-=======
 
 ---
 
@@ -178,4 +148,3 @@ tensorboard --logdir data/tensorboard
 ```
 
 Open the provided URL in your browser to view interactive plots and experiment dashboards.
->>>>>>> origin/main
