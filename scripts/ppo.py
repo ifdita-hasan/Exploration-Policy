@@ -4,6 +4,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import random
 import numpy as np
 import logging
+from torch.utils.tensorboard import SummaryWriter
 
 # Ensure data directory exists
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
@@ -50,7 +51,7 @@ class Critic(nn.Module):
         return value
 
 # --- PPO Data Collection ---
-def get_Nora_reward(state, next_state):
+def get_reward_wrapper(state, next_state):
     # Use grid_environment's get_reward (signature: state, next_state, goal_state, dz_coords, x_bounds, y_bounds)
     from core.grid_environment import get_reward
     return get_reward(state, next_state, goal_state=GOAL_STATE, dz_coords=DANGER_ZONE_COORDS, x_bounds=X_BOUNDS, y_bounds=Y_BOUNDS)
@@ -67,7 +68,7 @@ def generate_ppo_trajectories(actor_policy, num_steps_to_collect, max_steps_per_
             action = actor_policy.select_action(state, deterministic=False)
             log_prob_old = actor_policy.get_action_log_prob(state, action)
             next_state = get_next_state(state, action)
-            reward = get_Nora_reward(state, next_state)
+            reward = get_reward_wrapper(state, next_state)
             done = is_terminal(next_state)
             current_episode_transitions.append({
                 'state': state, 'action': action, 'reward': reward,
@@ -246,6 +247,10 @@ if __name__ == "__main__":
     all_ppo_iteration_avg_rewards = []
     episode_rewards_deque = deque(maxlen=100)
     total_env_steps = 0
+    # TensorBoard writer
+    tensorboard_log_dir = os.path.join(data_dir, "tensorboard", "ppo_grid")
+    writer = SummaryWriter(log_dir=tensorboard_log_dir)
+    logging.info(f"Logging experiment at: {tensorboard_log_dir}")
     for ppo_iter in range(1, NUM_PPO_TRAIN_ITERATIONS + 1):
         transitions, batch_episode_rewards = generate_ppo_trajectories(
             actor_ppo, STEPS_PER_PPO_UPDATE, MAX_STEPS_PER_EPISODE_PPO, device
@@ -259,8 +264,15 @@ if __name__ == "__main__":
         avg_actor_loss, avg_critic_loss, avg_entropy = ppo_agent.update(transitions)
         avg_reward_this_iteration_batch = np.mean(batch_episode_rewards) if batch_episode_rewards else float('nan')
         all_ppo_iteration_avg_rewards.append(avg_reward_this_iteration_batch)
+        # TensorBoard logging
+        writer.add_scalar("Reward/BatchAvg", avg_reward_this_iteration_batch, global_step=ppo_iter)
+        avg_rolling_score = np.mean(episode_rewards_deque) if episode_rewards_deque else float('nan')
+        writer.add_scalar("Reward/Rolling100", avg_rolling_score, global_step=ppo_iter)
+        writer.add_scalar("Loss/Actor", avg_actor_loss, global_step=ppo_iter)
+        writer.add_scalar("Loss/Critic", avg_critic_loss, global_step=ppo_iter)
+        writer.add_scalar("Entropy", avg_entropy, global_step=ppo_iter)
+
         if ppo_iter % PRINT_STATS_EVERY_N_ITERATIONS == 0:
-            avg_rolling_score = np.mean(episode_rewards_deque) if episode_rewards_deque else float('nan')
             logging.info(f"PPO Iter: {ppo_iter}\tTotal Steps: {total_env_steps}\t"
                   f"Avg Reward (Batch): {avg_reward_this_iteration_batch:.2f}\t"
                   f"Avg Reward (Roll100): {avg_rolling_score:.2f}\t"
@@ -273,19 +285,7 @@ if __name__ == "__main__":
     final_model_path = os.path.join(ppo_model_save_dir, PPO_MODEL_FILENAME_FINAL)
     torch.save(actor_ppo.state_dict(), final_model_path)
     logging.info(f"Final PPO-tuned actor saved to {final_model_path}")
-    if all_ppo_iteration_avg_rewards:
-        plt.figure(figsize=(12, 6))
-        plt.plot(all_ppo_iteration_avg_rewards, label='Avg Reward per PPO Iteration Batch')
-        if len(all_ppo_iteration_avg_rewards) >= 10:
-            rolling_avg_ppo_iters = [np.mean(all_ppo_iteration_avg_rewards[max(0, i-9):i+1]) for i in range(len(all_ppo_iteration_avg_rewards))]
-            plt.plot(rolling_avg_ppo_iters, color='red', linestyle='--', label='Rolling Avg (10 Iter Batches)')
-        plt.xlabel("PPO Update Iteration")
-        plt.ylabel("Average Episode Reward in Collection Batch")
-        plt.title("PPO Fine-tuning: Avg Reward per Data Collection Batch")
-        plt.legend()
-        plt.grid(True)
-        plt.savefig(os.path.join(ppo_model_save_dir, "ppo_iteration_batch_rewards.png"))
-        plt.show()
+    writer.close()
 
     def visualize_final_ppo_trajectory(actor, title="PPO Trained Policy"):
         logging.info(f"--- Visualizing Trajectory with: {title} ---")
@@ -297,7 +297,7 @@ if __name__ == "__main__":
         for _ in range(MAX_STEPS_PER_EPISODE_PPO + 100):
             action = actor.select_action(state, deterministic=True)
             next_state = get_next_state(state, action)
-            reward = get_Nora_reward(state, next_state)
+            reward = get_reward_wrapper(state, next_state)
             total_reward_viz += reward
             trajectory_states.append(next_state)
             if is_terminal(next_state):

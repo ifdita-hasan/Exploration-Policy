@@ -21,7 +21,7 @@ Exploration-Policy/
 │   ├── visualize_policy.py
 │   └── __init__.py
 │
-├── data/                    # Logs and experiment outputs
+├── data/                    ## Logging and Monitoring
 ├── saved_models_exp/        # Imitation learning models
 ├── PPO_Finetuned/           # PPO-finetuned models and plots
 ├── requirements.txt
@@ -129,3 +129,15 @@ Follow these steps to run the full workflow:
    This visualizes trajectories of the trained policy.
 
 **Logs** for each step are saved in the `data/` folder (e.g., `data/ppo.log`).
+
+---
+
+### Visualizing Training with TensorBoard
+
+All major training metrics (reward, losses, entropy, KL divergence, etc.) are logged to TensorBoard for both Atari and Grid World experiments. To view live training curves and experiment metrics, launch TensorBoard from the root of the repository with:
+
+```bash
+tensorboard --logdir data/tensorboard
+```
+
+Open the provided URL in your browser to view interactive plots and experiment dashboards.

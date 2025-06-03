@@ -11,6 +11,7 @@ import cv2
 from gym.wrappers import AtariPreprocessing, FrameStack
 import logging
 import argparse
+from torch.utils.tensorboard import SummaryWriter
 
 # --- Logging Setup ---
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
@@ -248,11 +249,13 @@ def main():
     args = parser.parse_args()
     entropy_coef = args.entropy_coef
 
-    # Set up experiment-specific paths
+    # Set up experiment-specific directory and paths
     exp_name = f'entropy_{entropy_coef}'
-    log_file = os.path.join(DATA_DIR, f'ppo_atari_{exp_name}.log')
-    state_dict_save_path = os.path.join(DATA_DIR, f'ppo_atari_final_{exp_name}.pth')
-    plot_save_path = os.path.join(DATA_DIR, f'ppo_atari_learning_curve_{exp_name}.png')
+    exp_dir = os.path.join(DATA_DIR, exp_name)
+    os.makedirs(exp_dir, exist_ok=True)
+    log_file = os.path.join(exp_dir, 'ppo_atari.log')
+    state_dict_save_path = os.path.join(exp_dir, 'ppo_atari_final.pth')
+    plot_save_path = os.path.join(exp_dir, 'ppo_atari_learning_curve.png')
 
     # Set up logging
     logging.basicConfig(
@@ -263,6 +266,11 @@ def main():
             logging.StreamHandler()
         ]
     )
+
+    # Set up TensorBoard writer
+    tensorboard_log_dir = os.path.join(DATA_DIR, "tensorboard", exp_name)
+    writer = SummaryWriter(log_dir=tensorboard_log_dir)
+    logging.info(f"Logging experiment at: {tensorboard_log_dir}")
 
     random.seed(SEED)
     np.random.seed(SEED)
@@ -282,32 +290,67 @@ def main():
     steps_per_update = 2048
     episode_rewards_deque = deque(maxlen=100)
     all_avg_rewards = []
+    all_entropy = []
+    all_kl = []
+    all_success = []  # Placeholder for success rate
     obs_shape = env.observation_space.shape
     logging.info(f"Observation shape: {obs_shape}, Num actions: {num_actions}")
+
+    # Load fixed pretrained policy for KL computation
+    pretrained_policy = None
+    pretrained_path = os.path.join(DATA_DIR, 'pretrained_atari_policy.pth')
+    if os.path.exists(pretrained_path):
+        pretrained_policy = CNNActor(num_actions).to(device)
+        pretrained_policy.load_state_dict(torch.load(pretrained_path, map_location=device))
+        pretrained_policy.eval()
+
     for step in range(0, total_steps, steps_per_update):
         transitions, episode_rewards = collect_trajectories(env, actor, steps_per_update, device)
         actor_loss, critic_loss, entropy = agent.update(transitions)
-        for r in episode_rewards:
-            episode_rewards_deque.append(r)
-        avg_reward = np.mean(episode_rewards_deque) if episode_rewards_deque else 0.0
-        all_avg_rewards.append(avg_reward)
-        logging.info(f"Step {step+steps_per_update} | Avg Reward (100): {avg_reward:.2f} | Actor Loss: {actor_loss:.4f} | Critic Loss: {critic_loss:.4f} | Entropy: {entropy:.4f}")
-        if (step // steps_per_update) % 50 == 0:
-            torch.save(actor.state_dict(), state_dict_save_path)
-            logging.info(f"Saved model to {state_dict_save_path}")
-    torch.save(actor.state_dict(), state_dict_save_path)
-    logging.info(f"Final model saved to {state_dict_save_path}")
-    # Plot learning curve
-    try:
-        import matplotlib.pyplot as plt
-        plt.plot(all_avg_rewards)
-        plt.xlabel('Update')
-        plt.ylabel('Avg Reward (100)')
-        plt.title(f'PPO Atari Breakout (entropy_coef={entropy_coef})')
-        plt.savefig(plot_save_path)
-        plt.show()
-    except ImportError:
-        logging.warning('matplotlib not installed, skipping plot.')
+        all_entropy.append(entropy)
+
+        # KL divergence computation
+        kl_value = None
+        if pretrained_policy is not None:
+            # Sample a batch of states from transitions
+            sampled_states = torch.stack([t['state'] for t in random.sample(transitions, min(128, len(transitions)))])
+            sampled_states = sampled_states.to(device)
+            with torch.no_grad():
+                logits_pre = pretrained_policy(sampled_states)
+                logits_ppo = actor(sampled_states)
+                dist_pre = torch.distributions.Categorical(logits=logits_pre)
+                dist_ppo = torch.distributions.Categorical(logits=logits_ppo)
+                kl = torch.distributions.kl.kl_divergence(dist_pre, dist_ppo).mean().item()
+                kl_value = kl
+                all_kl.append(kl)
+        else:
+            all_kl.append(None)
+
+        # Placeholder for success rate (e.g., reward > threshold)
+        success_rate = np.mean([r > 0 for r in episode_rewards]) if episode_rewards else 0.0
+        all_success.append(success_rate)
+
+    for r in episode_rewards:
+        episode_rewards_deque.append(r)
+    avg_reward = np.mean(episode_rewards_deque) if episode_rewards_deque else 0.0
+    all_avg_rewards.append(avg_reward)
+    logging.info(f"Step {step+steps_per_update} | Avg Reward (100): {avg_reward:.2f} | Actor Loss: {actor_loss:.4f} | Critic Loss: {critic_loss:.4f} | Entropy: {entropy:.4f} | KL: {kl_value if kl_value is not None else 'N/A'} | Success Rate: {success_rate:.2f}")
+    # TensorBoard logging
+    writer.add_scalar("Reward/Avg100", avg_reward, global_step=step)
+    writer.add_scalar("Loss/Actor", actor_loss, global_step=step)
+    writer.add_scalar("Loss/Critic", critic_loss, global_step=step)
+    writer.add_scalar("Entropy", entropy, global_step=step)
+    if kl_value is not None:
+        writer.add_scalar("KL_Divergence", kl_value, global_step=step)
+    writer.add_scalar("SuccessRate", success_rate, global_step=step)
+    if (step // steps_per_update) % 50 == 0:
+        torch.save(actor.state_dict(), state_dict_save_path)
+        logging.info(f"Saved model to {state_dict_save_path}")
+
+torch.save(actor.state_dict(), state_dict_save_path)
+logging.info(f"Final model saved to {state_dict_save_path}")
+
+writer.close()
 
 if __name__ == "__main__":
     main()
