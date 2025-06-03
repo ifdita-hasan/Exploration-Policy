@@ -113,7 +113,7 @@ class CNNCritic(nn.Module):
         value = self.fc(x)
         return value.squeeze(-1)
 
-# --- PPOAgent (copied/adapted from scripts/ppo.py) ---
+# --- PPOAgent (copied/adapted from custom_grid/ppo.py) ---
 class PPOAgent:
     def __init__(self, actor, critic, actor_optimizer, critic_optimizer,
                  gamma=0.99, gae_lambda=0.95, clip_epsilon=0.2,

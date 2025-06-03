@@ -1,6 +1,0 @@
-2025-05-24 23:54:03,863 INFO Loading model from /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.5/ppo_final.pth
-2025-05-24 23:54:03,863 INFO Using device: cpu
-2025-05-24 23:54:03,875 INFO Model loaded successfully.
-2025-05-24 23:54:03,875 INFO Generating deterministic trajectory 1/1
-2025-05-24 23:54:28,912 INFO Saved plot to /Users/iddah/Documents/CS224R/Exploration-Policy/data/ppo-0.5/deterministic_traj.png
-2025-05-24 23:54:28,914 INFO All done.

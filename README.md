@@ -13,17 +13,24 @@ Exploration-Policy/
 │   ├── suboptimal_expert.py
 │   └── __init__.py
 │
-├── scripts/
+├── custom_grid/
 │   ├── generate_expert_dataset.py
-│   ├── ppo.py
-│   ├── ppo_atari.py
 │   ├── pretrain_policy.py
+│   ├── ppo.py
+│   ├── plot_critic_loss_vs_pretrain_visits.py
+│   ├── plot_entropy_comparison.py
+│   ├── plot_reward_comparison.py
 │   ├── visualize_policy.py
+│   ├── data/                  # Logging, monitoring, and PPO outputs
+│   ├── saved_models_exp/      # Imitation learning models
 │   └── __init__.py
 │
-├── data/                    ## Logging and Monitoring
-├── saved_models_exp/        # Imitation learning models
-├── PPO_Finetuned/           # PPO-finetuned models and plots
+├── atari/
+│   ├── generate_expert_data.py
+│   ├── pretrain_policy.py
+│   ├── ppo_atari.py
+│   └── ...
+│
 ├── requirements.txt
 └── README.md
 ```
@@ -67,7 +74,7 @@ Exploration-Policy/
 
 ## Running PPO Atari Experiments
 
-This project supports running PPO on Atari environments (e.g., Breakout) with entropy coefficient sweeps using `scripts/ppo_atari.py`.
+This project supports running PPO on Atari environments (e.g., Breakout) with entropy coefficient sweeps using 'atari/ppo_atari.py`.
 
 ### 1. Install Dependencies
 
@@ -82,11 +89,11 @@ pip install -r requirements.txt
 You can run PPO on Breakout with a specified entropy coefficient using:
 
 ```bash
-python scripts/ppo_atari.py --entropy_coef 0.01
+python atari/ppo_atari.py --entropy_coef 0.01
 ```
 
 - Logs, models, and plots will be saved under the `data/` directory, with filenames containing the entropy coefficient for easy experiment tracking.
-- Adjust `total_steps` and `steps_per_update` in `scripts/ppo_atari.py` to control experiment duration.
+- Adjust `total_steps` and `steps_per_update` in `atari/ppo_atari.py` to control experiment duration.
 
 ### 4. Visualize Results
 
@@ -99,7 +106,7 @@ Follow these steps to run the full workflow:
 1. **Generate Expert Dataset**
 
    ```bash
-   python scripts/generate_expert_dataset.py
+   python custom_grid/generate_expert_dataset.py
    ```
 
    This creates the expert dataset used for imitation learning.
@@ -107,7 +114,7 @@ Follow these steps to run the full workflow:
 2. **Pretrain Policy with Imitation Learning**
 
    ```bash
-   python scripts/pretrain_policy.py
+   python custom_grid/pretrain_policy.py
    ```
 
    This trains the policy to imitate the expert and saves the model to `saved_models_exp/policy_il_trained.pth`.
@@ -117,14 +124,14 @@ Follow these steps to run the full workflow:
 3. **Fine-tune Policy with PPO**
 
    ```bash
-   python scripts/ppo.py
+   python custom_grid/ppo.py
    ```
 
    This loads the imitation-learned policy and fine-tunes it with PPO. Results and logs are saved in `PPO_Finetuned/` and `data/`.
 
 4. **Visualize the Trained Policy (Optional)**
    ```bash
-   python -m scripts.visualize_policy
+   python -m custom_grid.visualize_policy
    ```
    This visualizes trajectories of the trained policy.
 
