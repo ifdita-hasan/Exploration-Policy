@@ -6,7 +6,7 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 import pickle
 import matplotlib.pyplot as plt
-from atari.ppo_atari import CNNActor, ENV_ID, FRAME_STACK, obs_to_np
+from ppo_atari import CNNActor, ENV_ID, FRAME_STACK, obs_to_np
 
 # --- Config ---
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
@@ -64,7 +64,7 @@ def pretrain_policy():
         print(f"Epoch {epoch+1}/{NUM_EPOCHS}, Loss: {avg_loss:.4f}")
 
     # Plot and save loss curve
-    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+    data_dir = os.path.join(os.path.dirname(__file__), 'data')
     os.makedirs(data_dir, exist_ok=True)
     plot_path = os.path.join(data_dir, 'pretraining_loss_curve.png')
     plt.figure()

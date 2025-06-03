@@ -347,10 +347,10 @@ def main():
         torch.save(actor.state_dict(), state_dict_save_path)
         logging.info(f"Saved model to {state_dict_save_path}")
 
-torch.save(actor.state_dict(), state_dict_save_path)
-logging.info(f"Final model saved to {state_dict_save_path}")
+    torch.save(actor.state_dict(), state_dict_save_path)
+    logging.info(f"Final model saved to {state_dict_save_path}")
 
-writer.close()
+    writer.close()
 
 if __name__ == "__main__":
     main()
