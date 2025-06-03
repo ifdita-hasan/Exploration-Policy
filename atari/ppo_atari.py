@@ -16,6 +16,7 @@ from torch.utils.tensorboard import SummaryWriter
 # --- Logging Setup ---
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 os.makedirs(DATA_DIR, exist_ok=True)
+PRETRAINED_POLICY_PATH = os.path.join('data', 'pretrained_atari_policy.pth')
 
 # --- Atari Environment Setup ---
 ENV_ID = "BreakoutNoFrameskip-v4"
@@ -87,10 +88,7 @@ class CNNActor(nn.Module):
         return action.item(), log_prob.item()
 
 
-PRETRAINED_POLICY_PATH = os.path.join('data', 'pretrained_atari_policy.pth')
-if os.path.exists(PRETRAINED_POLICY_PATH):
-    print(f"Loading pretrained policy weights from {PRETRAINED_POLICY_PATH}")
-    policy.load_state_dict(torch.load(PRETRAINED_POLICY_PATH, map_location=device))
+
 
 class CNNCritic(nn.Module):
     def __init__(self):
@@ -250,8 +248,10 @@ def main():
     entropy_coef = args.entropy_coef
 
     # Set up experiment-specific directory and paths
+    env_dir  = os.path.join(DATA_DIR, ENV_ID)
+    os.makedirs(env_dir, exist_ok=True)
     exp_name = f'entropy_{entropy_coef}'
-    exp_dir = os.path.join(DATA_DIR, exp_name)
+    exp_dir  = os.path.join(env_dir, exp_name)
     os.makedirs(exp_dir, exist_ok=True)
     log_file = os.path.join(exp_dir, 'ppo_atari.log')
     state_dict_save_path = os.path.join(exp_dir, 'ppo_atari_final.pth')
@@ -268,7 +268,7 @@ def main():
     )
 
     # Set up TensorBoard writer
-    tensorboard_log_dir = os.path.join(DATA_DIR, "tensorboard", exp_name)
+    tensorboard_log_dir = os.path.join(env_dir, "tensorboard", exp_name)
     writer = SummaryWriter(log_dir=tensorboard_log_dir)
     logging.info(f"Logging experiment at: {tensorboard_log_dir}")
 
@@ -279,6 +279,12 @@ def main():
     env = make_atari_env(ENV_ID, seed=SEED)
     num_actions = env.action_space.n
     actor = CNNActor(num_actions).to(device)
+    
+    # Now load pretrained weights if they exist
+    if os.path.exists(PRETRAINED_POLICY_PATH):
+        print(f"Loading pretrained policy weights from {PRETRAINED_POLICY_PATH}")
+        actor.load_state_dict(torch.load(PRETRAINED_POLICY_PATH, map_location=device))
+    
     critic = CNNCritic().to(device)
     actor_optimizer = optim.Adam(actor.parameters(), lr=2.5e-4)
     critic_optimizer = optim.Adam(critic.parameters(), lr=2.5e-4)
@@ -318,6 +324,9 @@ def main():
             with torch.no_grad():
                 logits_pre = pretrained_policy(sampled_states)
                 logits_ppo = actor(sampled_states)
+                # Add a small epsilon
+                logits_pre = logits_pre + 1e-8
+                logits_ppo = logits_ppo + 1e-8
                 dist_pre = torch.distributions.Categorical(logits=logits_pre)
                 dist_ppo = torch.distributions.Categorical(logits=logits_ppo)
                 kl = torch.distributions.kl.kl_divergence(dist_pre, dist_ppo).mean().item()
@@ -330,22 +339,22 @@ def main():
         success_rate = np.mean([r > 0 for r in episode_rewards]) if episode_rewards else 0.0
         all_success.append(success_rate)
 
-    for r in episode_rewards:
-        episode_rewards_deque.append(r)
-    avg_reward = np.mean(episode_rewards_deque) if episode_rewards_deque else 0.0
-    all_avg_rewards.append(avg_reward)
-    logging.info(f"Step {step+steps_per_update} | Avg Reward (100): {avg_reward:.2f} | Actor Loss: {actor_loss:.4f} | Critic Loss: {critic_loss:.4f} | Entropy: {entropy:.4f} | KL: {kl_value if kl_value is not None else 'N/A'} | Success Rate: {success_rate:.2f}")
-    # TensorBoard logging
-    writer.add_scalar("Reward/Avg100", avg_reward, global_step=step)
-    writer.add_scalar("Loss/Actor", actor_loss, global_step=step)
-    writer.add_scalar("Loss/Critic", critic_loss, global_step=step)
-    writer.add_scalar("Entropy", entropy, global_step=step)
-    if kl_value is not None:
-        writer.add_scalar("KL_Divergence", kl_value, global_step=step)
-    writer.add_scalar("SuccessRate", success_rate, global_step=step)
-    if (step // steps_per_update) % 50 == 0:
-        torch.save(actor.state_dict(), state_dict_save_path)
-        logging.info(f"Saved model to {state_dict_save_path}")
+        for r in episode_rewards:
+            episode_rewards_deque.append(r)
+        avg_reward = np.mean(episode_rewards_deque) if episode_rewards_deque else 0.0
+        all_avg_rewards.append(avg_reward)
+        logging.info(f"Step {step+steps_per_update} | Avg Reward (100): {avg_reward:.2f} | Actor Loss: {actor_loss:.4f} | Critic Loss: {critic_loss:.4f} | Entropy: {entropy:.4f} | KL: {kl_value if kl_value is not None else 'N/A'} | Success Rate: {success_rate:.2f}")
+        # TensorBoard logging
+        writer.add_scalar("Reward/Avg100", avg_reward, global_step=step)
+        writer.add_scalar("Loss/Actor", actor_loss, global_step=step)
+        writer.add_scalar("Loss/Critic", critic_loss, global_step=step)
+        writer.add_scalar("Entropy", entropy, global_step=step)
+        if kl_value is not None:
+            writer.add_scalar("KL_Divergence", kl_value, global_step=step)
+        writer.add_scalar("SuccessRate", success_rate, global_step=step)
+        if (step // steps_per_update) % 50 == 0:
+            torch.save(actor.state_dict(), state_dict_save_path)
+            logging.info(f"Saved model to {state_dict_save_path}")
 
     torch.save(actor.state_dict(), state_dict_save_path)
     logging.info(f"Final model saved to {state_dict_save_path}")

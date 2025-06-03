@@ -1,4 +1,4 @@
-numpy
+numpy==1.23.5
 torch
 matplotlib
 # pandas  # Uncomment if you use pandas
@@ -6,4 +6,5 @@ matplotlib
 
 gym[atari,accept-rom-license]
 opencv-python
+tensorboard
 # tqdm  # Uncomment if you want progress bars
