@@ -260,22 +260,10 @@ if __name__ == "__main__":
     all_ppo_iteration_avg_rewards = []
     episode_rewards_deque = deque(maxlen=100)
     total_env_steps = 0
-    # Load pretrained imitation policy for KL divergence computation
-    pretrained_policy_path = os.path.join(os.path.dirname(__file__), IL_MODEL_PARENT_DIR, IL_MODEL_FILENAME)
-    pretrained_policy = None
-    if os.path.exists(pretrained_policy_path):
-        pretrained_policy = Policy(input_size=2, hidden_size=64, output_size=NUM_ACTIONS).to(device)
-        pretrained_policy.load_state_dict(torch.load(pretrained_policy_path, map_location=device))
-        pretrained_policy.eval()
-        logging.info(f"Loaded pretrained imitation policy from {pretrained_policy_path} for KL computation.")
-    else:
-        logging.warning(f"Pretrained imitation policy not found at {pretrained_policy_path}. KL divergence will be None.")
-
     # TensorBoard writer
     tensorboard_log_dir = os.path.join(DATA_DIR, "tensorboard", f"ppo_grid_{ENTROPY_COEF_PPO}")
     writer = SummaryWriter(log_dir=tensorboard_log_dir)
     logging.info(f"Logging experiment at: {tensorboard_log_dir}")
-    critic_loss_snapshots = dict()  # {iteration: {state: critic_loss}}
     for ppo_iter in range(1, NUM_PPO_TRAIN_ITERATIONS + 1):
         transitions, batch_episode_rewards = generate_ppo_trajectories(
             actor_ppo, STEPS_PER_PPO_UPDATE, MAX_STEPS_PER_EPISODE_PPO, device
@@ -289,48 +277,6 @@ if __name__ == "__main__":
         avg_actor_loss, avg_critic_loss, avg_entropy = ppo_agent.update(transitions)
         avg_reward_this_iteration_batch = np.mean(batch_episode_rewards) if batch_episode_rewards else float('nan')
         all_ppo_iteration_avg_rewards.append(avg_reward_this_iteration_batch)
-        # KL divergence computation
-        kl_value = None
-        if pretrained_policy is not None and transitions:
-            import random
-            import torch
-            from torch.distributions import Categorical
-            sampled_states = [t['state'] for t in random.sample(transitions, min(128, len(transitions)))]
-            sampled_states_tensor = torch.tensor(sampled_states, dtype=torch.float32).to(device)
-            with torch.no_grad():
-                logits_pre = pretrained_policy(sampled_states_tensor)
-                logits_ppo = actor_ppo(sampled_states_tensor)
-                dist_pre = Categorical(logits=logits_pre)
-                dist_ppo = Categorical(logits=logits_ppo)
-                kl = torch.distributions.kl.kl_divergence(dist_pre, dist_ppo).mean().item()
-                kl_value = kl
-        # Critic loss snapshot every 250 iterations
-        if ppo_iter % 250 == 0 and state_action_counts:
-            critic_loss_dict = dict()  # s: (critic_loss, value, target)
-            # Build a mapping from state to empirical return from the latest transitions
-            state_to_return = dict()
-            # Each transition should have 'state' and 'return' or 'reward' (use 'return' if available)
-            for t in transitions:
-                s = tuple(t['state'])
-                # PPO code may use 'return', 'returns', or 'reward'. Prefer 'return' if present.
-                ret = t.get('return', t.get('returns', t.get('reward', None)))
-                if ret is not None:
-                    state_to_return[s] = ret
-            with torch.no_grad():
-                for (s, _), count in state_action_counts.items():
-                    if s in state_to_return:
-                        s_tensor = torch.tensor(s, dtype=torch.float32).unsqueeze(0).to(device)
-                        value = critic_ppo(s_tensor).item()
-                        target = state_to_return[s]
-                        critic_loss = (value - target) ** 2
-                        critic_loss_dict[s] = (critic_loss, value, target)
-                    # else: skip states not in the latest batch
-            critic_loss_snapshots[ppo_iter] = critic_loss_dict
-            # Save snapshot for later plotting
-            snapshot_path = os.path.join(DATA_DIR, f'critic_loss_at_iter_{ppo_iter}_entropy_{ENTROPY_COEF_PPO}.pkl')
-            with open(snapshot_path, 'wb') as f:
-                pickle.dump(critic_loss_dict, f)
-            print(f"Saved critic loss snapshot at iter {ppo_iter} (entropy={ENTROPY_COEF_PPO}) to {snapshot_path}")
         # TensorBoard logging
         writer.add_scalar("Reward/BatchAvg", avg_reward_this_iteration_batch, global_step=ppo_iter)
         avg_rolling_score = np.mean(episode_rewards_deque) if episode_rewards_deque else float('nan')
