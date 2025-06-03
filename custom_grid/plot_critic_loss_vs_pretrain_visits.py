@@ -15,7 +15,7 @@ for (s, a), count in state_action_counts.items():
 
 import re
 # Find all critic loss snapshot files
-snapshot_files = [f for f in os.listdir(DATA_DIR) if f.startswith('critic_loss_at_iter_') and f.endswith('_entropy_0.5.pkl')]
+snapshot_files = [f for f in os.listdir(DATA_DIR) if f.startswith('critic_loss_at_iter_') and f.endswith('_entropy_0.9.pkl')]
 def extract_iter_num(filename):
     match = re.search(r'critic_loss_at_iter_(\d+)_entropy_', filename)
     if match:
@@ -41,8 +41,7 @@ for snapshot_file, iter_num in zip(snapshot_files, snapshot_iters):
     visit_counts = np.array([state_counts[s] for s in states])
     # Unpack (critic_loss, value, target) tuple or assign np.nan if missing
     critic_losses = np.array([
-        critic_loss_dict[s][0] if (s in critic_loss_dict and isinstance(critic_loss_dict[s], (tuple, list))) else
-        (critic_loss_dict[s] if s in critic_loss_dict else np.nan)
+        critic_loss_dict[s] if s in critic_loss_dict else np.nan
         for s in states
     ])
     # Sort states by visit count (descending)
