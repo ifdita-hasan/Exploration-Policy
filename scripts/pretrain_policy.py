@@ -10,7 +10,7 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
 os.makedirs(DATA_DIR, exist_ok=True)
 
 # Configure logging to file and console
-log_file = os.path.join(DATA_DIR, 'pretrain_policy.log')
+log_file = os.path.join(DATA_DIR, 'pretrain_policy_test.log')
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(levelname)s %(message)s',
@@ -181,6 +181,11 @@ def plot_training_history(history):
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    # Save plot to file
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
+    plot_path = os.path.join(data_dir, 'pretraining_loss_curve.png')
+    plt.savefig(plot_path)
+    print(f"Training history plot saved to: {plot_path}")
     plt.show()
 
 # 3. Train the model
@@ -210,7 +215,7 @@ if trained_policy:
         print("Please ensure your Desktop folder exists and is writable.")
         save_dir = None
     if save_dir:
-        model_save_path = os.path.join(save_dir, "policy_il_trained.pth")
+        model_save_path = os.path.join(save_dir, "policy_il_trained_test.pth")
         print(f"Attempting to save trained policy to: {model_save_path}")
         try:
             torch.save(trained_policy.state_dict(), model_save_path)

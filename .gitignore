@@ -1,0 +1,7 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore dataset files
+atari/data/*.pkl
+atari/data/*.npz
