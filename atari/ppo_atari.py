@@ -14,7 +14,7 @@ import pickle
 from torch.utils.tensorboard import SummaryWriter
 
 # Import our discretization helper
-from atari.generate_expert_data import discretize_frame
+from utils import discretize_frame
 
 # --- Logging Setup ---
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
@@ -315,7 +315,7 @@ def main():
     )
 
     total_steps = 1_000_000
-    steps_per_update = 2048
+    steps_per_update = 5000
     episode_rewards_deque = deque(maxlen=100)
     all_avg_rewards = []
     all_entropy = []
