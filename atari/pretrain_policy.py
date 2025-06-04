@@ -11,11 +11,21 @@ from ppo_atari import CNNActor, ENV_ID, FRAME_STACK, obs_to_np
 # --- Config ---
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 EXPERT_DATA_PATH = os.path.join(DATA_DIR, 'expert_data_BreakoutNoFrameskip-v4_50eps.pkl')
-PRETRAINED_POLICY_PATH = os.path.join(DATA_DIR, 'pretrained_atari_policy.pth')
+PRETRAINED_POLICY_PATH = os.path.join(DATA_DIR, f'pretrained_{ENV_ID}_policy.pth')
 BATCH_SIZE = 64
 NUM_EPOCHS = 50
 LEARNING_RATE = 1e-3
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+
+# For Iddah's path
+# Comment out if you are not Iddah
+EXPERT_DATA_PATH = '/lfs/skampere1/0/iddah/explore_data/'
+EXPERT_DATA_PATH = os.path.join(
+    EXPERT_DATA_PATH,
+    ENV_ID,
+    f"expert_data_{ENV_ID}.pkl"
+)
 
 # --- Dataset ---
 class AtariImitationDataset(Dataset):
@@ -66,7 +76,7 @@ def pretrain_policy():
     # Plot and save loss curve
     data_dir = os.path.join(os.path.dirname(__file__), 'data')
     os.makedirs(data_dir, exist_ok=True)
-    plot_path = os.path.join(data_dir, 'pretraining_loss_curve.png')
+    plot_path = os.path.join(data_dir, f'pretraining_loss_curve-{ENV_ID}.png')
     plt.figure()
     plt.plot(range(1, NUM_EPOCHS+1), loss_history, marker='o')
     plt.xlabel('Epoch')
