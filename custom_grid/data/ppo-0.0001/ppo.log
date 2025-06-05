@@ -1,0 +1,198 @@
+2025-06-03 22:21:26,005 INFO Using device: cpu
+2025-06-03 22:21:26,014 INFO Attempting to load IL-trained actor from: /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/saved_models_exp/policy_il_trained_grid.pth
+2025-06-03 22:21:26,031 INFO Successfully loaded pre-trained IL actor.
+2025-06-03 22:21:26,777 INFO --- Starting PPO Fine-tuning ---
+2025-06-03 22:21:26,778 INFO Logging experiment at: /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/tensorboard/ppo_grid_0.0001
+2025-06-03 22:21:31,106 INFO PPO Iter: 10	Total Steps: 20480	Avg Reward (Batch): 784.70	Avg Reward (Roll100): 780.42	Actor Loss: -0.0003	Critic Loss: 113979.8268	Entropy: 0.6157	KL Divergence: inf
+2025-06-03 22:21:35,358 INFO PPO Iter: 20	Total Steps: 40960	Avg Reward (Batch): 840.30	Avg Reward (Roll100): 779.91	Actor Loss: -0.0003	Critic Loss: 118172.0872	Entropy: 0.6150	KL Divergence: inf
+2025-06-03 22:21:39,826 INFO PPO Iter: 30	Total Steps: 61440	Avg Reward (Batch): 680.00	Avg Reward (Roll100): 654.48	Actor Loss: -0.0004	Critic Loss: 105537.0065	Entropy: 0.6337	KL Divergence: 0.000073
+2025-06-03 22:21:44,204 INFO PPO Iter: 40	Total Steps: 81920	Avg Reward (Batch): 717.02	Avg Reward (Roll100): 748.95	Actor Loss: -0.0006	Critic Loss: 113978.7049	Entropy: 0.6023	KL Divergence: 0.000072
+2025-06-03 22:21:48,484 INFO PPO Iter: 50	Total Steps: 102400	Avg Reward (Batch): 779.73	Avg Reward (Roll100): 738.48	Actor Loss: -0.0012	Critic Loss: 126570.8826	Entropy: 0.5941	KL Divergence: 0.000099
+2025-06-03 22:21:48,486 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_50.pth
+2025-06-03 22:21:52,883 INFO PPO Iter: 60	Total Steps: 122880	Avg Reward (Batch): 897.66	Avg Reward (Roll100): 854.41	Actor Loss: -0.0002	Critic Loss: 113846.3465	Entropy: 0.4599	KL Divergence: 0.000011
+2025-06-03 22:21:57,337 INFO PPO Iter: 70	Total Steps: 143360	Avg Reward (Batch): 880.85	Avg Reward (Roll100): 843.45	Actor Loss: -0.0008	Critic Loss: 130779.3353	Entropy: 0.5573	KL Divergence: 0.000051
+2025-06-03 22:22:01,664 INFO PPO Iter: 80	Total Steps: 163840	Avg Reward (Batch): 913.33	Avg Reward (Roll100): 885.45	Actor Loss: -0.0005	Critic Loss: 139152.0251	Entropy: 0.5131	KL Divergence: 0.000079
+2025-06-03 22:22:06,060 INFO PPO Iter: 90	Total Steps: 184320	Avg Reward (Batch): 866.15	Avg Reward (Roll100): 895.95	Actor Loss: -0.0004	Critic Loss: 143359.0127	Entropy: 0.5216	KL Divergence: 0.000059
+2025-06-03 22:22:10,610 INFO PPO Iter: 100	Total Steps: 204800	Avg Reward (Batch): 861.31	Avg Reward (Roll100): 863.97	Actor Loss: -0.0006	Critic Loss: 139221.0380	Entropy: 0.5395	KL Divergence: 0.000077
+2025-06-03 22:22:10,611 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_100.pth
+2025-06-03 22:22:15,091 INFO PPO Iter: 110	Total Steps: 225280	Avg Reward (Batch): 833.22	Avg Reward (Roll100): 864.93	Actor Loss: -0.0009	Critic Loss: 109661.1135	Entropy: 0.4568	KL Divergence: inf
+2025-06-03 22:22:19,418 INFO PPO Iter: 120	Total Steps: 245760	Avg Reward (Batch): 707.67	Avg Reward (Roll100): 728.03	Actor Loss: -0.0006	Critic Loss: 130820.2418	Entropy: 0.5442	KL Divergence: inf
+2025-06-03 22:22:23,867 INFO PPO Iter: 130	Total Steps: 266240	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 885.47	Actor Loss: -0.0004	Critic Loss: 147614.1761	Entropy: 0.4882	KL Divergence: 0.000079
+2025-06-03 22:22:28,493 INFO PPO Iter: 140	Total Steps: 286720	Avg Reward (Batch): 915.67	Avg Reward (Roll100): 927.46	Actor Loss: -0.0003	Critic Loss: 143407.8998	Entropy: 0.5130	KL Divergence: 0.000057
+2025-06-03 22:22:33,210 INFO PPO Iter: 150	Total Steps: 307200	Avg Reward (Batch): 971.66	Avg Reward (Roll100): 948.45	Actor Loss: -0.0003	Critic Loss: 147542.0113	Entropy: 0.5014	KL Divergence: inf
+2025-06-03 22:22:33,211 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_150.pth
+2025-06-03 22:22:37,854 INFO PPO Iter: 160	Total Steps: 327680	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 906.46	Actor Loss: -0.0003	Critic Loss: 147563.1456	Entropy: 0.4930	KL Divergence: 0.000023
+2025-06-03 22:22:42,712 INFO PPO Iter: 170	Total Steps: 348160	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 927.46	Actor Loss: -0.0004	Critic Loss: 147630.3187	Entropy: 0.4885	KL Divergence: 0.000026
+2025-06-03 22:22:47,436 INFO PPO Iter: 180	Total Steps: 368640	Avg Reward (Batch): 915.67	Avg Reward (Roll100): 906.46	Actor Loss: -0.0004	Critic Loss: 143414.2227	Entropy: 0.4803	KL Divergence: 0.000030
+2025-06-03 22:22:51,824 INFO PPO Iter: 190	Total Steps: 389120	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 927.45	Actor Loss: -0.0002	Critic Loss: 147607.0764	Entropy: 0.4977	KL Divergence: 0.000021
+2025-06-03 22:22:56,322 INFO PPO Iter: 200	Total Steps: 409600	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 927.46	Actor Loss: -0.0005	Critic Loss: 147641.3986	Entropy: 0.4984	KL Divergence: 0.000080
+2025-06-03 22:22:56,324 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_200.pth
+2025-06-03 22:23:00,654 INFO PPO Iter: 210	Total Steps: 430080	Avg Reward (Batch): 842.00	Avg Reward (Roll100): 832.50	Actor Loss: -0.0001	Critic Loss: 143508.2919	Entropy: 0.5171	KL Divergence: 0.000053
+2025-06-03 22:23:04,958 INFO PPO Iter: 220	Total Steps: 450560	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 906.47	Actor Loss: -0.0006	Critic Loss: 147682.5734	Entropy: 0.4955	KL Divergence: 0.000061
+2025-06-03 22:23:09,289 INFO PPO Iter: 230	Total Steps: 471040	Avg Reward (Batch): 893.07	Avg Reward (Roll100): 916.98	Actor Loss: -0.0009	Critic Loss: 147663.5153	Entropy: 0.4828	KL Divergence: 0.000059
+2025-06-03 22:23:13,627 INFO PPO Iter: 240	Total Steps: 491520	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 916.98	Actor Loss: -0.0001	Critic Loss: 151841.2457	Entropy: 0.4854	KL Divergence: 0.000033
+2025-06-03 22:23:17,990 INFO PPO Iter: 250	Total Steps: 512000	Avg Reward (Batch): 866.15	Avg Reward (Roll100): 926.97	Actor Loss: -0.0011	Critic Loss: 143465.0819	Entropy: 0.5023	KL Divergence: 0.000257
+2025-06-03 22:23:17,991 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_250.pth
+2025-06-03 22:23:18,040 INFO Saved critic loss snapshot to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/critic_loss_at_iter_250_entropy_0.0001.pkl
+2025-06-03 22:23:22,355 INFO PPO Iter: 260	Total Steps: 532480	Avg Reward (Batch): 756.51	Avg Reward (Roll100): 770.02	Actor Loss: -0.0004	Critic Loss: 139240.4688	Entropy: 0.5042	KL Divergence: inf
+2025-06-03 22:23:26,655 INFO PPO Iter: 270	Total Steps: 552960	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 843.50	Actor Loss: -0.0012	Critic Loss: 147685.6064	Entropy: 0.5026	KL Divergence: inf
+2025-06-03 22:23:30,976 INFO PPO Iter: 280	Total Steps: 573440	Avg Reward (Batch): 800.71	Avg Reward (Roll100): 759.53	Actor Loss: -0.0010	Critic Loss: 143433.4878	Entropy: 0.5104	KL Divergence: 0.000124
+2025-06-03 22:23:35,569 INFO PPO Iter: 290	Total Steps: 593920	Avg Reward (Batch): 920.00	Avg Reward (Roll100): 874.99	Actor Loss: -0.0002	Critic Loss: 151834.5381	Entropy: 0.4950	KL Divergence: 0.000038
+2025-06-03 22:23:39,935 INFO PPO Iter: 300	Total Steps: 614400	Avg Reward (Batch): 847.07	Avg Reward (Roll100): 822.52	Actor Loss: -0.0002	Critic Loss: 147654.9351	Entropy: 0.4932	KL Divergence: 0.000030
+2025-06-03 22:23:39,936 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_300.pth
+2025-06-03 22:23:44,796 INFO PPO Iter: 310	Total Steps: 634880	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 885.48	Actor Loss: -0.0013	Critic Loss: 147697.8537	Entropy: 0.4924	KL Divergence: 0.000187
+2025-06-03 22:23:49,379 INFO PPO Iter: 320	Total Steps: 655360	Avg Reward (Batch): 847.07	Avg Reward (Roll100): 854.00	Actor Loss: -0.0003	Critic Loss: 147620.8958	Entropy: 0.4894	KL Divergence: inf
+2025-06-03 22:23:53,848 INFO PPO Iter: 330	Total Steps: 675840	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 895.98	Actor Loss: -0.0005	Critic Loss: 147660.9839	Entropy: 0.4793	KL Divergence: 0.000040
+2025-06-03 22:23:58,215 INFO PPO Iter: 340	Total Steps: 696320	Avg Reward (Batch): 972.43	Avg Reward (Roll100): 937.96	Actor Loss: -0.0014	Critic Loss: 151863.5714	Entropy: 0.4891	KL Divergence: inf
+2025-06-03 22:24:02,689 INFO PPO Iter: 350	Total Steps: 716800	Avg Reward (Batch): 893.07	Avg Reward (Roll100): 906.48	Actor Loss: -0.0002	Critic Loss: 147721.2430	Entropy: 0.4909	KL Divergence: inf
+2025-06-03 22:24:02,692 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_350.pth
+2025-06-03 22:24:07,196 INFO PPO Iter: 360	Total Steps: 737280	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 885.48	Actor Loss: -0.0024	Critic Loss: 147716.9672	Entropy: 0.4927	KL Divergence: 0.000332
+2025-06-03 22:24:11,464 INFO PPO Iter: 370	Total Steps: 757760	Avg Reward (Batch): 866.15	Avg Reward (Roll100): 895.98	Actor Loss: -0.0009	Critic Loss: 143473.8004	Entropy: 0.4778	KL Divergence: 0.000131
+2025-06-03 22:24:16,258 INFO PPO Iter: 380	Total Steps: 778240	Avg Reward (Batch): 972.43	Avg Reward (Roll100): 948.47	Actor Loss: -0.0006	Critic Loss: 151890.9169	Entropy: 0.4719	KL Divergence: 0.000140
+2025-06-03 22:24:21,081 INFO PPO Iter: 390	Total Steps: 798720	Avg Reward (Batch): 843.25	Avg Reward (Roll100): 895.98	Actor Loss: -0.0010	Critic Loss: 143494.7205	Entropy: 0.4788	KL Divergence: inf
+2025-06-03 22:24:25,524 INFO PPO Iter: 400	Total Steps: 819200	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 927.48	Actor Loss: -0.0003	Critic Loss: 151780.2330	Entropy: 0.4700	KL Divergence: 0.000023
+2025-06-03 22:24:25,526 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_400.pth
+2025-06-03 22:24:29,916 INFO PPO Iter: 410	Total Steps: 839680	Avg Reward (Batch): 893.07	Avg Reward (Roll100): 927.47	Actor Loss: -0.0008	Critic Loss: 147657.9975	Entropy: 0.4756	KL Divergence: 0.000110
+2025-06-03 22:24:34,218 INFO PPO Iter: 420	Total Steps: 860160	Avg Reward (Batch): 920.00	Avg Reward (Roll100): 906.48	Actor Loss: -0.0003	Critic Loss: 151812.0271	Entropy: 0.4657	KL Divergence: 0.000102
+2025-06-03 22:24:38,503 INFO PPO Iter: 430	Total Steps: 880640	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 927.47	Actor Loss: -0.0008	Critic Loss: 147711.4241	Entropy: 0.4670	KL Divergence: inf
+2025-06-03 22:24:42,821 INFO PPO Iter: 440	Total Steps: 901120	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 916.99	Actor Loss: -0.0007	Critic Loss: 151824.9683	Entropy: 0.4813	KL Divergence: 0.000117
+2025-06-03 22:24:47,101 INFO PPO Iter: 450	Total Steps: 921600	Avg Reward (Batch): 920.00	Avg Reward (Roll100): 916.98	Actor Loss: -0.0013	Critic Loss: 151822.5154	Entropy: 0.4674	KL Divergence: inf
+2025-06-03 22:24:47,101 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_450.pth
+2025-06-03 22:24:51,510 INFO PPO Iter: 460	Total Steps: 942080	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 916.97	Actor Loss: -0.0039	Critic Loss: 151866.8867	Entropy: 0.4710	KL Divergence: inf
+2025-06-03 22:24:55,852 INFO PPO Iter: 470	Total Steps: 962560	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 916.98	Actor Loss: -0.0001	Critic Loss: 147607.8508	Entropy: 0.4624	KL Divergence: 0.000043
+2025-06-03 22:25:00,186 INFO PPO Iter: 480	Total Steps: 983040	Avg Reward (Batch): 920.00	Avg Reward (Roll100): 948.47	Actor Loss: -0.0005	Critic Loss: 151825.6539	Entropy: 0.4755	KL Divergence: 0.000055
+2025-06-03 22:25:04,536 INFO PPO Iter: 490	Total Steps: 1003520	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 927.47	Actor Loss: -0.0004	Critic Loss: 147702.0305	Entropy: 0.4959	KL Divergence: 0.000031
+2025-06-03 22:25:08,824 INFO PPO Iter: 500	Total Steps: 1024000	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 916.98	Actor Loss: -0.0007	Critic Loss: 147678.9303	Entropy: 0.4838	KL Divergence: 0.000162
+2025-06-03 22:25:08,825 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_500.pth
+2025-06-03 22:25:08,877 INFO Saved critic loss snapshot to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/critic_loss_at_iter_500_entropy_0.0001.pkl
+2025-06-03 22:25:13,501 INFO PPO Iter: 510	Total Steps: 1044480	Avg Reward (Batch): 972.43	Avg Reward (Roll100): 948.46	Actor Loss: -0.0002	Critic Loss: 151826.5703	Entropy: 0.4819	KL Divergence: inf
+2025-06-03 22:25:17,822 INFO PPO Iter: 520	Total Steps: 1064960	Avg Reward (Batch): 944.05	Avg Reward (Roll100): 958.95	Actor Loss: -0.0004	Critic Loss: 147649.6002	Entropy: 0.4708	KL Divergence: 0.000043
+2025-06-03 22:25:22,248 INFO PPO Iter: 530	Total Steps: 1085440	Avg Reward (Batch): 973.15	Avg Reward (Roll100): 937.97	Actor Loss: -0.0011	Critic Loss: 156029.9064	Entropy: 0.4528	KL Divergence: 0.000120
+2025-06-03 22:25:26,644 INFO PPO Iter: 540	Total Steps: 1105920	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 916.98	Actor Loss: -0.0008	Critic Loss: 147629.9367	Entropy: 0.4653	KL Divergence: inf
+2025-06-03 22:25:31,104 INFO PPO Iter: 550	Total Steps: 1126400	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 927.47	Actor Loss: -0.0004	Critic Loss: 151852.7010	Entropy: 0.4570	KL Divergence: 0.000055
+2025-06-03 22:25:31,106 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_550.pth
+2025-06-03 22:25:35,677 INFO PPO Iter: 560	Total Steps: 1146880	Avg Reward (Batch): 866.15	Avg Reward (Roll100): 916.97	Actor Loss: -0.0005	Critic Loss: 143451.7138	Entropy: 0.4864	KL Divergence: 0.000030
+2025-06-03 22:25:40,372 INFO PPO Iter: 570	Total Steps: 1167360	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 937.97	Actor Loss: -0.0006	Critic Loss: 151805.8731	Entropy: 0.4735	KL Divergence: 0.000068
+2025-06-03 22:25:44,882 INFO PPO Iter: 580	Total Steps: 1187840	Avg Reward (Batch): 917.89	Avg Reward (Roll100): 948.47	Actor Loss: -0.0002	Critic Loss: 147669.7215	Entropy: 0.4788	KL Divergence: 0.000033
+2025-06-03 22:25:49,414 INFO PPO Iter: 590	Total Steps: 1208320	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 906.48	Actor Loss: -0.0006	Critic Loss: 151817.8413	Entropy: 0.4724	KL Divergence: 0.000054
+2025-06-03 22:25:54,192 INFO PPO Iter: 600	Total Steps: 1228800	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 958.96	Actor Loss: -0.0008	Critic Loss: 151804.0281	Entropy: 0.4493	KL Divergence: 0.000090
+2025-06-03 22:25:54,193 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_600.pth
+2025-06-03 22:25:58,532 INFO PPO Iter: 610	Total Steps: 1249280	Avg Reward (Batch): 945.52	Avg Reward (Roll100): 916.98	Actor Loss: -0.0009	Critic Loss: 151799.7842	Entropy: 0.4651	KL Divergence: 0.000070
+2025-06-03 22:26:02,958 INFO PPO Iter: 620	Total Steps: 1269760	Avg Reward (Batch): 893.07	Avg Reward (Roll100): 927.48	Actor Loss: -0.0007	Critic Loss: 147598.0899	Entropy: 0.4668	KL Divergence: inf
+2025-06-03 22:26:07,550 INFO PPO Iter: 630	Total Steps: 1290240	Avg Reward (Batch): 895.75	Avg Reward (Roll100): 822.51	Actor Loss: -0.0001	Critic Loss: 151818.8722	Entropy: 0.4450	KL Divergence: 0.000018
+2025-06-03 22:26:11,901 INFO PPO Iter: 640	Total Steps: 1310720	Avg Reward (Batch): 898.29	Avg Reward (Roll100): 895.99	Actor Loss: -0.0002	Critic Loss: 156004.2767	Entropy: 0.4518	KL Divergence: 0.000013
+2025-06-03 22:26:16,643 INFO PPO Iter: 650	Total Steps: 1331200	Avg Reward (Batch): 847.07	Avg Reward (Roll100): 854.01	Actor Loss: -0.0001	Critic Loss: 147638.7320	Entropy: 0.4596	KL Divergence: 0.000008
+2025-06-03 22:26:16,645 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_650.pth
+2025-06-03 22:26:21,013 INFO PPO Iter: 660	Total Steps: 1351680	Avg Reward (Batch): 895.75	Avg Reward (Roll100): 905.99	Actor Loss: -0.0005	Critic Loss: 151872.3494	Entropy: 0.4490	KL Divergence: 0.000054
+2025-06-03 22:26:25,349 INFO PPO Iter: 670	Total Steps: 1372160	Avg Reward (Batch): 866.15	Avg Reward (Roll100): 885.48	Actor Loss: -0.0006	Critic Loss: 143450.5768	Entropy: 0.4644	KL Divergence: inf
+2025-06-03 22:26:29,702 INFO PPO Iter: 680	Total Steps: 1392640	Avg Reward (Batch): 850.71	Avg Reward (Roll100): 906.50	Actor Loss: -0.0008	Critic Loss: 151842.6497	Entropy: 0.4385	KL Divergence: 0.000048
+2025-06-03 22:26:34,041 INFO PPO Iter: 690	Total Steps: 1413120	Avg Reward (Batch): 895.75	Avg Reward (Roll100): 875.01	Actor Loss: -0.0007	Critic Loss: 151849.6551	Entropy: 0.4294	KL Divergence: 0.000064
+2025-06-03 22:26:38,350 INFO PPO Iter: 700	Total Steps: 1433600	Avg Reward (Batch): 872.68	Avg Reward (Roll100): 906.50	Actor Loss: -0.0004	Critic Loss: 151795.4363	Entropy: 0.4401	KL Divergence: 0.000026
+2025-06-03 22:26:38,351 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_700.pth
+2025-06-03 22:26:42,757 INFO PPO Iter: 710	Total Steps: 1454080	Avg Reward (Batch): 878.60	Avg Reward (Roll100): 885.51	Actor Loss: -0.0005	Critic Loss: 160110.9551	Entropy: 0.4154	KL Divergence: 0.000055
+2025-06-03 22:26:47,180 INFO PPO Iter: 720	Total Steps: 1474560	Avg Reward (Batch): 847.07	Avg Reward (Roll100): 864.51	Actor Loss: -0.0002	Critic Loss: 147584.3642	Entropy: 0.4477	KL Divergence: 0.000019
+2025-06-03 22:26:51,597 INFO PPO Iter: 730	Total Steps: 1495040	Avg Reward (Batch): 948.25	Avg Reward (Roll100): 927.50	Actor Loss: -0.0002	Critic Loss: 160142.8027	Entropy: 0.4070	KL Divergence: 0.000031
+2025-06-03 22:26:55,970 INFO PPO Iter: 740	Total Steps: 1515520	Avg Reward (Batch): 973.15	Avg Reward (Roll100): 917.00	Actor Loss: -0.0006	Critic Loss: 155996.7655	Entropy: 0.4343	KL Divergence: inf
+2025-06-03 22:27:00,357 INFO PPO Iter: 750	Total Steps: 1536000	Avg Reward (Batch): 922.00	Avg Reward (Roll100): 917.01	Actor Loss: -0.0000	Critic Loss: 155973.9454	Entropy: 0.4110	KL Divergence: 0.000014
+2025-06-03 22:27:00,359 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_750.pth
+2025-06-03 22:27:00,412 INFO Saved critic loss snapshot to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/critic_loss_at_iter_750_entropy_0.0001.pkl
+2025-06-03 22:27:04,783 INFO PPO Iter: 760	Total Steps: 1556480	Avg Reward (Batch): 948.25	Avg Reward (Roll100): 885.52	Actor Loss: -0.0003	Critic Loss: 160143.4866	Entropy: 0.3962	KL Divergence: inf
+2025-06-03 22:27:09,162 INFO PPO Iter: 770	Total Steps: 1576960	Avg Reward (Batch): 946.92	Avg Reward (Roll100): 917.01	Actor Loss: -0.0009	Critic Loss: 156014.9147	Entropy: 0.4197	KL Divergence: 0.000073
+2025-06-03 22:27:13,496 INFO PPO Iter: 780	Total Steps: 1597440	Avg Reward (Batch): 854.18	Avg Reward (Roll100): 896.02	Actor Loss: -0.0001	Critic Loss: 156005.3210	Entropy: 0.4033	KL Divergence: 0.000013
+2025-06-03 22:27:17,865 INFO PPO Iter: 790	Total Steps: 1617920	Avg Reward (Batch): 900.71	Avg Reward (Roll100): 927.50	Actor Loss: -0.0005	Critic Loss: 160153.8893	Entropy: 0.3871	KL Divergence: 0.000029
+2025-06-03 22:27:22,232 INFO PPO Iter: 800	Total Steps: 1638400	Avg Reward (Batch): 875.71	Avg Reward (Roll100): 896.01	Actor Loss: -0.0003	Critic Loss: 155900.8530	Entropy: 0.4148	KL Divergence: inf
+2025-06-03 22:27:22,235 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_800.pth
+2025-06-03 22:27:26,611 INFO PPO Iter: 810	Total Steps: 1658880	Avg Reward (Batch): 949.51	Avg Reward (Roll100): 896.01	Actor Loss: -0.0002	Critic Loss: 164311.2028	Entropy: 0.3808	KL Divergence: 0.000035
+2025-06-03 22:27:30,972 INFO PPO Iter: 820	Total Steps: 1679360	Avg Reward (Batch): 973.15	Avg Reward (Roll100): 927.50	Actor Loss: -0.0003	Critic Loss: 156042.9737	Entropy: 0.4248	KL Divergence: inf
+2025-06-03 22:27:35,383 INFO PPO Iter: 830	Total Steps: 1699840	Avg Reward (Batch): 875.71	Avg Reward (Roll100): 927.50	Actor Loss: -0.0003	Critic Loss: 155944.3043	Entropy: 0.3941	KL Divergence: 0.000042
+2025-06-03 22:27:39,673 INFO PPO Iter: 840	Total Steps: 1720320	Avg Reward (Batch): 923.90	Avg Reward (Roll100): 906.52	Actor Loss: -0.0005	Critic Loss: 160167.4847	Entropy: 0.3777	KL Divergence: inf
+2025-06-03 22:27:43,996 INFO PPO Iter: 850	Total Steps: 1740800	Avg Reward (Batch): 923.90	Avg Reward (Roll100): 906.52	Actor Loss: -0.0007	Critic Loss: 160168.0605	Entropy: 0.3844	KL Divergence: inf
+2025-06-03 22:27:43,997 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_850.pth
+2025-06-03 22:27:48,547 INFO PPO Iter: 860	Total Steps: 1761280	Avg Reward (Batch): 875.71	Avg Reward (Roll100): 906.52	Actor Loss: -0.0002	Critic Loss: 155934.8176	Entropy: 0.3854	KL Divergence: 0.000029
+2025-06-03 22:27:52,877 INFO PPO Iter: 870	Total Steps: 1781760	Avg Reward (Batch): 949.51	Avg Reward (Roll100): 938.01	Actor Loss: -0.0007	Critic Loss: 164325.0647	Entropy: 0.3788	KL Divergence: 0.000078
+2025-06-03 22:27:57,197 INFO PPO Iter: 880	Total Steps: 1802240	Avg Reward (Batch): 900.71	Avg Reward (Roll100): 927.51	Actor Loss: -0.0004	Critic Loss: 160146.1705	Entropy: 0.3787	KL Divergence: 0.000046
+2025-06-03 22:28:01,681 INFO PPO Iter: 890	Total Steps: 1822720	Avg Reward (Batch): 949.51	Avg Reward (Roll100): 959.01	Actor Loss: -0.0005	Critic Loss: 164297.0724	Entropy: 0.3642	KL Divergence: 0.000037
+2025-06-03 22:28:06,009 INFO PPO Iter: 900	Total Steps: 1843200	Avg Reward (Batch): 923.90	Avg Reward (Roll100): 938.01	Actor Loss: -0.0003	Critic Loss: 160176.1097	Entropy: 0.3830	KL Divergence: 0.000025
+2025-06-03 22:28:06,010 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_900.pth
+2025-06-03 22:28:10,345 INFO PPO Iter: 910	Total Steps: 1863680	Avg Reward (Batch): 950.71	Avg Reward (Roll100): 938.01	Actor Loss: -0.0005	Critic Loss: 168460.9844	Entropy: 0.3592	KL Divergence: 0.000023
+2025-06-03 22:28:14,743 INFO PPO Iter: 920	Total Steps: 1884160	Avg Reward (Batch): 903.02	Avg Reward (Roll100): 927.51	Actor Loss: -0.0002	Critic Loss: 164334.7755	Entropy: 0.3688	KL Divergence: inf
+2025-06-03 22:28:19,539 INFO PPO Iter: 930	Total Steps: 1904640	Avg Reward (Batch): 949.51	Avg Reward (Roll100): 959.01	Actor Loss: -0.0001	Critic Loss: 164305.6078	Entropy: 0.3483	KL Divergence: 0.000023
+2025-06-03 22:28:23,889 INFO PPO Iter: 940	Total Steps: 1925120	Avg Reward (Batch): 923.90	Avg Reward (Roll100): 927.52	Actor Loss: -0.0007	Critic Loss: 160185.9861	Entropy: 0.3677	KL Divergence: 0.000042
+2025-06-03 22:28:28,165 INFO PPO Iter: 950	Total Steps: 1945600	Avg Reward (Batch): 927.44	Avg Reward (Roll100): 948.52	Actor Loss: -0.0004	Critic Loss: 168449.6393	Entropy: 0.3349	KL Divergence: inf
+2025-06-03 22:28:28,166 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_950.pth
+2025-06-03 22:28:32,489 INFO PPO Iter: 960	Total Steps: 1966080	Avg Reward (Batch): 925.71	Avg Reward (Roll100): 948.51	Actor Loss: -0.0003	Critic Loss: 164353.1802	Entropy: 0.3636	KL Divergence: inf
+2025-06-03 22:28:36,759 INFO PPO Iter: 970	Total Steps: 1986560	Avg Reward (Batch): 950.71	Avg Reward (Roll100): 948.52	Actor Loss: -0.0001	Critic Loss: 168486.7668	Entropy: 0.3331	KL Divergence: 0.000016
+2025-06-03 22:28:41,097 INFO PPO Iter: 980	Total Steps: 2007040	Avg Reward (Batch): 927.44	Avg Reward (Roll100): 927.53	Actor Loss: -0.0002	Critic Loss: 168487.4188	Entropy: 0.3204	KL Divergence: 0.000035
+2025-06-03 22:28:45,585 INFO PPO Iter: 990	Total Steps: 2027520	Avg Reward (Batch): 950.71	Avg Reward (Roll100): 969.01	Actor Loss: -0.0000	Critic Loss: 168519.2374	Entropy: 0.3288	KL Divergence: 0.000015
+2025-06-03 22:28:49,945 INFO PPO Iter: 1000	Total Steps: 2048000	Avg Reward (Batch): 951.86	Avg Reward (Roll100): 948.54	Actor Loss: -0.0006	Critic Loss: 172615.1477	Entropy: 0.3091	KL Divergence: inf
+2025-06-03 22:28:49,946 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1000.pth
+2025-06-03 22:28:49,995 INFO Saved critic loss snapshot to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/critic_loss_at_iter_1000_entropy_0.0001.pkl
+2025-06-03 22:28:54,359 INFO PPO Iter: 1010	Total Steps: 2068480	Avg Reward (Batch): 975.71	Avg Reward (Roll100): 969.03	Actor Loss: -0.0002	Critic Loss: 172599.7661	Entropy: 0.2982	KL Divergence: inf
+2025-06-03 22:28:58,878 INFO PPO Iter: 1020	Total Steps: 2088960	Avg Reward (Batch): 949.51	Avg Reward (Roll100): 938.02	Actor Loss: -0.0003	Critic Loss: 164338.2902	Entropy: 0.3407	KL Divergence: 0.000042
+2025-06-03 22:29:03,260 INFO PPO Iter: 1030	Total Steps: 2109440	Avg Reward (Batch): 927.44	Avg Reward (Roll100): 927.53	Actor Loss: -0.0007	Critic Loss: 168471.3329	Entropy: 0.3063	KL Divergence: inf
+2025-06-03 22:29:07,838 INFO PPO Iter: 1040	Total Steps: 2129920	Avg Reward (Batch): 975.71	Avg Reward (Roll100): 959.03	Actor Loss: -0.0001	Critic Loss: 172609.0046	Entropy: 0.2975	KL Divergence: inf
+2025-06-03 22:29:12,644 INFO PPO Iter: 1050	Total Steps: 2150400	Avg Reward (Batch): 975.71	Avg Reward (Roll100): 959.02	Actor Loss: -0.0005	Critic Loss: 172653.4908	Entropy: 0.3041	KL Divergence: inf
+2025-06-03 22:29:12,646 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1050.pth
+2025-06-03 22:29:17,532 INFO PPO Iter: 1060	Total Steps: 2170880	Avg Reward (Batch): 999.52	Avg Reward (Roll100): 979.52	Actor Loss: 0.0000	Critic Loss: 176806.0170	Entropy: 0.2971	KL Divergence: 0.000021
+2025-06-03 22:29:22,116 INFO PPO Iter: 1070	Total Steps: 2191360	Avg Reward (Batch): 975.71	Avg Reward (Roll100): 938.03	Actor Loss: -0.0006	Critic Loss: 172661.5767	Entropy: 0.3181	KL Divergence: 0.000053
+2025-06-03 22:29:27,503 INFO PPO Iter: 1080	Total Steps: 2211840	Avg Reward (Batch): 951.86	Avg Reward (Roll100): 959.03	Actor Loss: -0.0008	Critic Loss: 172653.1696	Entropy: 0.3044	KL Divergence: 0.000091
+2025-06-03 22:29:32,555 INFO PPO Iter: 1090	Total Steps: 2232320	Avg Reward (Batch): 950.71	Avg Reward (Roll100): 959.02	Actor Loss: -0.0004	Critic Loss: 168491.9308	Entropy: 0.3075	KL Divergence: 0.000072
+2025-06-03 22:29:37,044 INFO PPO Iter: 1100	Total Steps: 2252800	Avg Reward (Batch): 929.09	Avg Reward (Roll100): 916.54	Actor Loss: -0.0013	Critic Loss: 172621.0682	Entropy: 0.2921	KL Divergence: 0.000096
+2025-06-03 22:29:37,046 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1100.pth
+2025-06-03 22:29:41,556 INFO PPO Iter: 1110	Total Steps: 2273280	Avg Reward (Batch): 950.71	Avg Reward (Roll100): 938.03	Actor Loss: -0.0008	Critic Loss: 168545.9121	Entropy: 0.3032	KL Divergence: 0.000048
+2025-06-03 22:29:46,081 INFO PPO Iter: 1120	Total Steps: 2293760	Avg Reward (Batch): 951.86	Avg Reward (Roll100): 938.04	Actor Loss: -0.0000	Critic Loss: 172620.2347	Entropy: 0.2883	KL Divergence: 0.000017
+2025-06-03 22:29:50,727 INFO PPO Iter: 1130	Total Steps: 2314240	Avg Reward (Batch): 952.95	Avg Reward (Roll100): 906.56	Actor Loss: -0.0004	Critic Loss: 176764.5468	Entropy: 0.2711	KL Divergence: 0.000062
+2025-06-03 22:29:55,069 INFO PPO Iter: 1140	Total Steps: 2334720	Avg Reward (Batch): 951.86	Avg Reward (Roll100): 959.04	Actor Loss: -0.0006	Critic Loss: 172610.0258	Entropy: 0.2885	KL Divergence: 0.000069
+2025-06-03 22:29:59,602 INFO PPO Iter: 1150	Total Steps: 2355200	Avg Reward (Batch): 976.28	Avg Reward (Roll100): 959.03	Actor Loss: -0.0008	Critic Loss: 176753.2913	Entropy: 0.2749	KL Divergence: inf
+2025-06-03 22:29:59,604 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1150.pth
+2025-06-03 22:30:03,911 INFO PPO Iter: 1160	Total Steps: 2375680	Avg Reward (Batch): 954.00	Avg Reward (Roll100): 937.55	Actor Loss: -0.0005	Critic Loss: 180837.3589	Entropy: 0.2446	KL Divergence: 0.000054
+2025-06-03 22:30:08,593 INFO PPO Iter: 1170	Total Steps: 2396160	Avg Reward (Batch): 943.88	Avg Reward (Roll100): 959.50	Actor Loss: -0.0016	Critic Loss: 143108.2814	Entropy: 0.2598	KL Divergence: inf
+2025-06-03 22:30:12,907 INFO PPO Iter: 1180	Total Steps: 2416640	Avg Reward (Batch): 951.86	Avg Reward (Roll100): 948.54	Actor Loss: -0.0002	Critic Loss: 172649.9362	Entropy: 0.2895	KL Divergence: 0.000017
+2025-06-03 22:30:17,352 INFO PPO Iter: 1190	Total Steps: 2437120	Avg Reward (Batch): 929.09	Avg Reward (Roll100): 938.04	Actor Loss: -0.0007	Critic Loss: 172568.4415	Entropy: 0.2637	KL Divergence: inf
+2025-06-03 22:30:21,685 INFO PPO Iter: 1200	Total Steps: 2457600	Avg Reward (Batch): 929.09	Avg Reward (Roll100): 938.05	Actor Loss: -0.0006	Critic Loss: 172595.3153	Entropy: 0.2680	KL Divergence: 0.000052
+2025-06-03 22:30:21,686 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1200.pth
+2025-06-03 22:30:26,043 INFO PPO Iter: 1210	Total Steps: 2478080	Avg Reward (Batch): 930.67	Avg Reward (Roll100): 958.55	Actor Loss: -0.0003	Critic Loss: 176695.6229	Entropy: 0.2509	KL Divergence: 0.000023
+2025-06-03 22:30:30,399 INFO PPO Iter: 1220	Total Steps: 2498560	Avg Reward (Batch): 976.82	Avg Reward (Roll100): 959.05	Actor Loss: -0.0003	Critic Loss: 180871.4315	Entropy: 0.2516	KL Divergence: 0.000032
+2025-06-03 22:30:34,723 INFO PPO Iter: 1230	Total Steps: 2519040	Avg Reward (Batch): 909.35	Avg Reward (Roll100): 917.06	Actor Loss: -0.0005	Critic Loss: 176744.3660	Entropy: 0.2539	KL Divergence: 0.000051
+2025-06-03 22:30:39,039 INFO PPO Iter: 1240	Total Steps: 2539520	Avg Reward (Batch): 976.82	Avg Reward (Roll100): 959.05	Actor Loss: -0.0003	Critic Loss: 180858.2285	Entropy: 0.2533	KL Divergence: 0.000020
+2025-06-03 22:30:43,381 INFO PPO Iter: 1250	Total Steps: 2560000	Avg Reward (Batch): 952.95	Avg Reward (Roll100): 948.55	Actor Loss: -0.0004	Critic Loss: 176724.8481	Entropy: 0.2637	KL Divergence: inf
+2025-06-03 22:30:43,382 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1250.pth
+2025-06-03 22:30:43,488 INFO Saved critic loss snapshot to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/critic_loss_at_iter_1250_entropy_0.0001.pkl
+2025-06-03 22:30:47,826 INFO PPO Iter: 1260	Total Steps: 2580480	Avg Reward (Batch): 976.28	Avg Reward (Roll100): 969.03	Actor Loss: -0.0007	Critic Loss: 176751.1216	Entropy: 0.2761	KL Divergence: 0.000097
+2025-06-03 22:30:52,152 INFO PPO Iter: 1270	Total Steps: 2600960	Avg Reward (Batch): 976.82	Avg Reward (Roll100): 959.04	Actor Loss: -0.0007	Critic Loss: 180858.1723	Entropy: 0.2433	KL Divergence: 0.000073
+2025-06-03 22:30:56,496 INFO PPO Iter: 1280	Total Steps: 2621440	Avg Reward (Batch): 954.00	Avg Reward (Roll100): 938.06	Actor Loss: -0.0008	Critic Loss: 180869.4882	Entropy: 0.2345	KL Divergence: 0.000112
+2025-06-03 22:31:00,810 INFO PPO Iter: 1290	Total Steps: 2641920	Avg Reward (Batch): 976.82	Avg Reward (Roll100): 938.06	Actor Loss: -0.0010	Critic Loss: 180820.2028	Entropy: 0.2317	KL Divergence: inf
+2025-06-03 22:31:05,171 INFO PPO Iter: 1300	Total Steps: 2662400	Avg Reward (Batch): 976.82	Avg Reward (Roll100): 969.55	Actor Loss: -0.0002	Critic Loss: 180857.6984	Entropy: 0.2363	KL Divergence: 0.000009
+2025-06-03 22:31:05,173 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1300.pth
+2025-06-03 22:31:09,638 INFO PPO Iter: 1310	Total Steps: 2682880	Avg Reward (Batch): 976.82	Avg Reward (Roll100): 948.55	Actor Loss: -0.0007	Critic Loss: 180886.3668	Entropy: 0.2401	KL Divergence: 0.000074
+2025-06-03 22:31:13,988 INFO PPO Iter: 1320	Total Steps: 2703360	Avg Reward (Batch): 932.17	Avg Reward (Roll100): 938.06	Actor Loss: -0.0009	Critic Loss: 180875.3729	Entropy: 0.2424	KL Divergence: 0.000147
+2025-06-03 22:31:18,338 INFO PPO Iter: 1330	Total Steps: 2723840	Avg Reward (Batch): 976.28	Avg Reward (Roll100): 938.04	Actor Loss: -0.0001	Critic Loss: 176731.1257	Entropy: 0.2500	KL Divergence: 0.000044
+2025-06-03 22:31:22,678 INFO PPO Iter: 1340	Total Steps: 2744320	Avg Reward (Batch): 954.00	Avg Reward (Roll100): 906.57	Actor Loss: -0.0003	Critic Loss: 180827.7801	Entropy: 0.2293	KL Divergence: 0.000026
+2025-06-03 22:31:27,029 INFO PPO Iter: 1350	Total Steps: 2764800	Avg Reward (Batch): 954.00	Avg Reward (Roll100): 948.56	Actor Loss: -0.0004	Critic Loss: 180802.9089	Entropy: 0.2226	KL Divergence: 0.000051
+2025-06-03 22:31:27,030 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1350.pth
+2025-06-03 22:31:31,380 INFO PPO Iter: 1360	Total Steps: 2785280	Avg Reward (Batch): 977.83	Avg Reward (Roll100): 959.06	Actor Loss: -0.0003	Critic Loss: 189028.3728	Entropy: 0.1967	KL Divergence: 0.000025
+2025-06-03 22:31:35,784 INFO PPO Iter: 1370	Total Steps: 2805760	Avg Reward (Batch): 977.33	Avg Reward (Roll100): 938.06	Actor Loss: -0.0002	Critic Loss: 184988.2972	Entropy: 0.2125	KL Divergence: 0.000027
+2025-06-03 22:31:40,080 INFO PPO Iter: 1380	Total Steps: 2826240	Avg Reward (Batch): 932.17	Avg Reward (Roll100): 948.57	Actor Loss: -0.0001	Critic Loss: 180819.6168	Entropy: 0.2214	KL Divergence: 0.000026
+2025-06-03 22:31:44,383 INFO PPO Iter: 1390	Total Steps: 2846720	Avg Reward (Batch): 935.00	Avg Reward (Roll100): 948.57	Actor Loss: -0.0005	Critic Loss: 189028.9354	Entropy: 0.1840	KL Divergence: 0.000034
+2025-06-03 22:31:48,662 INFO PPO Iter: 1400	Total Steps: 2867200	Avg Reward (Batch): 954.00	Avg Reward (Roll100): 938.07	Actor Loss: -0.0007	Critic Loss: 180809.5878	Entropy: 0.2144	KL Divergence: 0.000071
+2025-06-03 22:31:48,663 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1400.pth
+2025-06-03 22:31:53,085 INFO PPO Iter: 1410	Total Steps: 2887680	Avg Reward (Batch): 932.17	Avg Reward (Roll100): 937.57	Actor Loss: -0.0004	Critic Loss: 180777.5691	Entropy: 0.2058	KL Divergence: 0.000028
+2025-06-03 22:31:57,642 INFO PPO Iter: 1420	Total Steps: 2908160	Avg Reward (Batch): 933.62	Avg Reward (Roll100): 938.07	Actor Loss: -0.0003	Critic Loss: 184906.3794	Entropy: 0.1890	KL Divergence: 0.000024
+2025-06-03 22:32:02,032 INFO PPO Iter: 1430	Total Steps: 2928640	Avg Reward (Batch): 935.00	Avg Reward (Roll100): 948.58	Actor Loss: -0.0004	Critic Loss: 189015.3760	Entropy: 0.1779	KL Divergence: 0.000030
+2025-06-03 22:32:06,356 INFO PPO Iter: 1440	Total Steps: 2949120	Avg Reward (Batch): 933.62	Avg Reward (Roll100): 927.58	Actor Loss: -0.0005	Critic Loss: 184923.7519	Entropy: 0.1828	KL Divergence: 0.000048
+2025-06-03 22:32:10,717 INFO PPO Iter: 1450	Total Steps: 2969600	Avg Reward (Batch): 977.83	Avg Reward (Roll100): 938.08	Actor Loss: -0.0004	Critic Loss: 189028.9573	Entropy: 0.1684	KL Divergence: 0.000027
+2025-06-03 22:32:10,718 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1450.pth
+2025-06-03 22:32:15,304 INFO PPO Iter: 1460	Total Steps: 2990080	Avg Reward (Batch): 955.00	Avg Reward (Roll100): 927.58	Actor Loss: -0.0005	Critic Loss: 184896.0174	Entropy: 0.1790	KL Divergence: 0.000027
+2025-06-03 22:32:19,614 INFO PPO Iter: 1470	Total Steps: 3010560	Avg Reward (Batch): 933.62	Avg Reward (Roll100): 938.07	Actor Loss: -0.0005	Critic Loss: 184913.8143	Entropy: 0.1899	KL Divergence: 0.000029
+2025-06-03 22:32:24,852 INFO PPO Iter: 1480	Total Steps: 3031040	Avg Reward (Batch): 955.96	Avg Reward (Roll100): 938.08	Actor Loss: -0.0005	Critic Loss: 189024.9824	Entropy: 0.1686	KL Divergence: 0.000045
+2025-06-03 22:32:31,558 INFO PPO Iter: 1490	Total Steps: 3051520	Avg Reward (Batch): 956.87	Avg Reward (Roll100): 969.08	Actor Loss: -0.0003	Critic Loss: 193126.9335	Entropy: 0.1533	KL Divergence: 0.000013
+2025-06-03 22:32:36,173 INFO PPO Iter: 1500	Total Steps: 3072000	Avg Reward (Batch): 978.30	Avg Reward (Roll100): 969.57	Actor Loss: -0.0005	Critic Loss: 193095.0479	Entropy: 0.1520	KL Divergence: 0.000055
+2025-06-03 22:32:36,175 INFO Saved PPO actor to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_iter_1500.pth
+2025-06-03 22:32:36,225 INFO Saved critic loss snapshot to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/critic_loss_at_iter_1500_entropy_0.0001.pkl
+2025-06-03 22:32:36,226 INFO --- PPO Fine-tuning Complete ---
+2025-06-03 22:32:36,226 INFO Saved RLFT state visitation counts to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/rlft_state_counts_entropy_0.0001.pkl
+2025-06-03 22:32:36,226 INFO Final PPO-tuned actor saved to /Users/ifditahasanorney/Documents/GitHub/Exploration-Policy/custom_grid/data/ppo-0.0001/ppo_final.pth
+2025-06-03 22:32:36,227 INFO --- Visualizing Trajectory with: Final PPO-Tuned Policy (Deterministic) ---
+2025-06-03 22:32:38,455 INFO Visualization: Trajectory length 42, Final state: (-18, 10), Total Reward: 999.59
+2025-06-03 22:32:38,455 INFO SUCCESS: Reached Goal!
+2025-06-03 22:32:38,456 INFO --- PPO Script Finished ---
