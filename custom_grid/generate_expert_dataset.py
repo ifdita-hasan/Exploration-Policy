@@ -66,6 +66,7 @@ if __name__ == "__main__":
     num_expert_trajectories = 1000
     expert_dataset = generate_imitation_learning_dataset(
         suboptimal_expert_policy,
+        num_expert_trajectories
     )
     # Build (s, a) -> count dictionary and save
     from collections import defaultdict

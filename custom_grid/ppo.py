@@ -67,7 +67,7 @@ def get_reward_wrapper(state, next_state):
     from core.grid_environment import get_reward
     return get_reward(state, next_state, goal_state=GOAL_STATE, dz_coords=DANGER_ZONE_COORDS, x_bounds=X_BOUNDS, y_bounds=Y_BOUNDS)
 
-def generate_ppo_trajectories(actor_policy, num_steps_to_collect, max_steps_per_episode, device):
+def generate_ppo_trajectories(actor_policy, num_steps_to_collect, max_steps_per_episode, device, rlft_state_counts=None):
     collected_transitions = []
     total_steps_collected_in_batch = 0
     episode_rewards_in_batch = []
@@ -76,6 +76,10 @@ def generate_ppo_trajectories(actor_policy, num_steps_to_collect, max_steps_per_
         state = INITIAL_STATE
         current_episode_reward = 0
         for t in range(max_steps_per_episode):
+            # Track RLFT visitation
+            if rlft_state_counts is not None:
+                state_key = tuple(state)
+                rlft_state_counts[state_key] = rlft_state_counts.get(state_key, 0) + 1
             action = actor_policy.select_action(state, deterministic=False)
             log_prob_old = actor_policy.get_action_log_prob(state, action)
             next_state = get_next_state(state, action)
@@ -278,9 +282,11 @@ if __name__ == "__main__":
     tensorboard_log_dir = os.path.join(DATA_DIR, "tensorboard", f"ppo_grid_{ENTROPY_COEF_PPO}")
     writer = SummaryWriter(log_dir=tensorboard_log_dir)
     logging.info(f"Logging experiment at: {tensorboard_log_dir}")
+        # Initialize RLFT state visitation counts
+    rlft_state_counts = dict()
     for ppo_iter in range(1, NUM_PPO_TRAIN_ITERATIONS + 1):
         transitions, batch_episode_rewards = generate_ppo_trajectories(
-            actor_ppo, STEPS_PER_PPO_UPDATE, MAX_STEPS_PER_EPISODE_PPO, device
+            actor_ppo, STEPS_PER_PPO_UPDATE, MAX_STEPS_PER_EPISODE_PPO, device, rlft_state_counts=rlft_state_counts
         )
         if not transitions:
             logging.warning(f"PPO Iteration {ppo_iter}: No transitions collected, skipping update.")
@@ -348,6 +354,13 @@ if __name__ == "__main__":
                 pickle.dump(critic_loss_dict, f)
             logging.info(f"Saved critic loss snapshot to {snapshot_path}")
     logging.info("--- PPO Fine-tuning Complete ---")
+    rlft_counts_entropy_path = os.path.join(DATA_DIR, f"rlft_state_counts_entropy_{ENTROPY_COEF_PPO}.pkl")
+    try:
+        with open(rlft_counts_entropy_path, 'wb') as f:
+            pickle.dump(rlft_state_counts, f)
+        logging.info(f"Saved RLFT state visitation counts to {rlft_counts_entropy_path}")
+    except Exception as e:
+        logging.error(f"Failed to save RLFT state visitation counts: {e}")
     final_model_path = os.path.join(ppo_model_save_dir, PPO_MODEL_FILENAME_FINAL)
     torch.save(actor_ppo.state_dict(), final_model_path)
     logging.info(f"Final PPO-tuned actor saved to {final_model_path}")

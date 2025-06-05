@@ -5,6 +5,15 @@ import torch
 import torch.optim as optim
 import logging
 
+def log_and_print(message, level='info'):
+    print(message)
+    if level == 'info':
+        logging.info(message)
+    elif level == 'error':
+        logging.error(message)
+    elif level == 'warning':
+        logging.warning(message)
+
 # Ensure data directory exists
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -26,7 +35,7 @@ import numpy as np
 import os
 import random
 from core.policy import Policy
-from .generate_expert_dataset import generate_imitation_learning_dataset
+from custom_grid.generate_expert_dataset import generate_imitation_learning_dataset
 from core.suboptimal_expert import suboptimal_expert_policy
 from core.grid_environment import ACTION_NAMES, NUM_ACTIONS, INITIAL_STATE, GOAL_STATE
 
@@ -54,7 +63,7 @@ try:
         goal_state=GOAL_STATE
     )
 except Exception as e:
-    print(f"Could not generate expert dataset: {e}")
+    log_and_print(f"Could not generate expert dataset: {e}", level='error')
     dummy_state = (0,0)
     dummy_action = 1
     expert_dataset = [(dummy_state, dummy_action)] * 500
@@ -69,7 +78,7 @@ for s, a in expert_dataset:
 counts_save_path = os.path.join(DATA_DIR, 'state_action_counts.pkl')
 with open(counts_save_path, 'wb') as f:
     pickle.dump(dict(state_action_counts), f)
-print(f"Saved state-action count dictionary to {counts_save_path}")
+log_and_print(f"Saved state-action count dictionary to {counts_save_path}")
 
 # --- PyTorch Dataset for Imitation Learning ---
 class ImitationDataset(Dataset):
@@ -85,13 +94,13 @@ class ImitationDataset(Dataset):
 # --- Training Function ---
 def train_imitation_learning(policy_model, dataset, num_epochs, batch_size, learning_rate, val_split):
     if not dataset:
-        print("Error: Expert dataset is empty. Cannot train.")
+        log_and_print("Error: Expert dataset is empty. Cannot train.", level='error')
         return None, {}
     dataset_size = len(dataset)
     val_size = int(dataset_size * val_split)
     train_size = dataset_size - val_size
     if train_size == 0 or val_size == 0:
-        print(f"Warning: Dataset too small (size {dataset_size}) for val_split={val_split}. Training on full dataset without validation.")
+        log_and_print(f"Warning: Dataset too small (size {dataset_size}) for val_split={val_split}. Training on full dataset without validation.", level='warning')
         train_dataset = ImitationDataset(dataset)
         val_dataset = None
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -102,16 +111,16 @@ def train_imitation_learning(policy_model, dataset, num_epochs, batch_size, lear
         val_dataset = ImitationDataset(val_subset)
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
-    print(f"Training data size: {len(train_dataset)}")
+    log_and_print(f"Training data size: {len(train_dataset)}")
     if val_dataset:
-        print(f"Validation data size: {len(val_dataset)}")
+        log_and_print(f"Validation data size: {len(val_dataset)}")
     model = policy_model.to(policy_model.device)
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
     history = {'train_loss': [], 'val_loss': [], 'train_acc': [], 'val_acc': []}
     best_val_loss = float('inf')
     best_model_state = None
-    print(f"\nStarting training for {num_epochs} epochs...")
+    log_and_print(f"\nStarting training for {num_epochs} epochs...")
     for epoch in range(num_epochs):
         model.train()
         running_loss = 0.0
