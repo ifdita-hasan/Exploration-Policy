@@ -17,7 +17,7 @@ for (state, action), count in data.items():
     state_action_counter[state][action] += count
 
 # Step 2: Find the 5 most frequently visited states
-most_common_states = sorted(state_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+most_common_states = sorted(state_counts.items(), key=lambda x: x[1], reverse=True)[:15]
 
 # Step 3: For each state, plot the action counts
 output_dir = f'atari/data/state_action_barplots_{ENV_ID}'
@@ -44,4 +44,4 @@ for idx, (state, total) in enumerate(most_common_states):
     plt.close()
     print(f'Plot saved: {plot_path}')
 
-print('Done! Plots for top 5 states saved in', output_dir)
+print('Done! Plots for top 15 states saved in', output_dir)
