@@ -329,6 +329,7 @@ def main():
         pretrained_policy.eval()
 
     rlft_state_counts = defaultdict(int)
+    state_action_counts = defaultdict(int)
 
     for step in range(0, total_steps, steps_per_update):
         transitions, episode_rewards = collect_trajectories(env, actor, steps_per_update, device)
@@ -378,6 +379,8 @@ def main():
             state_np = state_tensor.cpu().numpy()
             bucket_key = discretize_frame(state_np)
             rlft_state_counts[bucket_key] += 1
+            action = t['action']
+            state_action_counts[(bucket_key, action)] += 1
 
         global_step = step + steps_per_update
         if global_step in checkpoints_to_save:
@@ -385,6 +388,14 @@ def main():
             next_states = torch.stack([t['next_state'] for t in transitions]).to(device)
             rewards_tensor = torch.tensor([t['reward'] for t in transitions], dtype=torch.float32, device=device)
             dones_tensor = torch.tensor([t['done'] for t in transitions], dtype=torch.float32, device=device)
+
+            # Save state-action counts
+            state_action_counts_path = os.path.join(
+                exp_dir, f"discretized_state_action_counts_{global_step}.pkl"
+            )
+            with open(state_action_counts_path, 'wb') as f:
+                pickle.dump(dict(state_action_counts), f)
+            logging.info(f"Saved state-action counts @ step {global_step} → {state_action_counts_path}")
 
             with torch.no_grad():
                 values_current = critic(states).squeeze(-1)
