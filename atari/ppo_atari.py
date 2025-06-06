@@ -26,7 +26,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 
 # --- Atari Environment Setup ---
-ENV_ID = "BreakoutNoFrameskip-v4"
+ENV_ID = "GravitarNoFrameskip-v4"
 FRAME_STACK = 4
 SEED = 42
 
@@ -298,7 +298,7 @@ def main():
     num_actions = env.action_space.n
 
     actor = CNNActor(num_actions).to(device)
-    pretrained_path = os.path.join(DATA_DIR, 'pretrained_BreakoutNoFrameskip-v4_policy.pth')
+    pretrained_path = os.path.join(DATA_DIR, 'pretrained_MontezumaRevengeNoFrameskip-v4_policy.pth')
     if os.path.exists(pretrained_path):
         logging.info(f"Loading pretrained policy weights from {pretrained_path}")
         actor.load_state_dict(torch.load(pretrained_path, map_location=device))
