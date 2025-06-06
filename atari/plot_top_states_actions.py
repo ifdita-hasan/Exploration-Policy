@@ -2,8 +2,9 @@ import pickle
 import matplotlib.pyplot as plt
 from collections import defaultdict, Counter
 import os
+from ppo_atari import CNNActor, ENV_ID, FRAME_STACK, obs_to_np
 
-ENV_ID = 'BreakoutNoFrameskip-v4'
+
 # Load the state-action counts
 with open('atari/pretrained_breakout_discretized_sa_counts.pkl', 'rb') as f:
     data = pickle.load(f)

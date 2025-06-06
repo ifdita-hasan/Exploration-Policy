@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 from ppo_atari import CNNActor, ENV_ID, FRAME_STACK, obs_to_np
 
 # --- Config ---
-DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
-EXPERT_DATA_PATH = os.path.join(DATA_DIR, 'expert_data_BreakoutNoFrameskip-v4_50eps.pkl')
+DATA_DIR = os.path.join(os.path.dirname(__file__), 'dataGravitarNoFrameskip-v4/')
+EXPERT_DATA_PATH = os.path.join(DATA_DIR, 'expert_data_GravitarNoFrameskip-v4.pkl')
 PRETRAINED_POLICY_PATH = os.path.join(DATA_DIR, f'pretrained_{ENV_ID}_policy.pth')
 BATCH_SIZE = 64
 NUM_EPOCHS = 50
@@ -18,14 +18,14 @@ LEARNING_RATE = 1e-3
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-# For Iddah's path
-# Comment out if you are not Iddah
-EXPERT_DATA_PATH = '/lfs/skampere1/0/iddah/explore_data/'
-EXPERT_DATA_PATH = os.path.join(
-    EXPERT_DATA_PATH,
-    ENV_ID,
-    f"expert_data_{ENV_ID}.pkl"
-)
+# # For Iddah's path
+# # Comment out if you are not Iddah
+# EXPERT_DATA_PATH = 'data/'
+# EXPERT_DATA_PATH = os.path.join(
+#     EXPERT_DATA_PATH,
+#     ENV_ID,
+#     f"expert_data_{ENV_ID}.pkl"
+# )
 
 # --- Dataset ---
 class AtariImitationDataset(Dataset):
