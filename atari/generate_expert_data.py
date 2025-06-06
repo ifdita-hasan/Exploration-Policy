@@ -18,7 +18,7 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 os.makedirs(DATA_DIR, exist_ok=True)
 
 # We will save expert data under a large‐quota directory:
-EXPERT_DIR = '/lfs/skampere1/0/iddah/explore_data/' + ENV_ID
+EXPERT_DIR = 'atari/data' + ENV_ID
 os.makedirs(EXPERT_DIR, exist_ok=True)
 
 # Paths for saving expert episodes and bucket histogram
