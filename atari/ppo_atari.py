@@ -27,8 +27,8 @@ os.makedirs(DATA_DIR, exist_ok=True)
 # DATA_DIR = '/lfs/skampere1/0/iddah/explore_data/'
 
 
-# --- Atari Environment Setup ---
-ENV_ID = "GravitarNoFrameskip-v4"
+# --- Atari Environment Setup (Freeway) ---
+ENV_ID = "FreewayNoFrameskip-v4"
 # ENV_ID = "ALE/MontezumaRevenge-v5"
 FRAME_STACK = 4
 SEED = 42
